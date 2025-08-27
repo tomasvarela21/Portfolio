@@ -51,11 +51,7 @@ export default function ContactSection({}: Record<string, never> = {}) {
             <MapPin className="h-4 w-4" />
             <p className="text-sm font-medium">{person.location}</p>
           </div>
-          <img
-            src="/abstract-tucuman-map.png"
-            alt={language === "es" ? "Mapa abstracto de Tucumán" : "Abstract map of Tucumán"}
-            className="mt-4 w-full rounded-md ring-1 ring-neutral-800"
-          />
+          
         </div>
       </CardContent>
     </Card>

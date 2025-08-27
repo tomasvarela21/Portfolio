@@ -8,7 +8,7 @@ import { Github, Linkedin, Mail, Menu } from "lucide-react"
 import { person } from "@/lib/data"
 import { useLanguage } from "@/contexts/language-context"
 import LanguageToggle from "@/components/language-toggle"
-import ThemeToggle from "@/components/theme-toggle"
+//import ThemeToggle from "@/components/theme-toggle"
 
 export default function SiteHeader({}: Record<string, never> = {}) {
   const [open, setOpen] = useState(false)
@@ -45,7 +45,7 @@ export default function SiteHeader({}: Record<string, never> = {}) {
             </Link>
           ))}
           <div className="ml-2 flex items-center gap-1">
-            <ThemeToggle />
+            
             <LanguageToggle />
             <a
               href={person.linkedin}
@@ -108,7 +108,7 @@ export default function SiteHeader({}: Record<string, never> = {}) {
                   </Link>
                 ))}
                 <div className="mt-2 flex items-center gap-2">
-                  <ThemeToggle />
+                  {/*<ThemeToggle />*/}
                   <LanguageToggle />
                   <a
                     href={person.linkedin}

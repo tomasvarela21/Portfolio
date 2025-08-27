@@ -2,7 +2,7 @@
 
 import { Card, CardContent } from "@/components/ui/card"
 import { useLanguage } from "@/contexts/language-context"
-import { translations } from "@/lib/data"
+import { translations, languages } from "@/lib/data"
 
 export default function AboutSection({}: Record<string, never> = {}) {
   const { language, t } = useLanguage()
@@ -20,18 +20,31 @@ export default function AboutSection({}: Record<string, never> = {}) {
             </p>
           </div>
         </div>
-        <div>
-          <h3 className="text-xl font-semibold text-neutral-100">{t("about.education")}</h3>
-          <ul className="mt-2 space-y-3">
-            {translations[language].education.map((e, index) => (
-              <li key={index}>
-                <p className="font-medium text-neutral-100">{e.program}</p>
-                <p className="text-sm text-neutral-400">
-                  {e.institution} • {e.status}
-                </p>
-              </li>
-            ))}
-          </ul>
+        <div className="space-y-6">
+          <div>
+            <h3 className="text-xl font-semibold text-neutral-100">{t("about.education")}</h3>
+            <ul className="mt-2 space-y-3">
+              {translations[language].education.map((e, index) => (
+                <li key={index}>
+                  <p className="font-medium text-neutral-100">{e.program}</p>
+                  <p className="text-sm text-neutral-400">
+                    {e.institution} • {e.status}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-xl font-semibold text-neutral-100">{language === "es" ? "Idiomas" : "Languages"}</h3>
+            <ul className="mt-2 space-y-3">
+              {languages.map((l) => (
+                <li key={l.language}>
+                  <p className="font-medium text-neutral-100">{l.language}</p>
+                  <p className="text-sm text-neutral-400">{l.level}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </CardContent>
     </Card>

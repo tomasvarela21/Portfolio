@@ -4,27 +4,26 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Github, ExternalLink } from "lucide-react"
+import Image from "next/image"
 import type { Project } from "@/lib/data"
 import { useLanguage } from "@/contexts/language-context"
 import { translations } from "@/lib/data"
 
-export default function ProjectCard(
-  {
-    project,
-  }: {
-    project: Project
-  } = {
-    project: {
-      slug: "example",
-      title: "Proyecto",
-      description: "Descripción",
-      impact: "Impacto",
-      stack: ["Next.js"],
-      image: { src: "/example-text.png", alt: "Ejemplo" },
-    },
-  },
-) {
-  const { language, t } = useLanguage()
+interface ProjectCardProps {
+  project: Project
+}
+
+const defaultProject: Project = {
+  slug: "example",
+  title: "Proyecto",
+  description: "Descripción",
+  impact: "Impacto",
+  stack: ["Next.js"],
+  image: { src: "/example-text.png", alt: "Ejemplo" },
+}
+
+export default function ProjectCard({ project = defaultProject }: ProjectCardProps) {
+  const { language } = useLanguage()
 
   const projectIndex = project.slug === "alenort-management-system" ? 0 : 2
   const translatedProject = translations[language].projects[projectIndex]
@@ -46,11 +45,15 @@ export default function ProjectCard(
           {project.role ? <p className="text-xs text-neutral-400">{project.role}</p> : null}
         </CardHeader>
         <CardContent className="space-y-4 p-4 sm:p-6 pt-0">
-          <img
-            src={project.image.src || "/placeholder.svg?height=180&width=320&query=project%20thumbnail"}
-            alt={project.image.alt}
-            className="aspect-[16/9] w-full rounded-md object-cover ring-1 ring-neutral-800"
-          />
+          <div className="relative aspect-[16/9] w-full rounded-md overflow-hidden ring-1 ring-neutral-800">
+            <Image
+              src={project.image.src || "/placeholder.svg?height=180&width=320&query=project%20thumbnail"}
+              alt={project.image.alt}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="object-cover"
+            />
+          </div>
           <p className="text-sm text-neutral-300">{translatedProject.description}</p>
           <div>
             <p className="text-sm font-medium text-neutral-100">{language === "es" ? "Impacto" : "Impact"}</p>

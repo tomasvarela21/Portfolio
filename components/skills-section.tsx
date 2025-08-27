@@ -53,7 +53,7 @@ export default function SkillsSection({}: Record<string, never> = {}) {
           ))}
         </CardContent>
       </Card>
-
+          
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
@@ -62,7 +62,7 @@ export default function SkillsSection({}: Record<string, never> = {}) {
           </CardTitle>
         </CardHeader>
         <CardContent className="flex flex-wrap gap-2">
-          {technicalSkills.tools.map((s) => (
+          {technicalSkills.map((s) => (
             <Badge key={s} variant="secondary" className="bg-emerald-50 text-emerald-800">
               {s}
             </Badge>
@@ -86,21 +86,6 @@ export default function SkillsSection({}: Record<string, never> = {}) {
         </CardContent>
       </Card>
 
-      <Card className="lg:col-span-2">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <LanguagesIcon className="h-5 w-5 text-emerald-700" />
-            Languages
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="flex flex-wrap gap-2">
-          {languages.map((l) => (
-            <Badge key={l.language} variant="secondary" className="bg-emerald-50 text-emerald-800">
-              {l.language} — {l.level}
-            </Badge>
-          ))}
-        </CardContent>
-      </Card>
     </div>
   )
 }

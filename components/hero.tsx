@@ -115,7 +115,7 @@ export default function Hero({}: Record<string, never> = {}) {
               className="w-full sm:w-auto border-neutral-700 bg-neutral-800/50 text-neutral-300 hover:border-neutral-600 hover:bg-neutral-700/70 hover:text-neutral-200"
             >
               <a
-                href="/Tomas_Varela_CV.pdf"
+                href="/Tomas_Varela_CV_es.pdf"
                 download
                 aria-label={language === "es" ? "Descargar CV en Español" : "Download CV in Spanish"}
               >
@@ -130,7 +130,7 @@ export default function Hero({}: Record<string, never> = {}) {
               className="w-full sm:w-auto border-neutral-700 bg-neutral-800/50 text-neutral-300 hover:border-neutral-600 hover:bg-neutral-700/70 hover:text-neutral-200"
             >
               <a
-                href="port2\public\Tomas_Varela_CV_En.docx"
+                href="/Tomas_Varela_CV_En.docx"
                 download
                 aria-label={language === "es" ? "Descargar CV en Inglés" : "Download CV in English"}
               >

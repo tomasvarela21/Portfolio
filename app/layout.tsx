@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   title: "Tomás Varela - Fullstack Developer",
   description: "Portfolio de Tomás Varela - Desarrollador Fullstack especializado en JavaScript, React, Node.js",
   generator: "v0.app",
+  icons: {
+    icon: "/favicon_code.ico",
+  },
 }
 
 export default function RootLayout({

@@ -3,29 +3,33 @@
 import React from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Code2, Database, Wrench, Rocket } from "lucide-react"
+import Image from "next/image"
 import { stackIcons } from "@/lib/data"
 import { useLanguage } from "@/contexts/language-context"
 
-function Tile(
-  {
-    label,
-    src,
-  }: {
-    label: string
-    src: string
-  } = {
-    label: "Tech",
-    src: "/tech/example.png",
-  },
-) {
+interface TileProps {
+  label: string
+  src: string
+}
+
+const defaultTileProps: TileProps = {
+  label: "Tech",
+  src: "/tech/example.png",
+}
+
+function Tile({ label, src }: TileProps = defaultTileProps) {
   return (
     <div className="group flex flex-col items-center justify-center gap-1.5 p-1.5 sm:gap-2 sm:p-2 transition will-change-transform hover:-translate-y-1">
       <div className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center transition-all duration-300 group-hover:scale-110">
-        <img
-          src={src || "/placeholder.svg"}
-          alt={`${label} logo`}
-          className="h-10 w-10 sm:h-12 sm:w-12 object-contain drop-shadow-lg"
-        />
+        <div className="relative h-10 w-10 sm:h-12 sm:w-12">
+          <Image
+            src={src || "/placeholder.svg"}
+            alt={`${label} logo`}
+            fill
+            sizes="48px"
+            className="object-contain drop-shadow-lg"
+          />
+        </div>
       </div>
       <span className="text-[9px] sm:text-[10px] font-medium text-neutral-400 transition-colors group-hover:text-neutral-200 text-center leading-tight">
         {label}
@@ -34,21 +38,19 @@ function Tile(
   )
 }
 
-function TechCard(
-  {
-    title,
-    icon,
-    items,
-  }: {
-    title: string
-    icon: React.ReactNode
-    items: readonly { label: string; src: string }[]
-  } = {
-    title: "Título",
-    icon: <Code2 className="h-5 w-5" />,
-    items: [{  label: "Item", src: "/tech/example.png" }],
-  },
-) {
+interface TechCardProps {
+  title: string
+  icon: React.ReactNode
+  items: readonly { label: string; src: string }[]
+}
+
+const defaultTechCardProps: TechCardProps = {
+  title: "Título",
+  icon: <Code2 className="h-5 w-5" />,
+  items: [{ label: "Item", src: "/tech/example.png" }],
+}
+
+function TechCard({ title, icon, items }: TechCardProps = defaultTechCardProps) {
   return (
     <Card className="border-neutral-800 bg-neutral-900/60 text-neutral-200 transition hover:shadow-lg hover:shadow-black/30">
       <CardHeader className="pb-2 px-3 sm:px-6 pt-3 sm:pt-6">
@@ -68,7 +70,11 @@ function TechCard(
   )
 }
 
-export default function TechnologiesSection({}: Record<string, never> = {}) {
+interface TechnologiesSectionProps {
+  // Componente sin props, pero mantenemos la interfaz para consistencia
+}
+
+export default function TechnologiesSection(_props: TechnologiesSectionProps = {}) {
   const { t } = useLanguage()
 
   return (
