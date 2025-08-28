@@ -70,11 +70,7 @@ function TechCard({ title, icon, items }: TechCardProps = defaultTechCardProps) 
   )
 }
 
-interface TechnologiesSectionProps {
-  // Componente sin props, pero mantenemos la interfaz para consistencia
-}
-
-export default function TechnologiesSection(_props: TechnologiesSectionProps = {}) {
+export default function TechnologiesSection() {
   const { t } = useLanguage()
 
   return (

@@ -1,9 +1,9 @@
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Code2, Database, Wrench, LanguagesIcon, Users } from 'lucide-react'
-import { technicalSkills, softSkills, languages } from "@/lib/data"
+import { Code2, Database, Wrench, Users } from 'lucide-react'
+import { technicalSkills, softSkills } from "@/lib/data"
 
-export default function SkillsSection({}: Record<string, never> = {}) {
+export default function SkillsSection() {
   return (
     <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
       <Card>
