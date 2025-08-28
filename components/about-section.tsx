@@ -2,9 +2,9 @@
 
 import { Card, CardContent } from "@/components/ui/card"
 import { useLanguage } from "@/contexts/language-context"
-import { translations, languages } from "@/lib/data"
+import { translations } from "@/lib/data"
 
-export default function AboutSection({}: Record<string, never> = {}) {
+export default function AboutSection() {
   const { language, t } = useLanguage()
 
   return (

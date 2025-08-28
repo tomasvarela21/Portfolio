@@ -6,8 +6,9 @@ import { Button } from "@/components/ui/button"
 import { Github, Linkedin, Mail, Download } from "lucide-react"
 import { person, translations } from "@/lib/data"
 import { useLanguage } from "@/contexts/language-context"
+import Image from "next/image"
 
-export default function Hero({}: Record<string, never> = {}) {
+export default function Hero() {
   const [pos, setPos] = useState({ x: 0, y: 0 })
   const [spotlightEnabled, setSpotlightEnabled] = useState(true)
   const { language, t } = useLanguage()
@@ -35,9 +36,9 @@ export default function Hero({}: Record<string, never> = {}) {
         setPos({ x, y })
       }}
       style={{
-        ["--x" as any]: `${pos.x}px`,
-        ["--y" as any]: `${pos.y}px`,
-      }}
+        "--x": `${pos.x}px`,
+        "--y": `${pos.y}px`,
+      } as React.CSSProperties}
     >
       <div
         className="pointer-events-none absolute inset-0"
@@ -161,10 +162,13 @@ export default function Hero({}: Record<string, never> = {}) {
             }}
             aria-hidden
           />
-          <img
+          <Image
             src="/images/yo2.jpg"
             alt="Foto de Tomás Varela sonriendo sobre un puente"
+            width={208}
+            height={208}
             className="relative mx-auto aspect-square h-40 w-40 sm:h-52 sm:w-52 rounded-full border border-neutral-800 object-cover object-center shadow-[0_10px_40px_-10px_rgba(0,0,0,0.6)]"
+            priority
           />
         </div>
       </div>
