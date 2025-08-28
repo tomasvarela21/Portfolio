@@ -37,7 +37,7 @@ export default function AboutSection({}: Record<string, never> = {}) {
           <div>
             <h3 className="text-xl font-semibold text-neutral-100">{language === "es" ? "Idiomas" : "Languages"}</h3>
             <ul className="mt-2 space-y-3">
-              {languages.map((l) => (
+              {translations[language].languages.map((l) => (
                 <li key={l.language}>
                   <p className="font-medium text-neutral-100">{l.language}</p>
                   <p className="text-sm text-neutral-400">{l.level}</p>
