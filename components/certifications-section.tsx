@@ -2,7 +2,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Award } from 'lucide-react'
 import { trainings, education } from "@/lib/data"
 
-export default function CertificationsSection({}: Record<string, never> = {}) {
+export default function CertificationsSection() {
+
   return (
     <div className="grid gap-6 lg:grid-cols-2">
       <Card>
@@ -36,8 +37,8 @@ export default function CertificationsSection({}: Record<string, never> = {}) {
         </CardHeader>
         <CardContent>
           <ul className="space-y-3">
-            {education.map((e) => (
-              <li key={e.program} className="flex items-start gap-3">
+            {education.map((e, index) => (
+              <li key={`${e.program}-${index}`} className="flex items-start gap-3">
                 <span className="mt-1 h-2.5 w-2.5 rounded-full bg-emerald-600" aria-hidden />
                 <div>
                   <p className="font-medium">{e.program}</p>

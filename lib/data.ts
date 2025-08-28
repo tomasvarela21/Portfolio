@@ -120,8 +120,6 @@ export const education = [
     institution: "UTN FRT – San Miguel de Tucumán",
     status: "Graduado",
   },
-  {language: "Español", level: "Nativo" },
-  { language: "Inglés", level: "Intermedio Alto – B2" }
 ] as const
 
 export const trainings = [
