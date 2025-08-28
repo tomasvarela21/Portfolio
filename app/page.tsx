@@ -13,7 +13,7 @@ import Reveal from "@/components/reveal"
 import { projects } from "@/lib/data"
 import { useLanguage } from "@/contexts/language-context"
 
-export default function Page({}: Record<string, never> = {}) {
+export default function Page() {
   const { t } = useLanguage()
 
   return (
