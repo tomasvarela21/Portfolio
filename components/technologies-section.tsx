@@ -55,7 +55,9 @@ function TechCard({ title, icon, items }: TechCardProps = defaultTechCardProps) 
     <Card className="border-neutral-800 bg-neutral-900/60 text-neutral-200 transition hover:shadow-lg hover:shadow-black/30">
       <CardHeader className="pb-2 px-3 sm:px-6 pt-3 sm:pt-6">
         <CardTitle className="flex items-center gap-2 text-neutral-100 text-xs sm:text-sm">
-          {React.cloneElement(icon as React.ReactElement, { className: "h-3 w-3 sm:h-4 sm:w-4 text-neutral-300" })}
+          <div className="h-3 w-3 sm:h-4 sm:w-4 text-neutral-300">
+            {icon}
+          </div>
           {title}
         </CardTitle>
       </CardHeader>

@@ -30,7 +30,7 @@ export default function SkillsSection() {
           </CardTitle>
         </CardHeader>
         <CardContent className="flex flex-wrap gap-2">
-          {technicalSkills.databases.map((s) => (
+          {technicalSkills.map((s) => (
             <Badge key={s} variant="secondary" className="bg-emerald-50 text-emerald-800">
               {s}
             </Badge>
@@ -46,7 +46,7 @@ export default function SkillsSection() {
           </CardTitle>
         </CardHeader>
         <CardContent className="flex flex-wrap gap-2">
-          {technicalSkills.frameworks.map((s) => (
+          {technicalSkills.map((s) => (
             <Badge key={s} variant="secondary" className="bg-emerald-50 text-emerald-800">
               {s}
             </Badge>
