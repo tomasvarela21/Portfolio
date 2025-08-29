@@ -66,7 +66,7 @@ export const projects: Project[] = [
     impact: "Mejoró la presencia digital del emprendimiento, facilitando la interacción con clientes y la gestión de pedidos en línea.",
     stack: ["Next.js", "Tailwind CSS", "TypeScript", "Git"],
     github: "https://github.com/tomasvarela21/OliveTuc-web",
-    external: "https://olivetuc.vercel.app",
+    external: "https://olive-tuc-web-x8ig.vercel.app/",
     image: {
       src: "/olivetuc.png",
       alt: "Vista previa de la landing page de Oliva.Tuc con catálogo y carrito de compras",
@@ -81,7 +81,7 @@ export const stackIcons = {
     { label: "CSS3", src: "/tech/css3-uploaded.png" },
     { label: "JavaScript", src: "/tech/javascript-uploaded.png" },
     { label: "TypeScript", src: "/tech/typescript-new.png" }, // Moved TypeScript from learning to frontend section
-    { label: "React", src: "/tech/react-uploaded.png" },
+    { label: "React", src: "/tech/react.png" },
     { label: "Tailwind CSS", src: "/tech/tailwind-uploaded.png" },
     { label: "Next.js", src: "/tech/nextjs-new.png" }, // Moved Next.js from backend to frontend section
   ],
