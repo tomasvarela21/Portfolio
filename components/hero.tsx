@@ -131,7 +131,7 @@ export default function Hero() {
               className="w-full sm:w-auto border-neutral-700 bg-neutral-800/50 text-neutral-300 hover:border-neutral-600 hover:bg-neutral-700/70 hover:text-neutral-200"
             >
               <a
-                href="/Tomas_Varela_CV_En.docx"
+                href="/Tomas_Varela_CV_En.pdf"
                 download
                 aria-label={language === "es" ? "Descargar CV en Inglés" : "Download CV in English"}
               >
