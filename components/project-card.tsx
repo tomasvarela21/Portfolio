@@ -7,7 +7,6 @@ import { Github, ExternalLink } from "lucide-react"
 import Image from "next/image"
 import type { Project } from "@/lib/data"
 import { useLanguage } from "@/contexts/language-context"
-import { translations } from "@/lib/data"
 
 interface ProjectCardProps {
   project: Project
@@ -20,13 +19,20 @@ const defaultProject: Project = {
   impact: "Impacto",
   stack: ["Next.js"],
   image: { src: "/example-text.png", alt: "Ejemplo" },
+  translations: {
+    es: { title: "Proyecto", description: "Descripción", impact: "Impacto" },
+    en: { title: "Project", description: "Description", impact: "Impact" },
+  },
 }
 
 export default function ProjectCard({ project = defaultProject }: ProjectCardProps) {
   const { language } = useLanguage()
 
-  const projectIndex = project.slug === "alenort-management-system" ? 0 : 2
-  const translatedProject = translations[language].projects[projectIndex]
+  const localizedCopy = project.translations?.[language] ?? {
+    title: project.title,
+    description: project.description,
+    impact: project.impact,
+  }
 
   return (
     <div className="group relative">
@@ -40,7 +46,7 @@ export default function ProjectCard({ project = defaultProject }: ProjectCardPro
       <Card className="relative h-full overflow-hidden rounded-2xl border-neutral-800 bg-neutral-900/60 text-neutral-200 transition will-change-transform group-hover:-translate-y-0.5 group-hover:shadow-xl group-hover:shadow-black/30">
         <CardHeader className="space-y-2 p-4 sm:p-6">
           <CardTitle className="flex items-start justify-between gap-3 text-neutral-100 text-base sm:text-lg">
-            <span className="leading-tight">{translatedProject.title}</span>
+            <span className="leading-tight">{localizedCopy.title}</span>
           </CardTitle>
           {project.role ? <p className="text-xs text-neutral-400">{project.role}</p> : null}
         </CardHeader>
@@ -54,10 +60,10 @@ export default function ProjectCard({ project = defaultProject }: ProjectCardPro
               className="object-cover"
             />
           </div>
-          <p className="text-sm text-neutral-300">{translatedProject.description}</p>
+          <p className="text-sm text-neutral-300">{localizedCopy.description}</p>
           <div>
             <p className="text-sm font-medium text-neutral-100">{language === "es" ? "Impacto" : "Impact"}</p>
-            <p className="text-sm text-neutral-300">{translatedProject.impact}</p>
+            <p className="text-sm text-neutral-300">{localizedCopy.impact}</p>
           </div>
           <div className="flex flex-wrap gap-1.5 sm:gap-2">
             {project.stack.map((s) => (

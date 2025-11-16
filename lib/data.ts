@@ -22,6 +22,10 @@ export type Project = {
   github?: string
   external?: string
   image: { src: string; alt: string }
+  translations: {
+    es: { title: string; description: string; impact: string }
+    en: { title: string; description: string; impact: string }
+  }
 }
 
 export const projects: Project[] = [
@@ -40,6 +44,20 @@ export const projects: Project[] = [
       src: "/alenort.png",
       alt: "Dashboard del sistema de gestión con paneles e indicadores",
     },
+    translations: {
+      es: {
+        title: "Sistema de Gestión – Alenort",
+        description:
+          "Plataforma web para automatizar ventas, inventario y procesos administrativos. Autenticación, control de roles, gestión de pedidos y trazabilidad.",
+        impact: "Redujo tiempos administrativos y mejoró la trazabilidad de pedidos entre áreas.",
+      },
+      en: {
+        title: "Management System – Alenort",
+        description:
+          "Web platform to automate sales, inventory, and administrative processes. Authentication, role control, order management and traceability.",
+        impact: "Reduced administrative time and improved order traceability between areas.",
+      },
+    },
   },
   {
     slug: "fitapp-virtual-fitness-assistant",
@@ -54,6 +72,20 @@ export const projects: Project[] = [
     image: {
       src: "/fitapp.png",
       alt: "Interfaz de una app de fitness con chatbot y seguimiento de progreso",
+    },
+    translations: {
+      es: {
+        title: "FitApp – Asistente de Fitness y Nutrición",
+        description:
+          "App con chatbot para rutinas y planes de nutrición personalizados, tracking de progreso y autenticación con Google. Perfiles, generación de rutinas y analítica.",
+        impact: "Mejoró la personalización de rutinas y automatizó el registro de datos de usuarios.",
+      },
+      en: {
+        title: "FitApp – Virtual Fitness and Nutrition Assistant",
+        description:
+          "App with chatbot for personalized workout and nutrition plans, progress tracking, and Google authentication. Profiles, routine generation and analytics.",
+        impact: "Enhanced personalization of fitness routines and automated user data tracking.",
+      },
     },
   },
   {
@@ -70,6 +102,55 @@ export const projects: Project[] = [
     image: {
       src: "/olivetuc.png",
       alt: "Vista previa de la landing page de Oliva.Tuc con catálogo y carrito de compras",
+    },
+    translations: {
+      es: {
+        title: "Landing Page – Oliva.Tuc",
+        description:
+          "Landing page moderna y responsive para un emprendimiento de aceite de oliva. Incluye catálogo con carrito desplegable y editable, redirección a WhatsApp para finalizar compras, galería de imágenes y secciones informativas.",
+        impact:
+          "Mejoró la presencia digital del emprendimiento, facilitando la interacción con clientes y la gestión de pedidos en línea.",
+      },
+      en: {
+        title: "Landing Page – Oliva.Tuc",
+        description:
+          "Modern and responsive landing page for an olive oil business. Includes catalog with expandable and editable cart, WhatsApp redirection for order completion, image gallery, and informational sections.",
+        impact:
+          "Boosted the business’s digital presence, streamlined customer interaction, and facilitated online order management.",
+      },
+    },
+  },
+  {
+    slug: "chapulina-inventory-suite",
+    title: "ChapulinaApp – Gestión de Stock",
+    org: "Chapulina",
+    role: "Fullstack",
+    description:
+      "Web app que centraliza el inventario de indumentaria por talle, ventas y catálogo público. Paneles con filtros, alertas de stock, gestión de vendedores y configuración de márgenes.",
+    impact:
+      "Digitalizó el seguimiento de stock, eliminó hojas de cálculo manuales y permitió actualizar precios minoristas en minutos según la política comercial.",
+    stack: ["React", "Vite", "Tailwind CSS", "Node.js", "Express", "MongoDB", "JWT", "Axios"],
+    github: "https://github.com/tomasvarela21/ChapulinaApp",
+    external: "https://chapulinaapp.vercel.app/",
+    image: {
+      src: "/chapulina-dashboard.png",
+      alt: "Panel de Chapulina con listado de productos y filtros",
+    },
+    translations: {
+      es: {
+        title: "ChapulinaApp – Gestión de Stock",
+        description:
+          "Web app para una boutique que centraliza inventario por talles, ventas y catálogo digital. Incluye login con roles, panel de productos con filtros, alertas de bajo stock y control de precios con recargos configurables.",
+        impact:
+          "Digitalizó el seguimiento de stock y precios, eliminó hojas de cálculo manuales y habilitó actualizaciones en minutos según la política comercial.",
+      },
+      en: {
+        title: "ChapulinaApp – Stock Management Web App",
+        description:
+          "Web app for a fashion boutique that centralizes inventory by size, sales tracking, and the digital catalog. Provides role-based login, product management with filters, low-stock alerts, and configurable price markups.",
+        impact:
+          "Digitized stock and pricing oversight, removing manual spreadsheets and enabling minute-level price updates aligned with business rules.",
+      },
     },
   },
 ]
@@ -178,52 +259,6 @@ export const translations = {
       objectives:
         "Contribuir como fullstack a productos de impacto, creando sistemas escalables y mantenibles con foco en la experiencia de usuario y la calidad de entrega. Abierto a roles full‑time y proyectos freelance.",
     },
-    projects: [
-      {
-    slug: "alenort-management-system",
-    title: "Sistema de Gestión – Alenort",
-    org: "Alenort",
-    role: "Fullstack",
-    description:
-      "Plataforma web para automatizar ventas, inventario y procesos administrativos. Autenticación, control de roles, gestión de pedidos y trazabilidad.",
-    impact: "Redujo tiempos administrativos y mejoró la trazabilidad de pedidos entre áreas.",
-    stack: ["Next.js", "Tailwind CSS", "Firebase Auth", "Firestore", "Cloud Functions", "Git"],
-    github: "https://github.com/tomasvarela21/sistemaAlenort",
-    image: {
-      src: "/alenort.png",
-      alt: "Dashboard del sistema de gestión con paneles e indicadores",
-    },
-  },
-  {
-    slug: "fitapp-virtual-fitness-assistant",
-    title: "FitApp – Asistente de Fitness y Nutrición",
-    role: "Fullstack",
-    description:
-      "App con chatbot para rutinas y planes de nutrición personalizados, tracking de progreso y autenticación con Google. Perfiles, generación de rutinas y analítica.",
-    impact: "Mejoró la personalización de rutinas y automatizó el registro de datos de usuarios.",
-    stack: ["React", "Node.js", "Express", "MySQL", "Sequelize", "OAuth"],
-    github: "https://github.com/tomasvarela21/fitApp",
-    image: {
-      src: "/fitapp.png",
-      alt: "Interfaz de una app de fitness con chatbot y seguimiento de progreso",
-    },
-  },
-  {
-    slug: "olivetuc-web",
-    title: "Landing Page – Oliva.Tuc",
-    org: "Oliva.Tuc",
-    role: "Frontend",
-    description:
-      "Landing page moderna y responsive para un emprendimiento de aceite de oliva. Incluye catálogo con carrito desplegable y editable, redirección a WhatsApp para finalizar compras, galería de imágenes y secciones informativas.",
-    impact: "Mejoró la presencia digital del emprendimiento, facilitando la interacción con clientes y la gestión de pedidos en línea.",
-    stack: ["Next.js", "Tailwind CSS", "TypeScript", "Git"],
-    github: "https://github.com/tomasvarela21/OliveTuc-web",
-    image: {
-      src: "/olivetuc.png",
-      alt: "Vista previa de la landing page de Oliva.Tuc con catálogo y carrito de compras",
-    },
-  },
-    ],
     education: [
       {
         program: "Ingeniería en Sistemas de Información",
@@ -262,26 +297,6 @@ export const translations = {
       objectives:
         "Contribute as a fullstack developer to impactful products, creating scalable and maintainable systems with focus on user experience and delivery quality. Open to full-time roles and freelance projects.",
     },
-    projects: [
-      {
-        title: "Management System – Alenort",
-        description:
-          "Web platform to automate sales, inventory, and administrative processes. Authentication, role control, order management and traceability.",
-        impact: "Reduced administrative time and improved order traceability between areas.",
-      },
-      {
-        title: "FitApp – Virtual Fitness and Nutrition Assistant",
-        description:
-          "App with chatbot for personalized workout and nutrition plans, progress tracking, and Google authentication. Profiles, routine generation and analytics.",
-        impact: "Enhanced personalization of fitness routines and automated user data tracking.",
-      },
-      {
-        title: "Landing Page – Oliva.Tuc",
-        description:
-          "Modern and responsive landing page for an olive oil business. Includes catalog with expandable and editable cart, WhatsApp redirection for order completion, image gallery, and informational sections.",
-        impact: "Boosted the business’s digital presence, streamlined customer interaction, and facilitated online order management.",
-      },
-    ],
     education: [
       {
         program: "Information Systems Engineering",
