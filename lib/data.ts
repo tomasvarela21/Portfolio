@@ -11,6 +11,13 @@ export const person = {
     "Contribuir como fullstack a productos de impacto, creando sistemas escalables y mantenibles con foco en la experiencia de usuario y la calidad de entrega. Abierto a roles full‑time y proyectos freelance.",
 } as const
 
+export type ProjectImage = {
+  src: string
+  alt: string
+  width?: number
+  height?: number
+}
+
 export type Project = {
   slug: string
   title: string
@@ -21,7 +28,7 @@ export type Project = {
   stack: string[]
   github?: string
   external?: string
-  image: { src: string; alt: string }
+  images: ProjectImage[]
   translations: {
     es: { title: string; description: string; impact: string }
     en: { title: string; description: string; impact: string }
@@ -29,6 +36,72 @@ export type Project = {
 }
 
 export const projects: Project[] = [
+  {
+    slug: "consorcioapp-multisite-console",
+    title: "ConsorcioApp – Gestión Multiedificio",
+    org: "ConsorcioApp",
+    role: "Fullstack",
+    description:
+      "ConsorcioApp es una app web para administradores de edificios que concentra todo en un único panel: registro de edificios, unidades y responsables, emisión de liquidaciones mensuales, seguimiento de pagos y reportes resumidos con deuda abierta, morosidad y últimos movimientos.",
+    impact:
+      "Automatiza el cálculo de expensas, recargos y descuentos, genera recibos PDF y mantiene un estado de cuenta claro, reduciendo tareas manuales y acelerando la respuesta ante unidades atrasadas.",
+    stack: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS", "Prisma 5", "PDFKit", "react-hot-toast"],
+    images: [
+      {
+        src: "/consorcioapp-1.png",
+        alt: "Dashboard principal de ConsorcioApp con métricas de edificios y últimos pagos",
+        width: 1357,
+        height: 633,
+      },
+      {
+        src: "/consorcioapp-2.png",
+        alt: "Workspace de edificio en ConsorcioApp con panel de morosos y liquidaciones",
+        width: 1358,
+        height: 629,
+      }, 
+      {
+        src: "/consorcio-residentes.png",
+        alt: "Listado de residentes con porcentajes de cobertura en ConsorcioApp",
+        width: 1356,
+        height: 618,
+      },
+      {
+        src: "/consorcio-liquidaciones.png",
+        alt: "Panel de liquidaciones con métricas y estados de pago en ConsorcioApp",
+        width: 1359,
+        height: 629,
+      },
+      {
+        src: "/consorcio-pagos-historial.png",
+        alt: "Historial de pagos con filtros avanzados en ConsorcioApp",
+        width: 1359,
+        height: 615,
+      },
+      {
+        src: "/consorcio-morosos.png",
+        alt: "Sección de morosos con deudas vencidas en ConsorcioApp",
+        width: 1352,
+        height: 606,
+      },
+      
+    ],
+    translations: {
+      es: {
+        title: "ConsorcioApp – Gestión Multiedificio",
+        description:
+          "App web para administrar consorcios desde un solo dashboard: registro de edificios, altas de unidades con responsables, liquidaciones mensuales, seguimiento de pagos y reportes claros sobre deuda y morosidad.",
+        impact:
+          "Automatiza cálculos de expensas, recargos y descuentos, genera recibos PDF y mantiene visibilidad inmediata sobre qué unidades están al día o atrasadas.",
+      },
+      en: {
+        title: "ConsorcioApp – Multi-building Operations Suite",
+        description:
+          "Web platform for property managers that centralizes building onboarding, unit assignments, settlement generation, payment tracking, and concise reports showing open debt, delinquency, and recent activity.",
+        impact:
+          "Automates expense calculations, late fees, and early-payment discounts, produces PDF receipts, and keeps a clear statement of account so managers can act faster when units fall behind.",
+      },
+    },
+  },
   {
     slug: "alenort-management-system",
     title: "Sistema de Gestión – Alenort",
@@ -40,10 +113,38 @@ export const projects: Project[] = [
     stack: ["Next.js", "Tailwind CSS", "Firebase Auth", "Firestore", "Cloud Functions", "Git"],
     github: "https://github.com/tomasvarela21/sistemaAlenort",
     external: "https://sistema-alenort.vercel.app",
-    image: {
-      src: "/alenort.png",
-      alt: "Dashboard del sistema de gestión con paneles e indicadores",
-    },
+    images: [
+      {
+        src: "/alenort.png",
+        alt: "Dashboard del sistema de gestión con paneles e indicadores",
+        width: 1334,
+        height: 614,
+      },
+      {
+        src: "/alenort-extra-20.png",
+        alt: "Gestión de clientes registrados en Alenort",
+        width: 1318,
+        height: 621,
+      },
+      {
+        src: "/alenort-extra-21.png",
+        alt: "Pantalla de nueva venta con carrito en Alenort",
+        width: 1335,
+        height: 619,
+      },
+      {
+        src: "/alenort-extra-22.png",
+        alt: "Panel de repartos con métricas de entregas en Alenort",
+        width: 1353,
+        height: 615,
+      },
+      {
+        src: "/alenort-extra-23.png",
+        alt: "Inventario de productos por categoría en Alenort",
+        width: 1326,
+        height: 632,
+      },
+    ],
     translations: {
       es: {
         title: "Sistema de Gestión – Alenort",
@@ -69,10 +170,14 @@ export const projects: Project[] = [
     stack: ["React", "Node.js", "Express", "MySQL", "Sequelize", "OAuth"],
     github: "https://github.com/tomasvarela21/fitApp",
     external: "https://fitapp-demo.vercel.app",
-    image: {
-      src: "/fitapp.png",
-      alt: "Interfaz de una app de fitness con chatbot y seguimiento de progreso",
-    },
+    images: [
+      {
+        src: "/fitapp.png",
+        alt: "Interfaz de una app de fitness con chatbot y seguimiento de progreso",
+        width: 1330,
+        height: 615,
+      },
+    ],
     translations: {
       es: {
         title: "FitApp – Asistente de Fitness y Nutrición",
@@ -99,10 +204,32 @@ export const projects: Project[] = [
     stack: ["Next.js", "Tailwind CSS", "TypeScript", "Git"],
     github: "https://github.com/tomasvarela21/OliveTuc-web",
     external: "https://olive-tuc-web-x8ig.vercel.app/",
-    image: {
-      src: "/olivetuc.png",
-      alt: "Vista previa de la landing page de Oliva.Tuc con catálogo y carrito de compras",
-    },
+    images: [
+      {
+        src: "/olivetuc-hero.png",
+        alt: "Hero de Oliva.Tuc destacando calidad del aceite",
+        width: 1302,
+        height: 630,
+      },
+      {
+        src: "/olivetuc-catalog.png",
+        alt: "Catálogo principal de Oliva.Tuc con tarjetas de productos",
+        width: 1343,
+        height: 629,
+      },
+      {
+        src: "/olivetuc-catalog-cart.png",
+        alt: "Catálogo de Oliva.Tuc con el carrito abierto mostrando totales",
+        width: 1343,
+        height: 627,
+      },
+      {
+        src: "/olivetuc-cart-mobile.png",
+        alt: "Carrito móvil con formulario de entrega en Oliva.Tuc",
+        width: 196,
+        height: 436,
+      },
+    ],
     translations: {
       es: {
         title: "Landing Page – Oliva.Tuc",
@@ -132,10 +259,44 @@ export const projects: Project[] = [
     stack: ["React", "Vite", "Tailwind CSS", "Node.js", "Express", "MongoDB", "JWT", "Axios"],
     github: "https://github.com/tomasvarela21/ChapulinaApp",
     external: "https://chapulinaapp.vercel.app/",
-    image: {
-      src: "/chapulina-dashboard.png",
-      alt: "Panel de Chapulina con listado de productos y filtros",
-    },
+    images: [
+      {
+        src: "/chapulina-dashboard.png",
+        alt: "Dashboard de Chapulina con métricas y alertas de stock",
+        width: 1328,
+        height: 617,
+      },
+      {
+        src: "/chapulina-products.png",
+        alt: "Gestión de productos con filtros y métricas de talles en ChapulinaApp",
+        width: 1328,
+        height: 617,
+      },
+      {
+        src: "/chap-categoria.png",
+        alt: "Panel de categorías con listado de rubros en ChapulinaApp",
+        width: 1358,
+        height: 635,
+      },
+      {
+        src: "/chapulina-sales.png",
+        alt: "Vista de ventas y reservas con historial en ChapulinaApp",
+        width: 1339,
+        height: 630,
+      },
+      {
+        src: "/chapulina-catalogo.png",
+        alt: "Catálogo de productos con acciones de vender o reservar en ChapulinaApp",
+        width: 1333,
+        height: 625,
+      },
+      {
+        src: "/configuracion.png",
+        alt: "Panel de configuración con gestión de vendedores y estadísticas en ChapulinaApp",
+        width: 1332,
+        height: 630,
+      },
+    ],
     translations: {
       es: {
         title: "ChapulinaApp – Gestión de Stock",

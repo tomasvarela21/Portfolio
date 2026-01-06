@@ -15,7 +15,11 @@ export default function ExperienceCards({
       description: "Did things.",
       impact: "Had impact.",
       stack: ["Next.js"],
-      image: { src: "/example-text.png", alt: "Example" },
+      images: [{ src: "/placeholder.svg", alt: "Example card", width: 1280, height: 720 }],
+      translations: {
+        es: { title: "Example Experience", description: "Did things.", impact: "Had impact." },
+        en: { title: "Example Experience", description: "Did things.", impact: "Had impact." },
+      },
     },
   ],
 }) {
