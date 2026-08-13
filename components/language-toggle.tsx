@@ -12,7 +12,7 @@ export default function LanguageToggle() {
       variant="ghost"
       size="sm"
       onClick={() => setLanguage(language === "es" ? "en" : "es")}
-      className="text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/50"
+      className="text-muted-foreground hover:bg-accent hover:text-accent-foreground"
     >
       <Globe className="h-4 w-4 mr-2" />
       {language === "es" ? "EN" : "ES"}

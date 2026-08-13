@@ -6,6 +6,22 @@ import { LanguageProvider } from "@/contexts/language-context"
 import { ThemeProvider } from "@/contexts/theme-context"
 import "./globals.css"
 
+const themeInitScript = `
+(() => {
+  try {
+    const savedTheme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const theme = savedTheme === "light" || savedTheme === "dark" ? savedTheme : prefersDark ? "dark" : "light";
+    document.documentElement.classList.remove("light", "dark");
+    document.documentElement.classList.add(theme);
+    document.documentElement.style.colorScheme = theme;
+  } catch {
+    document.documentElement.classList.add("dark");
+    document.documentElement.style.colorScheme = "dark";
+  }
+})();
+`
+
 export const metadata: Metadata = {
   title: "Tomás Varela - Fullstack Developer",
   description: "Portfolio de Tomás Varela - Desarrollador Fullstack especializado en JavaScript, React, Node.js",
@@ -21,8 +37,9 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es">
+    <html lang="es" suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <style>{`
 html {
   font-family: ${GeistSans.style.fontFamily};

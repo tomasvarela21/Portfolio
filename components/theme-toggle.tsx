@@ -13,7 +13,7 @@ export default function ThemeToggle() {
       size="icon"
       onClick={toggleTheme}
       aria-label={theme === "dark" ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
-      className="border-neutral-800 bg-neutral-900 text-neutral-200 hover:bg-neutral-800 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-200 dark:hover:bg-neutral-800 light:border-neutral-300 light:bg-white light:text-neutral-800 light:hover:bg-neutral-100"
+      className="border-border bg-background text-foreground hover:bg-accent hover:text-accent-foreground"
     >
       {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
     </Button>

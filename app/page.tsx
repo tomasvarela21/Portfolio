@@ -17,20 +17,20 @@ export default function Page() {
   const { t } = useLanguage()
 
   return (
-    <main className="min-h-screen bg-neutral-950 text-neutral-200">
+    <main className="portfolio-shell min-h-screen bg-background text-foreground">
       <SiteHeader />
 
       <section id="presentacion" className="scroll-mt-24">
         <Hero />
       </section>
 
-      <Section id="tecnologias" title={t("tech.title")} subtitle={t("tech.subtitle")} className="bg-neutral-950">
+      <Section id="tecnologias" title={t("tech.title")} subtitle={t("tech.subtitle")} className="bg-transparent">
         <Reveal>
           <TechnologiesSection />
         </Reveal>
       </Section>
 
-      <Section id="proyectos" title={t("projects.title")} subtitle={t("projects.subtitle")} className="bg-neutral-950">
+      <Section id="proyectos" title={t("projects.title")} subtitle={t("projects.subtitle")} className="bg-transparent">
         <Reveal>
           <div className="grid gap-6 md:grid-cols-2">
             {projects.map((p, i) => (
@@ -42,19 +42,19 @@ export default function Page() {
         </Reveal>
       </Section>
 
-      <Section id="sobre-mi" title={t("about.title")} subtitle={t("about.subtitle")} className="bg-neutral-950">
+      <Section id="sobre-mi" title={t("about.title")} subtitle={t("about.subtitle")} className="bg-transparent">
         <Reveal>
           <AboutSection />
         </Reveal>
       </Section>
 
-      <Section id="certificados" title={t("cert.title")} subtitle={t("cert.subtitle")} className="bg-neutral-950">
+      <Section id="certificados" title={t("cert.title")} subtitle={t("cert.subtitle")} className="bg-transparent">
         <Reveal>
           <CertificationsLearning />
         </Reveal>
       </Section>
 
-      <Section id="contacto" title={t("contact.title")} subtitle={t("contact.subtitle")} className="bg-neutral-950">
+      <Section id="contacto" title={t("contact.title")} subtitle={t("contact.subtitle")} className="bg-transparent">
         <Reveal>
           <ContactSection />
         </Reveal>

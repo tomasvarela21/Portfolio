@@ -11,10 +11,10 @@ export default function CertificationsLearning() {
 
   return (
     <div className="grid gap-6 lg:grid-cols-2">
-      <Card className="border-neutral-800 bg-neutral-900/60 text-neutral-200">
+      <Card className="border-border bg-card/80 text-card-foreground">
         <CardHeader>
-          <CardTitle className="flex items-center gap-2 text-neutral-100">
-            <Award className="h-5 w-5 text-neutral-300" />
+          <CardTitle className="flex items-center gap-2 text-foreground">
+            <Award className="h-5 w-5 text-muted-foreground" />
             {t("cert.additional-training")}
           </CardTitle>
         </CardHeader>
@@ -22,10 +22,10 @@ export default function CertificationsLearning() {
           <ul className="space-y-3">
             {translations[language].trainings.map((training, index) => (
               <li key={index} className="flex items-start gap-3">
-                <span className="mt-1 h-2.5 w-2.5 rounded-full bg-neutral-500" aria-hidden />
+                <span className="mt-1 h-2.5 w-2.5 rounded-full bg-primary/60" aria-hidden />
                 <div>
-                  <p className="font-medium text-neutral-100">{training.title}</p>
-                  <p className="text-sm text-neutral-400">{training.provider}</p>
+                  <p className="font-medium text-foreground">{training.title}</p>
+                  <p className="text-sm text-muted-foreground">{training.provider}</p>
                 </div>
               </li>
             ))}
@@ -33,10 +33,10 @@ export default function CertificationsLearning() {
         </CardContent>
       </Card>
 
-      <Card className="border-neutral-800 bg-neutral-900/60 text-neutral-200">
+      <Card className="border-border bg-card/80 text-card-foreground">
         <CardHeader>
-          <CardTitle className="flex items-center gap-2 text-neutral-100">
-            <Rocket className="h-5 w-5 text-neutral-300" />
+          <CardTitle className="flex items-center gap-2 text-foreground">
+            <Rocket className="h-5 w-5 text-muted-foreground" />
             {t("tech.learning")}
           </CardTitle>
         </CardHeader>
@@ -44,7 +44,7 @@ export default function CertificationsLearning() {
           {stackIcons.learning.map((tech) => (
             <div
               key={tech.label}
-              className="flex items-center gap-2 rounded-md border border-neutral-800 bg-neutral-950/60 p-2"
+              className="flex items-center gap-2 rounded-md border border-border bg-muted/40 p-2"
             >
               <Image 
                 src={tech.src || "/placeholder.svg"} 
@@ -53,7 +53,7 @@ export default function CertificationsLearning() {
                 height={24}
                 className="h-6 w-6 object-contain" 
               />
-              <span className="text-sm text-neutral-300">{tech.label}</span>
+              <span className="text-sm text-muted-foreground">{tech.label}</span>
             </div>
           ))}
         </CardContent>

@@ -10,19 +10,19 @@ export default function ContactSection({}: Record<string, never> = {}) {
   const { language, t } = useLanguage()
 
   return (
-    <Card className="border-neutral-800 bg-neutral-900/60 text-neutral-200">
+    <Card className="border-border bg-card/80 text-card-foreground">
       <CardContent className="grid gap-6 p-6 sm:grid-cols-2">
         <div>
-          <h3 className="text-xl font-semibold tracking-tight text-neutral-100">
+          <h3 className="text-xl font-semibold tracking-tight text-foreground">
             {language === "es" ? "¿Hablamos?" : "Let's talk?"}
           </h3>
-          <p className="mt-2 text-neutral-300">
+          <p className="mt-2 text-muted-foreground">
             {language === "es"
               ? "Estoy abierto a roles full‑time y proyectos freelance. Escríbeme y coordinamos una llamada."
               : "I'm open to full-time roles and freelance projects. Write to me and let's schedule a call."}
           </p>
           <div className="mt-4 flex flex-wrap gap-2">
-            <Button asChild className="bg-white/10 text-neutral-100 hover:bg-white/20">
+            <Button asChild>
               <a href={`mailto:${person.email}`} aria-label={t("contact.email")}>
                 <Mail className="mr-2 h-4 w-4" />
                 {"Email"}
@@ -31,14 +31,14 @@ export default function ContactSection({}: Record<string, never> = {}) {
             <Button
               asChild
               variant="outline"
-              className="border-neutral-800 bg-neutral-900 text-neutral-200 hover:border-neutral-700 hover:bg-neutral-800 hover:text-white"
+              className="border-border bg-background text-foreground hover:bg-accent hover:text-accent-foreground"
             >
               <a href={person.linkedin} target="_blank" rel="noreferrer" aria-label={t("contact.linkedin")}>
                 <Linkedin className="mr-2 h-4 w-4" />
                 {"LinkedIn"}
               </a>
             </Button>
-            <Button asChild variant="ghost" className="text-neutral-300 hover:text-white">
+            <Button asChild variant="ghost" className="text-muted-foreground hover:text-accent-foreground">
               <a href={person.github} target="_blank" rel="noreferrer" aria-label={t("contact.github")}>
                 <Github className="mr-2 h-4 w-4" />
                 {"GitHub"}
@@ -46,8 +46,8 @@ export default function ContactSection({}: Record<string, never> = {}) {
             </Button>
           </div>
         </div>
-        <div className="rounded-md border border-neutral-800 bg-neutral-950/60 p-4">
-          <div className="flex items-center gap-2 text-neutral-200">
+        <div className="rounded-md border border-border bg-muted/40 p-4">
+          <div className="flex items-center gap-2 text-foreground">
             <MapPin className="h-4 w-4" />
             <p className="text-sm font-medium">{person.location}</p>
           </div>

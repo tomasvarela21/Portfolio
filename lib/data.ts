@@ -37,6 +37,159 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "fitproapp-saas-training-platform",
+    title: "FitProApp – Plataforma SaaS para Entrenadores",
+    role: "Fullstack",
+    description:
+      "FitProApp es una plataforma SaaS multi-rol para entrenadores personales y alumnos que centraliza la gestión operativa de un negocio fitness: alumnos, invitaciones, planes, suscripciones, cuotas y pagos, rutinas, ejercicios y seguimiento de entrenamientos, con vistas diferenciadas para trainer y estudiante en web y móvil. Backend modular en Express y TypeScript con Prisma sobre PostgreSQL, autenticación JWT y control de acceso por roles, y frontend en React con Vite, TailwindCSS, Shadcn UI, Zustand y React Query.",
+    impact:
+      "Digitaliza la operación completa del entrenador: dashboard con métricas y alertas de vencimiento, constructor de rutinas con series, RPE y peso sugerido, portal del alumno para registrar entrenamientos y ver su progreso, y automatización de emails y notificaciones push para recordatorios de pago. Incorpora además un asistente vía Telegram con function calling para consultar datos y ejecutar acciones del sistema con confirmación.",
+    stack: [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "Shadcn UI",
+      "Zustand",
+      "React Query",
+      "Express.js",
+      "Prisma",
+      "PostgreSQL",
+      "JWT",
+      "Zod",
+      "Expo",
+      "React Native",
+      "Telegram Bot API",
+      "Google GenAI",
+    ],
+    external: "https://fit-pro-app-mu.vercel.app",
+    images: [
+      {
+        src: "/fitproapp-trainer-dashboard.png",
+        alt: "Dashboard del entrenador en FitProApp con métricas y alertas de vencimiento",
+        width: 1692,
+        height: 823,
+      },
+      {
+        src: "/fitproapp-trainer-alumnos.png",
+        alt: "Gestión de alumnos con estado de plan y pagos en FitProApp",
+        width: 1699,
+        height: 822,
+      },
+      {
+        src: "/fitproapp-trainer-plan-pagos.png",
+        alt: "Detalle de plan, cuotas y rutina asignada de un alumno en FitProApp",
+        width: 1662,
+        height: 826,
+      },
+      {
+        src: "/fitproapp-trainer-rutinas.png",
+        alt: "Gestión de rutinas globales y propias en FitProApp",
+        width: 1696,
+        height: 822,
+      },
+      {
+        src: "/fitproapp-trainer-ejercicios.png",
+        alt: "Biblioteca de ejercicios organizada por grupo muscular en FitProApp",
+        width: 1702,
+        height: 826,
+      },
+      {
+        src: "/fitproapp-alumno-entrenar-hoy.png",
+        alt: "Vista del alumno para entrenar hoy con series, reps y RPE en FitProApp",
+        width: 1687,
+        height: 817,
+      },
+      {
+        src: "/fitproapp-alumno-progreso.png",
+        alt: "Gráfico de progreso de peso máximo por ejercicio en FitProApp",
+        width: 1693,
+        height: 826,
+      },
+      {
+        src: "/fitproapp-alumno-ejercicios.png",
+        alt: "Biblioteca de ejercicios del alumno con filtros en FitProApp",
+        width: 1687,
+        height: 816,
+      },
+    ],
+    translations: {
+      es: {
+        title: "FitProApp – Plataforma SaaS para Entrenadores",
+        description:
+          "FitProApp es una plataforma SaaS multi-rol para entrenadores personales y alumnos que centraliza la gestión operativa de un negocio fitness: alumnos, invitaciones, planes, suscripciones, cuotas y pagos, rutinas, ejercicios y seguimiento de entrenamientos, con vistas diferenciadas para trainer y estudiante en web y móvil. Backend modular en Express y TypeScript con Prisma sobre PostgreSQL, autenticación JWT y control de acceso por roles, y frontend en React con Vite, TailwindCSS, Shadcn UI, Zustand y React Query.",
+        impact:
+          "Digitaliza la operación completa del entrenador: dashboard con métricas y alertas de vencimiento, constructor de rutinas con series, RPE y peso sugerido, portal del alumno para registrar entrenamientos y ver su progreso, y automatización de emails y notificaciones push para recordatorios de pago. Incorpora además un asistente vía Telegram con function calling para consultar datos y ejecutar acciones del sistema con confirmación.",
+      },
+      en: {
+        title: "FitProApp – SaaS Platform for Personal Trainers",
+        description:
+          "FitProApp is a multi-role SaaS platform for personal trainers and their clients that centralizes the operations of a fitness business: students, invitations, plans, subscriptions, installments and payments, routines, exercises, and workout tracking, with dedicated trainer and student views across web and mobile. Modular backend built with Express and TypeScript on Prisma over PostgreSQL, JWT authentication with role-based access control, and a React frontend using Vite, TailwindCSS, Shadcn UI, Zustand, and React Query.",
+        impact:
+          "Digitizes the trainer's entire operation: a dashboard with metrics and expiration alerts, a routine builder with sets, RPE, and suggested weight, a student portal to log workouts and track progress, and automated emails and push notifications for payment reminders. It also includes a Telegram-based assistant with function calling to query data and execute system actions with confirmation.",
+      },
+    },
+  },
+  {
+    slug: "reporteapp-multi-company-accounting",
+    title: "ReporteApp – Sistema Contable Multi-Empresa",
+    org: "Grupo corporativo (construcción e inmobiliario)",
+    role: "Fullstack",
+    description:
+      "ReporteApp es un sistema de gestión contable multiempresa para un grupo del sector construcción e inmobiliario que opera cinco empresas en simultáneo. Centraliza la carga, validación y conciliación de datos contables mediante una API REST en Python con arquitectura cliente-servidor desacoplada, cálculo incremental del Libro Mayor por empresa y período, y sincronización en tiempo real con bases de datos externas de proyectos y presupuestos.",
+    impact:
+      "Eliminó la conciliación manual entre sistemas: valida asientos y detecta descuadres, cuentas inválidas y centros de costo faltantes antes de cargar datos, y actualiza automáticamente dashboards ejecutivos en Power BI. La API expone 44 endpoints documentados en Swagger sobre PostgreSQL, con validador configurable y logging de cada sincronización.",
+    stack: ["Python", "FastAPI", "PostgreSQL (Neon)", "Streamlit", "Power BI API", "GitHub Actions", "Render"],
+    images: [
+      {
+        src: "/reporteapp-home.png",
+        alt: "Home de ReporteApp con accesos a carga, libro mayor, consulta y administración",
+        width: 1690,
+        height: 823,
+      },
+      {
+        src: "/reporteapp-libro-mayor.png",
+        alt: "Libro Mayor con saldos acumulados por empresa y cuenta en ReporteApp",
+        width: 1696,
+        height: 825,
+      },
+      {
+        src: "/reporteapp-consulta-diario.png",
+        alt: "Consulta de asientos del libro diario con filtros en ReporteApp",
+        width: 1699,
+        height: 835,
+      },
+      {
+        src: "/reporteapp-carga.png",
+        alt: "Carga y validación de archivos CSV por empresa en ReporteApp",
+        width: 1702,
+        height: 829,
+      },
+      {
+        src: "/reporteapp-administracion.png",
+        alt: "Panel de administración con plan de cuentas en ReporteApp",
+        width: 1702,
+        height: 826,
+      },
+    ],
+    translations: {
+      es: {
+        title: "ReporteApp – Sistema Contable Multi-Empresa",
+        description:
+          "ReporteApp es un sistema de gestión contable multiempresa para un grupo del sector construcción e inmobiliario que opera cinco empresas en simultáneo. Centraliza la carga, validación y conciliación de datos contables mediante una API REST en Python con arquitectura cliente-servidor desacoplada, cálculo incremental del Libro Mayor por empresa y período, y sincronización en tiempo real con bases de datos externas de proyectos y presupuestos.",
+        impact:
+          "Eliminó la conciliación manual entre sistemas: valida asientos y detecta descuadres, cuentas inválidas y centros de costo faltantes antes de cargar datos, y actualiza automáticamente dashboards ejecutivos en Power BI. La API expone 44 endpoints documentados en Swagger sobre PostgreSQL, con validador configurable y logging de cada sincronización.",
+      },
+      en: {
+        title: "ReporteApp – Multi-Company Accounting System",
+        description:
+          "ReporteApp is a multi-company accounting management system for a construction and real estate corporate group operating five companies simultaneously. It centralizes accounting data ingestion, validation, and reconciliation through a decoupled client-server Python REST API, incremental General Ledger calculation per company and period, and real-time synchronization with external project and budget databases.",
+        impact:
+          "Eliminated manual reconciliation between systems: validates journal entries and flags unbalanced entries, invalid accounts, and missing cost centers before loading data, and automatically refreshes executive Power BI dashboards. The API exposes 44 endpoints documented in Swagger on top of PostgreSQL, with a configurable validator and per-sync logging.",
+      },
+    },
+  },
+  {
     slug: "consorcioapp-multisite-console",
     title: "ConsorcioApp – Gestión Multiedificio",
     org: "ConsorcioApp",
@@ -161,93 +314,6 @@ export const projects: Project[] = [
     },
   },
   {
-    slug: "fitapp-virtual-fitness-assistant",
-    title: "FitApp – Asistente de Fitness y Nutrición",
-    role: "Fullstack",
-    description:
-      "App con chatbot para rutinas y planes de nutrición personalizados, tracking de progreso y autenticación con Google. Perfiles, generación de rutinas y analítica.",
-    impact: "Mejoró la personalización de rutinas y automatizó el registro de datos de usuarios.",
-    stack: ["React", "Node.js", "Express", "MySQL", "Sequelize", "OAuth"],
-    github: "https://github.com/tomasvarela21/fitApp",
-    external: "https://fitapp-demo.vercel.app",
-    images: [
-      {
-        src: "/fitapp.png",
-        alt: "Interfaz de una app de fitness con chatbot y seguimiento de progreso",
-        width: 1330,
-        height: 615,
-      },
-    ],
-    translations: {
-      es: {
-        title: "FitApp – Asistente de Fitness y Nutrición",
-        description:
-          "App con chatbot para rutinas y planes de nutrición personalizados, tracking de progreso y autenticación con Google. Perfiles, generación de rutinas y analítica.",
-        impact: "Mejoró la personalización de rutinas y automatizó el registro de datos de usuarios.",
-      },
-      en: {
-        title: "FitApp – Virtual Fitness and Nutrition Assistant",
-        description:
-          "App with chatbot for personalized workout and nutrition plans, progress tracking, and Google authentication. Profiles, routine generation and analytics.",
-        impact: "Enhanced personalization of fitness routines and automated user data tracking.",
-      },
-    },
-  },
-  {
-    slug: "olivetuc-web",
-    title: "Landing Page – Oliva.Tuc",
-    org: "Oliva.Tuc",
-    role: "Frontend",
-    description:
-      "Landing page moderna y responsive para un emprendimiento de aceite de oliva. Incluye catálogo con carrito desplegable y editable, redirección a WhatsApp para finalizar compras, galería de imágenes y secciones informativas.",
-    impact: "Mejoró la presencia digital del emprendimiento, facilitando la interacción con clientes y la gestión de pedidos en línea.",
-    stack: ["Next.js", "Tailwind CSS", "TypeScript", "Git"],
-    github: "https://github.com/tomasvarela21/OliveTuc-web",
-    external: "https://olive-tuc-web-x8ig.vercel.app/",
-    images: [
-      {
-        src: "/olivetuc-hero.png",
-        alt: "Hero de Oliva.Tuc destacando calidad del aceite",
-        width: 1302,
-        height: 630,
-      },
-      {
-        src: "/olivetuc-catalog.png",
-        alt: "Catálogo principal de Oliva.Tuc con tarjetas de productos",
-        width: 1343,
-        height: 629,
-      },
-      {
-        src: "/olivetuc-catalog-cart.png",
-        alt: "Catálogo de Oliva.Tuc con el carrito abierto mostrando totales",
-        width: 1343,
-        height: 627,
-      },
-      {
-        src: "/olivetuc-cart-mobile.png",
-        alt: "Carrito móvil con formulario de entrega en Oliva.Tuc",
-        width: 196,
-        height: 436,
-      },
-    ],
-    translations: {
-      es: {
-        title: "Landing Page – Oliva.Tuc",
-        description:
-          "Landing page moderna y responsive para un emprendimiento de aceite de oliva. Incluye catálogo con carrito desplegable y editable, redirección a WhatsApp para finalizar compras, galería de imágenes y secciones informativas.",
-        impact:
-          "Mejoró la presencia digital del emprendimiento, facilitando la interacción con clientes y la gestión de pedidos en línea.",
-      },
-      en: {
-        title: "Landing Page – Oliva.Tuc",
-        description:
-          "Modern and responsive landing page for an olive oil business. Includes catalog with expandable and editable cart, WhatsApp redirection for order completion, image gallery, and informational sections.",
-        impact:
-          "Boosted the business’s digital presence, streamlined customer interaction, and facilitated online order management.",
-      },
-    },
-  },
-  {
     slug: "chapulina-inventory-suite",
     title: "ChapulinaApp – Gestión de Stock",
     org: "Chapulina",
@@ -311,6 +377,93 @@ export const projects: Project[] = [
           "Web app for a fashion boutique that centralizes inventory by size, sales tracking, and the digital catalog. Provides role-based login, product management with filters, low-stock alerts, and configurable price markups.",
         impact:
           "Digitized stock and pricing oversight, removing manual spreadsheets and enabling minute-level price updates aligned with business rules.",
+      },
+    },
+  },
+  {
+    slug: "olivetuc-web",
+    title: "Landing Page – Oliva.Tuc",
+    org: "Oliva.Tuc",
+    role: "Frontend",
+    description:
+      "Landing page moderna y responsive para un emprendimiento de aceite de oliva. Incluye catálogo con carrito desplegable y editable, redirección a WhatsApp para finalizar compras, galería de imágenes y secciones informativas.",
+    impact: "Mejoró la presencia digital del emprendimiento, facilitando la interacción con clientes y la gestión de pedidos en línea.",
+    stack: ["Next.js", "Tailwind CSS", "TypeScript", "Git"],
+    github: "https://github.com/tomasvarela21/OliveTuc-web",
+    external: "https://olive-tuc-web-x8ig.vercel.app/",
+    images: [
+      {
+        src: "/olivetuc-hero.png",
+        alt: "Hero de Oliva.Tuc destacando calidad del aceite",
+        width: 1302,
+        height: 630,
+      },
+      {
+        src: "/olivetuc-catalog.png",
+        alt: "Catálogo principal de Oliva.Tuc con tarjetas de productos",
+        width: 1343,
+        height: 629,
+      },
+      {
+        src: "/olivetuc-catalog-cart.png",
+        alt: "Catálogo de Oliva.Tuc con el carrito abierto mostrando totales",
+        width: 1343,
+        height: 627,
+      },
+      {
+        src: "/olivetuc-cart-mobile.png",
+        alt: "Carrito móvil con formulario de entrega en Oliva.Tuc",
+        width: 196,
+        height: 436,
+      },
+    ],
+    translations: {
+      es: {
+        title: "Landing Page – Oliva.Tuc",
+        description:
+          "Landing page moderna y responsive para un emprendimiento de aceite de oliva. Incluye catálogo con carrito desplegable y editable, redirección a WhatsApp para finalizar compras, galería de imágenes y secciones informativas.",
+        impact:
+          "Mejoró la presencia digital del emprendimiento, facilitando la interacción con clientes y la gestión de pedidos en línea.",
+      },
+      en: {
+        title: "Landing Page – Oliva.Tuc",
+        description:
+          "Modern and responsive landing page for an olive oil business. Includes catalog with expandable and editable cart, WhatsApp redirection for order completion, image gallery, and informational sections.",
+        impact:
+          "Boosted the business’s digital presence, streamlined customer interaction, and facilitated online order management.",
+      },
+    },
+  },
+  {
+    slug: "fitapp-virtual-fitness-assistant",
+    title: "FitApp – Asistente de Fitness y Nutrición",
+    role: "Fullstack",
+    description:
+      "App con chatbot para rutinas y planes de nutrición personalizados, tracking de progreso y autenticación con Google. Perfiles, generación de rutinas y analítica.",
+    impact: "Mejoró la personalización de rutinas y automatizó el registro de datos de usuarios.",
+    stack: ["React", "Node.js", "Express", "MySQL", "Sequelize", "OAuth"],
+    github: "https://github.com/tomasvarela21/fitApp",
+    external: "https://fitapp-demo.vercel.app",
+    images: [
+      {
+        src: "/fitapp.png",
+        alt: "Interfaz de una app de fitness con chatbot y seguimiento de progreso",
+        width: 1330,
+        height: 615,
+      },
+    ],
+    translations: {
+      es: {
+        title: "FitApp – Asistente de Fitness y Nutrición",
+        description:
+          "App con chatbot para rutinas y planes de nutrición personalizados, tracking de progreso y autenticación con Google. Perfiles, generación de rutinas y analítica.",
+        impact: "Mejoró la personalización de rutinas y automatizó el registro de datos de usuarios.",
+      },
+      en: {
+        title: "FitApp – Virtual Fitness and Nutrition Assistant",
+        description:
+          "App with chatbot for personalized workout and nutrition plans, progress tracking, and Google authentication. Profiles, routine generation and analytics.",
+        impact: "Enhanced personalization of fitness routines and automated user data tracking.",
       },
     },
   },

@@ -103,15 +103,15 @@ export default function ProjectCard({ project = defaultProject }: ProjectCardPro
         }}
         aria-hidden
       />
-      <Card className="relative h-full overflow-hidden rounded-2xl border-neutral-800 bg-neutral-900/60 text-neutral-200 transition will-change-transform group-hover:-translate-y-0.5 group-hover:shadow-xl group-hover:shadow-black/30">
+      <Card className="relative h-full overflow-hidden rounded-2xl border-border bg-card/80 text-card-foreground transition will-change-transform group-hover:-translate-y-0.5 group-hover:shadow-xl group-hover:shadow-black/10 dark:group-hover:shadow-black/30">
         <CardHeader className="space-y-2 p-4 sm:p-6">
-          <CardTitle className="flex items-start justify-between gap-3 text-neutral-100 text-base sm:text-lg">
+          <CardTitle className="flex items-start justify-between gap-3 text-foreground text-base sm:text-lg">
             <span className="leading-tight">{localizedCopy.title}</span>
           </CardTitle>
-          {project.role ? <p className="text-xs text-neutral-400">{project.role}</p> : null}
+          {project.role ? <p className="text-xs text-muted-foreground">{project.role}</p> : null}
         </CardHeader>
         <CardContent className="space-y-4 p-4 sm:p-6 pt-0">
-          <div className="relative aspect-[16/9] w-full overflow-hidden rounded-md ring-1 ring-neutral-800">
+          <div className="relative aspect-[16/9] w-full overflow-hidden rounded-md ring-1 ring-border">
             <button
               type="button"
               onClick={openActiveImage}
@@ -171,17 +171,17 @@ export default function ProjectCard({ project = defaultProject }: ProjectCardPro
               </>
             ) : null}
           </div>
-          <p className="text-sm text-neutral-300">{localizedCopy.description}</p>
+          <p className="text-sm text-muted-foreground">{localizedCopy.description}</p>
           <div>
-            <p className="text-sm font-medium text-neutral-100">{language === "es" ? "Impacto" : "Impact"}</p>
-            <p className="text-sm text-neutral-300">{localizedCopy.impact}</p>
+            <p className="text-sm font-medium text-foreground">{language === "es" ? "Impacto" : "Impact"}</p>
+            <p className="text-sm text-muted-foreground">{localizedCopy.impact}</p>
           </div>
           <div className="flex flex-wrap gap-1.5 sm:gap-2">
             {project.stack.map((s) => (
               <Badge
                 key={s}
                 variant="secondary"
-                className="border border-neutral-800 bg-neutral-900/70 text-neutral-200 text-xs"
+                className="border border-border bg-secondary text-secondary-foreground text-xs"
               >
                 {s}
               </Badge>
@@ -195,7 +195,7 @@ export default function ProjectCard({ project = defaultProject }: ProjectCardPro
                 asChild
                 variant="outline"
                 size="sm"
-                className="flex-1 border-neutral-700 bg-neutral-800/50 text-neutral-200 hover:bg-neutral-700 hover:text-white"
+                className="flex-1 border-border bg-background text-foreground hover:bg-accent hover:text-accent-foreground"
               >
                 <a href={project.github} target="_blank" rel="noreferrer" className="flex items-center gap-2">
                   <Github className="h-4 w-4" />
@@ -208,7 +208,7 @@ export default function ProjectCard({ project = defaultProject }: ProjectCardPro
                 asChild
                 variant="outline"
                 size="sm"
-                className="flex-1 border-cyan-500/30 bg-cyan-500/10 text-cyan-300 hover:bg-cyan-500/20 hover:text-cyan-200"
+                className="flex-1 border-cyan-500/30 bg-cyan-500/10 text-cyan-700 hover:bg-cyan-500/20 dark:text-cyan-300 dark:hover:text-cyan-200"
               >
                 <a href={project.external} target="_blank" rel="noreferrer" className="flex items-center gap-2">
                   <ExternalLink className="h-4 w-4" />

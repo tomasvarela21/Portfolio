@@ -31,7 +31,7 @@ function Tile({ label, src }: TileProps = defaultTileProps) {
           />
         </div>
       </div>
-      <span className="text-[9px] sm:text-[10px] font-medium text-neutral-400 transition-colors group-hover:text-neutral-200 text-center leading-tight">
+      <span className="text-[9px] sm:text-[10px] font-medium text-muted-foreground transition-colors group-hover:text-foreground text-center leading-tight">
         {label}
       </span>
     </div>
@@ -52,10 +52,10 @@ const defaultTechCardProps: TechCardProps = {
 
 function TechCard({ title, icon, items }: TechCardProps = defaultTechCardProps) {
   return (
-    <Card className="border-neutral-800 bg-neutral-900/60 text-neutral-200 transition hover:shadow-lg hover:shadow-black/30">
+    <Card className="border-border bg-card/80 text-card-foreground transition hover:shadow-lg hover:shadow-black/10 dark:hover:shadow-black/30">
       <CardHeader className="pb-2 px-3 sm:px-6 pt-3 sm:pt-6">
-        <CardTitle className="flex items-center gap-2 text-neutral-100 text-xs sm:text-sm">
-          <div className="h-3 w-3 sm:h-4 sm:w-4 text-neutral-300">
+        <CardTitle className="flex items-center gap-2 text-foreground text-xs sm:text-sm">
+          <div className="h-3 w-3 sm:h-4 sm:w-4 text-muted-foreground">
             {icon}
           </div>
           {title}
@@ -80,12 +80,12 @@ export default function TechnologiesSection() {
       <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2">
         <TechCard
           title={t("tech.frontend")}
-          icon={<Code2 className="h-4 w-4 text-neutral-300" />}
+          icon={<Code2 className="h-4 w-4 text-muted-foreground" />}
           items={stackIcons.frontend}
         />
         <TechCard
           title={t("tech.backend")}
-          icon={<Database className="h-4 w-4 text-neutral-300" />}
+          icon={<Database className="h-4 w-4 text-muted-foreground" />}
           items={stackIcons.backend}
         />
       </div>
@@ -93,12 +93,12 @@ export default function TechnologiesSection() {
       <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2">
         <TechCard
           title={t("tech.tools")}
-          icon={<Wrench className="h-4 w-4 text-neutral-300" />}
+          icon={<Wrench className="h-4 w-4 text-muted-foreground" />}
           items={stackIcons.tools}
         />
         <TechCard
           title={t("tech.learning")}
-          icon={<Rocket className="h-4 w-4 text-neutral-300" />}
+          icon={<Rocket className="h-4 w-4 text-muted-foreground" />}
           items={stackIcons.learning}
         />
       </div>
