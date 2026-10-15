@@ -15,6 +15,19 @@ import { useLanguage } from "@/contexts/language-context"
 
 export default function Page() {
   const { t } = useLanguage()
+  const projectOrder = [
+    "korex-saas-training-platform",
+    "de-la-rosa-white-label-korex",
+    "reporteapp-multi-company-accounting",
+    "consorcioapp-multisite-console",
+    "chapulina-inventory-suite",
+    "olivetuc-web",
+    "alenort-management-system",
+    "fitapp-virtual-fitness-assistant",
+  ]
+  const orderedProjects = projectOrder
+    .map((slug) => projects.find((project) => project.slug === slug))
+    .filter((project): project is (typeof projects)[number] => Boolean(project))
 
   return (
     <main className="portfolio-shell min-h-screen bg-background text-foreground">
@@ -33,7 +46,7 @@ export default function Page() {
       <Section id="proyectos" title={t("projects.title")} subtitle={t("projects.subtitle")} className="bg-transparent">
         <Reveal>
           <div className="grid gap-6 md:grid-cols-2">
-            {projects.map((p, i) => (
+            {orderedProjects.map((p, i) => (
               <Reveal key={p.slug} delay={100 * i}>
                 <ProjectCard project={p} />
               </Reveal>

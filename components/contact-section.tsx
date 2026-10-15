@@ -18,7 +18,7 @@ export default function ContactSection({}: Record<string, never> = {}) {
           </h3>
           <p className="mt-2 text-muted-foreground">
             {language === "es"
-              ? "Estoy abierto a roles full‑time y proyectos freelance. Escríbeme y coordinamos una llamada."
+              ? "Estoy abierto a roles full-time y proyectos freelance. Escríbeme y coordinamos una llamada."
               : "I'm open to full-time roles and freelance projects. Write to me and let's schedule a call."}
           </p>
           <div className="mt-4 flex flex-wrap gap-2">

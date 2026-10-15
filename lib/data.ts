@@ -1,14 +1,15 @@
 export const person = {
   name: "Tomás Varela",
-  title: "Desarrollador Fullstack",
+  title: "Desarrollador Full Stack",
   location: "San Miguel de Tucumán, Argentina",
   email: "tomas.varelaa19@gmail.com",
   linkedin: "https://www.linkedin.com/in/tomasvarela7/",
   github: "https://github.com/tomasvarela21",
+  portfolio: "https://portfolio-hc4q-tau.vercel.app/",
   profile:
-    "Desarrollador Fullstack con base sólida en programación e ingeniería en sistemas. Experiencia construyendo aplicaciones web modernas con el stack JavaScript, bases de datos relacionales y no relacionales, y metodologías ágiles. Enfocado en mejora continua, calidad de código y soluciones centradas en el usuario.",
+    "Desarrollador Full Stack freelance desde 2025, con experiencia construyendo aplicaciones para clientes con React, TypeScript, Node.js y Python. Desarrollo plataformas SaaS multiempresa, APIs REST e integraciones sobre PostgreSQL, desde el relevamiento hasta el despliegue.",
   objectives:
-    "Contribuir como fullstack a productos de impacto, creando sistemas escalables y mantenibles con foco en la experiencia de usuario y la calidad de entrega. Abierto a roles full‑time y proyectos freelance.",
+    "Abierto a roles full-time y proyectos freelance, con foco en productos escalables, mantenibles y centrados en la experiencia de usuario.",
 } as const
 
 export type ProjectImage = {
@@ -22,7 +23,12 @@ export type Project = {
   slug: string
   title: string
   org?: string
+  orgTranslations?: { es: string; en: string }
   role?: string
+  period?: {
+    es: string
+    en: string
+  }
   description: string
   impact: string
   stack: string[]
@@ -35,15 +41,36 @@ export type Project = {
   }
 }
 
+export const freelanceExperience = {
+  es: {
+    title: "Desarrollador Full Stack Freelance",
+    location: "San Miguel de Tucumán, Argentina (remoto)",
+    period: "Feb. 2025 – actualidad",
+    description:
+      "Desarrollo de aplicaciones web a medida para distintos clientes, cubriendo todo el ciclo: relevamiento de requerimientos, arquitectura, desarrollo full stack y despliegue.",
+  },
+  en: {
+    title: "Freelance Full-Stack Developer",
+    location: "San Miguel de Tucumán, Argentina (remote)",
+    period: "Feb. 2025 – present",
+    description:
+      "Develop custom web applications for clients, from requirements discovery and architecture to full-stack development and deployment.",
+  },
+} as const
+
 export const projects: Project[] = [
   {
-    slug: "fitproapp-saas-training-platform",
-    title: "FitProApp – Plataforma SaaS para Entrenadores",
+    slug: "korex-saas-training-platform",
+    title: "Korex – Plataforma SaaS para Entrenadores Personales",
     role: "Fullstack",
+    period: {
+      es: "Abr. 2026 – actualidad",
+      en: "Apr. 2026 – present",
+    },
     description:
-      "FitProApp es una plataforma SaaS multi-rol para entrenadores personales y alumnos que centraliza la gestión operativa de un negocio fitness: alumnos, invitaciones, planes, suscripciones, cuotas y pagos, rutinas, ejercicios y seguimiento de entrenamientos, con vistas diferenciadas para trainer y estudiante en web y móvil. Backend modular en Express y TypeScript con Prisma sobre PostgreSQL, autenticación JWT y control de acceso por roles, y frontend en React con Vite, TailwindCSS, Shadcn UI, Zustand y React Query.",
+      "Korex es una plataforma SaaS multi-tenant para entrenadores personales y alumnos que centraliza la gestión operativa de un negocio fitness: alumnos, invitaciones, planes, suscripciones, cuotas y pagos, rutinas, ejercicios y seguimiento de entrenamientos, con vistas diferenciadas para trainer y estudiante en web y móvil. Backend modular en Express y TypeScript con Prisma sobre PostgreSQL, aislamiento de datos por trainer y frontend en React 19, Vite, Tailwind CSS y shadcn/ui.",
     impact:
-      "Digitaliza la operación completa del entrenador: dashboard con métricas y alertas de vencimiento, constructor de rutinas con series, RPE y peso sugerido, portal del alumno para registrar entrenamientos y ver su progreso, y automatización de emails y notificaciones push para recordatorios de pago. Incorpora además un asistente vía Telegram con function calling para consultar datos y ejecutar acciones del sistema con confirmación.",
+      "Digitaliza la operación completa del entrenador: dashboard con métricas y alertas de vencimiento, constructor de rutinas con series, RPE y peso sugerido, portal del alumno para registrar entrenamientos y ver su progreso, automatización de emails y notificaciones push, y asistente vía Telegram con function calling. En julio de 2026 completó un rebranding integral con nuevo nombre, logo e identidad de marca.",
     stack: [
       "React",
       "TypeScript",
@@ -65,68 +92,132 @@ export const projects: Project[] = [
     external: "https://fit-pro-app-mu.vercel.app",
     images: [
       {
-        src: "/fitproapp-trainer-dashboard.png",
-        alt: "Dashboard del entrenador en FitProApp con métricas y alertas de vencimiento",
-        width: 1692,
-        height: 823,
-      },
-      {
-        src: "/fitproapp-trainer-alumnos.png",
-        alt: "Gestión de alumnos con estado de plan y pagos en FitProApp",
-        width: 1699,
-        height: 822,
-      },
-      {
-        src: "/fitproapp-trainer-plan-pagos.png",
-        alt: "Detalle de plan, cuotas y rutina asignada de un alumno en FitProApp",
-        width: 1662,
-        height: 826,
-      },
-      {
-        src: "/fitproapp-trainer-rutinas.png",
-        alt: "Gestión de rutinas globales y propias en FitProApp",
-        width: 1696,
-        height: 822,
-      },
-      {
-        src: "/fitproapp-trainer-ejercicios.png",
-        alt: "Biblioteca de ejercicios organizada por grupo muscular en FitProApp",
-        width: 1702,
-        height: 826,
-      },
-      {
-        src: "/fitproapp-alumno-entrenar-hoy.png",
-        alt: "Vista del alumno para entrenar hoy con series, reps y RPE en FitProApp",
-        width: 1687,
+        src: "/korex-login.png",
+        alt: "Pantalla de login de Korex con identidad visual renovada",
+        width: 1705,
         height: 817,
       },
       {
-        src: "/fitproapp-alumno-progreso.png",
-        alt: "Gráfico de progreso de peso máximo por ejercicio en FitProApp",
-        width: 1693,
-        height: 826,
+        src: "/korex1.png",
+        alt: "Dashboard del entrenador en Korex con métricas, alumnos recientes y accesos rápidos",
+        width: 1705,
+        height: 820,
       },
       {
-        src: "/fitproapp-alumno-ejercicios.png",
-        alt: "Biblioteca de ejercicios del alumno con filtros en FitProApp",
-        width: 1687,
+        src: "/korex2.png",
+        alt: "Perfil de alumno en Korex con progreso, rutinas y estado de plan",
+        width: 1705,
+        height: 825,
+      },
+      {
+        src: "/korex3.png",
+        alt: "Detalle de plan y pagos de un alumno en Korex",
+        width: 1699,
+        height: 820,
+      },
+      {
+        src: "/korex4.png",
+        alt: "Biblioteca de ejercicios de Korex organizada por grupos musculares",
+        width: 1704,
         height: 816,
+      },
+      {
+        src: "/korex5.png",
+        alt: "Analytics del negocio en Korex con métricas de ingresos y alumnos",
+        width: 1701,
+        height: 820,
       },
     ],
     translations: {
       es: {
-        title: "FitProApp – Plataforma SaaS para Entrenadores",
+        title: "Korex – Plataforma SaaS para Entrenadores Personales",
         description:
-          "FitProApp es una plataforma SaaS multi-rol para entrenadores personales y alumnos que centraliza la gestión operativa de un negocio fitness: alumnos, invitaciones, planes, suscripciones, cuotas y pagos, rutinas, ejercicios y seguimiento de entrenamientos, con vistas diferenciadas para trainer y estudiante en web y móvil. Backend modular en Express y TypeScript con Prisma sobre PostgreSQL, autenticación JWT y control de acceso por roles, y frontend en React con Vite, TailwindCSS, Shadcn UI, Zustand y React Query.",
+          "Korex es una plataforma SaaS multi-tenant para entrenadores personales y alumnos que centraliza la gestión operativa de un negocio fitness: alumnos, invitaciones, planes, suscripciones, cuotas y pagos, rutinas, ejercicios y seguimiento de entrenamientos, con vistas diferenciadas para trainer y estudiante en web y móvil. Backend modular en Express y TypeScript con Prisma sobre PostgreSQL, aislamiento de datos por trainer y frontend en React 19, Vite, Tailwind CSS y shadcn/ui.",
         impact:
-          "Digitaliza la operación completa del entrenador: dashboard con métricas y alertas de vencimiento, constructor de rutinas con series, RPE y peso sugerido, portal del alumno para registrar entrenamientos y ver su progreso, y automatización de emails y notificaciones push para recordatorios de pago. Incorpora además un asistente vía Telegram con function calling para consultar datos y ejecutar acciones del sistema con confirmación.",
+          "Digitaliza la operación completa del entrenador: dashboard con métricas y alertas de vencimiento, constructor de rutinas con series, RPE y peso sugerido, portal del alumno para registrar entrenamientos y ver su progreso, automatización de emails y notificaciones push, y asistente vía Telegram con function calling. En julio de 2026 completó un rebranding integral con nuevo nombre, logo e identidad de marca.",
       },
       en: {
-        title: "FitProApp – SaaS Platform for Personal Trainers",
+        title: "Korex – SaaS Platform for Personal Trainers",
         description:
-          "FitProApp is a multi-role SaaS platform for personal trainers and their clients that centralizes the operations of a fitness business: students, invitations, plans, subscriptions, installments and payments, routines, exercises, and workout tracking, with dedicated trainer and student views across web and mobile. Modular backend built with Express and TypeScript on Prisma over PostgreSQL, JWT authentication with role-based access control, and a React frontend using Vite, TailwindCSS, Shadcn UI, Zustand, and React Query.",
+          "Korex is a multi-tenant SaaS platform for personal trainers and their clients that centralizes the operations of a fitness business: students, invitations, plans, subscriptions, installments and payments, routines, exercises, and workout tracking, with dedicated trainer and student views across web and mobile. Modular backend built with Express and TypeScript on Prisma over PostgreSQL, trainer-level data isolation, and a React 19 frontend using Vite, Tailwind CSS, and shadcn/ui.",
         impact:
-          "Digitizes the trainer's entire operation: a dashboard with metrics and expiration alerts, a routine builder with sets, RPE, and suggested weight, a student portal to log workouts and track progress, and automated emails and push notifications for payment reminders. It also includes a Telegram-based assistant with function calling to query data and execute system actions with confirmation.",
+          "Digitizes the trainer's entire operation: a dashboard with metrics and expiration alerts, a routine builder with sets, RPE, and suggested weight, a student portal to log workouts and track progress, automated emails and push notifications, and a Telegram assistant with function calling. In July 2026 it completed a full rebrand with a new name, logo, and visual identity.",
+      },
+    },
+  },
+  {
+    slug: "de-la-rosa-white-label-korex",
+    title: "De la Rosa App – Versión White-Label de Korex",
+    org: "Cliente: Franco De la Rosa",
+    orgTranslations: { es: "Cliente: Franco De la Rosa", en: "Client: Franco De la Rosa" },
+    role: "Fullstack",
+    period: {
+      es: "Ago. 2026 – actualidad",
+      en: "Aug. 2026 – present",
+    },
+    description:
+      "Instancia personalizada de Korex entregada al entrenador Franco De la Rosa, con identidad visual propia y un flujo de onboarding adaptado a su metodología, operando como un tenant más sobre la misma base de datos multi-tenant de Korex.",
+    impact:
+      "Validó en producción la capacidad de la arquitectura multi-tenant de Korex para escalar a nuevos clientes sin fork de código ni infraestructura separada.",
+    stack: ["React", "TypeScript", "Vite", "Tailwind CSS", "shadcn/ui", "Express.js", "Prisma", "PostgreSQL"],
+    images: [
+      {
+        src: "/delarosa.png",
+        alt: "Pantalla de login de De la Rosa App con fotografía e identidad visual propia",
+        width: 1693,
+        height: 859,
+      },
+      {
+        src: "/dlr1.png",
+        alt: "Dashboard de De la Rosa App con métricas, alumnos recientes y alertas",
+        width: 1702,
+        height: 820,
+      },
+      {
+        src: "/dlr2.png",
+        alt: "Listado de alumnos en De la Rosa App con filtros y estado de plan",
+        width: 1705,
+        height: 823,
+      },
+      {
+        src: "/dlr3.png",
+        alt: "Perfil de alumno en De la Rosa App con rutina asignada y parámetros de entrenamiento",
+        width: 1704,
+        height: 817,
+      },
+      {
+        src: "/dlr4.png",
+        alt: "Vista de progreso del alumno en De la Rosa App",
+        width: 1699,
+        height: 826,
+      },
+      {
+        src: "/dlr5.png",
+        alt: "Panel de cobros en De la Rosa App con cuotas y estados de pago",
+        width: 1702,
+        height: 826,
+      },
+      {
+        src: "/dlr6.png",
+        alt: "Gestión de rutinas en De la Rosa App",
+        width: 1705,
+        height: 819,
+      },
+    ],
+    translations: {
+      es: {
+        title: "De la Rosa App – Versión White-Label de Korex",
+        description:
+          "Instancia personalizada de Korex entregada al entrenador Franco De la Rosa, con identidad visual propia y un flujo de onboarding adaptado a su metodología, operando como un tenant más sobre la misma base de datos multi-tenant de Korex.",
+        impact:
+          "Validó en producción la capacidad de la arquitectura multi-tenant de Korex para escalar a nuevos clientes sin fork de código ni infraestructura separada.",
+      },
+      en: {
+        title: "De la Rosa App – White-Label Version of Korex",
+        description:
+          "A customized Korex instance delivered to personal trainer Franco De la Rosa, with its own visual identity and an onboarding flow adapted to his methodology, running as another tenant on Korex's shared multi-tenant database.",
+        impact:
+          "Validated in production that Korex's multi-tenant architecture can scale to new clients without forking the codebase or provisioning separate infrastructure.",
       },
     },
   },
@@ -134,7 +225,15 @@ export const projects: Project[] = [
     slug: "reporteapp-multi-company-accounting",
     title: "ReporteApp – Sistema Contable Multi-Empresa",
     org: "Grupo corporativo (construcción e inmobiliario)",
+    orgTranslations: {
+      es: "Grupo corporativo (construcción e inmobiliario)",
+      en: "Corporate group (construction and real estate)",
+    },
     role: "Fullstack",
+    period: {
+      es: "Mar. 2026 – actualidad",
+      en: "Mar. 2026 – present",
+    },
     description:
       "ReporteApp es un sistema de gestión contable multiempresa para un grupo del sector construcción e inmobiliario que opera cinco empresas en simultáneo. Centraliza la carga, validación y conciliación de datos contables mediante una API REST en Python con arquitectura cliente-servidor desacoplada, cálculo incremental del Libro Mayor por empresa y período, y sincronización en tiempo real con bases de datos externas de proyectos y presupuestos.",
     impact:
@@ -194,6 +293,10 @@ export const projects: Project[] = [
     title: "ConsorcioApp – Gestión Multiedificio",
     org: "ConsorcioApp",
     role: "Fullstack",
+    period: {
+      es: "Oct. – Dic. 2025",
+      en: "Oct. – Dec. 2025",
+    },
     description:
       "ConsorcioApp es una app web para administradores de edificios que concentra todo en un único panel: registro de edificios, unidades y responsables, emisión de liquidaciones mensuales, seguimiento de pagos y reportes resumidos con deuda abierta, morosidad y últimos movimientos.",
     impact:
@@ -260,6 +363,10 @@ export const projects: Project[] = [
     title: "Sistema de Gestión – Alenort",
     org: "Alenort",
     role: "Fullstack",
+    period: {
+      es: "Feb. – Abr. 2025",
+      en: "Feb. – Apr. 2025",
+    },
     description:
       "Plataforma web para automatizar ventas, inventario y procesos administrativos. Autenticación, control de roles, gestión de pedidos y trazabilidad.",
     impact: "Redujo tiempos administrativos y mejoró la trazabilidad de pedidos entre áreas.",
@@ -318,6 +425,10 @@ export const projects: Project[] = [
     title: "ChapulinaApp – Gestión de Stock",
     org: "Chapulina",
     role: "Fullstack",
+    period: {
+      es: "Oct. – Nov. 2025",
+      en: "Oct. – Nov. 2025",
+    },
     description:
       "Web app que centraliza el inventario de indumentaria por talle, ventas y catálogo público. Paneles con filtros, alertas de stock, gestión de vendedores y configuración de márgenes.",
     impact:
@@ -385,6 +496,10 @@ export const projects: Project[] = [
     title: "Landing Page – Oliva.Tuc",
     org: "Oliva.Tuc",
     role: "Frontend",
+    period: {
+      es: "Ago. 2025",
+      en: "Aug. 2025",
+    },
     description:
       "Landing page moderna y responsive para un emprendimiento de aceite de oliva. Incluye catálogo con carrito desplegable y editable, redirección a WhatsApp para finalizar compras, galería de imágenes y secciones informativas.",
     impact: "Mejoró la presencia digital del emprendimiento, facilitando la interacción con clientes y la gestión de pedidos en línea.",
@@ -504,50 +619,188 @@ export const stackIcons = {
   ],
 } as const
 
+export const technologyIcons: Record<string, string> = {
+  ...Object.fromEntries(Object.values(stackIcons).flat().map((tech) => [tech.label, tech.src])),
+  HTML: "/tech/html5-new.png",
+  CSS: "/tech/css3-uploaded.png",
+  FastAPI: "/tech/fastapi.svg",
+  PostgreSQL: "/tech/postgresql.svg",
+  Prisma: "/tech/prisma.svg",
+  "Firebase Authentication": "/tech/firebase.svg",
+  Firestore: "/tech/firebase.svg",
+  Zod: "/tech/zod.svg",
+  JWT: "/tech/jsonwebtokens.svg",
+  "GitHub Actions": "/tech/githubactions.svg",
+  Postman: "/tech/postman.svg",
+  "Thunder Client": "/tech/thunderclient.png",
+  "C#": "/tech/csharp.svg",
+  ".NET": "/tech/dotnetcore.svg",
+  "SQL Server": "/tech/microsoftsqlserver.svg",
+}
+
 export const education = [
-  {
-    program: "Ingeniería en Sistemas de Información",
-    institution: "UTN FRT – San Miguel de Tucumán",
-    status: "En curso",
-  },
   {
     program: "Tecnicatura en Programación",
     institution: "UTN FRT – San Miguel de Tucumán",
     status: "Graduado",
+    period: "2023 – mayo de 2025",
+  },
+  {
+    program: "Ingeniería en Sistemas de Información",
+    institution: "UTN FRT – San Miguel de Tucumán",
+    status: "Cursado pausado desde 2022",
+    period: "2020 – 2022",
   },
 ] as const
 
-export const trainings = [
+export type Training = {
+  title: string
+  provider: string
+  details?: string
+  certificate?: {
+    href: string
+    preview: string
+    width: number
+    height: number
+  }
+}
+
+const aiDevelopmentTraining: Training = {
+  title: "Iniciación al Desarrollo con IA – El Nuevo Programador",
+  provider: "BIG school · mouredev",
+  details: "Certificado de asistencia · 4 horas · 5 de octubre de 2026",
+  certificate: {
+    href: "/Certificado-Tomas-Varela-rsl3t6wy.pdf",
+    preview: "/certificado-desarrollo-ia.webp",
+    width: 2000,
+    height: 1545,
+  },
+}
+
+export const trainings: readonly Training[] = [
+  aiDevelopmentTraining,
   { title: "Python – Scientific Computing", provider: "freeCodeCamp" },
   { title: "Building AI Agents for beginners", provider: "Microsoft Learn" },
   { title: "Introducción a Microsoft Power Platform", provider: "Microsoft Learn" },
 ] as const
 
-export const technicalSkills = [
-  "JavaScript",
-  "HTML5",
-  "CSS3",
-  "C#",
-  "SQL",
-  "Python",
-  "MySQL",
-  "SQL Server",
-  "MongoDB",
-  "Firebase Firestore",
-  "React",
-  "Next.js",
-  "Node.js",
-  "Express",
-  "Tailwind CSS",
-  ".NET",
-  "Git",
-  "GitHub",
-  "Firebase",
-  "Visual Studio Code",
-  "Visual Studio",
-  "REST Client (Postman/Thunder)",
-  "Scrum",
-  "UML",
+export const technicalSkillGroups = [
+  {
+    id: "languages",
+    label: { es: "Lenguajes de programación", en: "Programming languages" },
+    items: ["TypeScript", "JavaScript", "Python", "SQL"],
+  },
+  {
+    id: "frontend",
+    label: { es: "Frontend", en: "Frontend" },
+    items: ["React", "Next.js", "HTML", "CSS", "Tailwind CSS"],
+  },
+  {
+    id: "backend",
+    label: { es: "Backend e integraciones", en: "Backend & integrations" },
+    items: ["Node.js", "Express", "FastAPI", "REST APIs", "JWT", "Firebase Authentication", "Zod"],
+  },
+  {
+    id: "data",
+    label: { es: "Bases de datos y ORM", en: "Databases & ORM" },
+    items: ["PostgreSQL", "MySQL", "MongoDB", "Firestore", "Prisma"],
+  },
+  {
+    id: "tools",
+    label: { es: "Herramientas", en: "Tools" },
+    items: ["Git", "GitHub", "GitHub Actions", "Postman", "Thunder Client"],
+  },
+  {
+    id: "methods",
+    label: { es: "Metodologías y modelado", en: "Methodologies & modeling" },
+    items: ["Scrum", "UML"],
+  },
+  {
+    id: "additional",
+    label: { es: "Conocimientos adicionales", en: "Additional knowledge" },
+    items: ["C#", ".NET", "SQL Server", "PHP", "WordPress"],
+  },
+] as const
+
+export const technicalSkills = technicalSkillGroups.flatMap((group) => [...group.items])
+
+export const cvExperience = [
+  {
+    slug: "korex-saas-training-platform",
+    stack: ["React", "TypeScript", "Node.js", "Express", "PostgreSQL", "Prisma", "JWT", "Google GenAI"],
+    es: {
+      title: "Korex – Plataforma SaaS para entrenadores personales",
+      highlights: [
+        "Desarrollo de una plataforma multi-tenant con aislamiento de datos por entrenador, gestión de alumnos, rutinas, suscripciones y seguimiento de pagos.",
+        "Implementación de emails, notificaciones push y un asistente de Telegram con integración de IA y function calling.",
+        "Entrega de De la Rosa App al cliente Franco De la Rosa sobre la misma plataforma, con marca y onboarding personalizados, sin duplicar código ni infraestructura.",
+      ],
+    },
+    en: {
+      title: "Korex – SaaS platform for personal trainers",
+      highlights: [
+        "Develop a multi-tenant platform with trainer-level data isolation, client management, workout plans, subscriptions, and payment tracking.",
+        "Implement email automation, push notifications, and a Telegram assistant with AI integration and function calling.",
+        "Delivered De la Rosa App to client Franco De la Rosa on the shared platform, with custom branding and onboarding, without duplicating code or infrastructure.",
+      ],
+    },
+  },
+  {
+    slug: "reporteapp-multi-company-accounting",
+    stack: ["Python", "FastAPI", "PostgreSQL", "Streamlit", "Power BI API", "GitHub Actions", "Render"],
+    es: {
+      title: "ReporteApp – Sistema contable multiempresa",
+      highlights: [
+        "Desarrollo de un sistema contable para un grupo de construcción e inmobiliario que opera cinco empresas, con API REST de 44 endpoints documentados en Swagger.",
+        "Automatización de la validación de asientos y conciliación entre sistemas, con detección de descuadres, cuentas inválidas y centros de costo faltantes.",
+        "Implementación del cálculo incremental del Libro Mayor, sincronización con bases externas y actualización automática de dashboards en Power BI.",
+      ],
+    },
+    en: {
+      title: "ReporteApp – Multi-company accounting system",
+      highlights: [
+        "Develop an accounting system for a construction and real estate group operating five companies, with a REST API exposing 44 Swagger-documented endpoints.",
+        "Automate journal-entry validation and reconciliation across systems, detecting unbalanced entries, invalid accounts, and missing cost centers.",
+        "Implement incremental General Ledger calculations, synchronization with external databases, and automatic Power BI dashboard updates.",
+      ],
+    },
+  },
+  {
+    slug: "consorcioapp-multisite-console",
+    stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Prisma", "PDFKit"],
+    es: {
+      title: "ConsorcioApp – Gestión multiedificio",
+      highlights: [
+        "Desarrollo de una aplicación para administrar edificios, unidades, liquidaciones mensuales y seguimiento de pagos desde un único panel.",
+        "Automatización de expensas, recargos y descuentos, generación de recibos PDF y reportes de deuda y morosidad.",
+      ],
+    },
+    en: {
+      title: "ConsorcioApp – Multi-building management",
+      highlights: [
+        "Built an application to manage buildings, units, monthly settlements, and payment tracking from a single dashboard.",
+        "Automated expense calculations, late fees, and discounts, with PDF receipts and outstanding-debt reports.",
+      ],
+    },
+  },
+] as const
+
+export const additionalCvProjects = [
+  {
+    slug: "chapulina-inventory-suite",
+    es: "Inventario por talles, alertas de stock y control de precios para una boutique. React, Node.js, Express y MongoDB.",
+    en: "Size-based inventory, stock alerts, and pricing controls for a boutique. React, Node.js, Express, and MongoDB.",
+  },
+  {
+    slug: "olivetuc-web",
+    es: "Catálogo responsive con carrito y pedidos por WhatsApp. Next.js, TypeScript y Tailwind CSS.",
+    en: "Responsive catalog with a shopping cart and WhatsApp ordering. Next.js, TypeScript, and Tailwind CSS.",
+  },
+  {
+    slug: "alenort-management-system",
+    es: "Gestión de ventas, inventario y pedidos con autenticación y control de roles. Next.js y Firebase.",
+    en: "Sales, inventory, and order management with authentication and role-based access. Next.js and Firebase.",
+  },
 ] as const
 
 export const softSkills = [
@@ -567,29 +820,12 @@ export const languages =  [
 export const translations = {
   es: {
     person: {
-      title: "Desarrollador Fullstack",
-      profile:
-        "Desarrollador Fullstack con base sólida en programación e ingeniería en sistemas. Experiencia construyendo aplicaciones web modernas con el stack JavaScript, bases de datos relacionales y no relacionales, y metodologías ágiles. Enfocado en mejora continua, calidad de código y soluciones centradas en el usuario.",
-      objectives:
-        "Contribuir como fullstack a productos de impacto, creando sistemas escalables y mantenibles con foco en la experiencia de usuario y la calidad de entrega. Abierto a roles full‑time y proyectos freelance.",
+      title: person.title,
+      profile: person.profile,
+      objectives: person.objectives,
     },
-    education: [
-      {
-        program: "Ingeniería en Sistemas de Información",
-        institution: "UTN FRT – San Miguel de Tucumán",
-        status: "En curso",
-      },
-      {
-        program: "Tecnicatura en Programación",
-        institution: "UTN FRT – San Miguel de Tucumán",
-        status: "Graduado",
-      },
-    ],
-    trainings: [
-      { title: "Python – Scientific Computing", provider: "freeCodeCamp" },
-      { title: "Building AI Agents for beginners", provider: "Microsoft Learn" },
-      { title: "Introducción a Microsoft Power Platform", provider: "Microsoft Learn" },
-    ],
+    education,
+    trainings,
     softSkills: [
       "Resolución de problemas",
       "Comunicación efectiva con equipos técnicos y no técnicos",
@@ -605,26 +841,33 @@ export const translations = {
   },
   en: {
     person: {
-      title: "Fullstack Developer",
+      title: "Full-Stack Developer",
       profile:
-        "Fullstack Developer with a strong background in programming and systems engineering. Experienced in developing modern web applications with solid command of the JavaScript stack, relational and non-relational databases, and agile methodologies. Passionate about continuous improvement, code quality, and creating user-centered digital solutions.",
+        "Freelance Full-Stack Developer since 2025, building client applications with React, TypeScript, Node.js, and Python. Develop multi-tenant SaaS platforms, REST APIs, and PostgreSQL integrations, from requirements discovery to deployment.",
       objectives:
-        "Contribute as a fullstack developer to impactful products, creating scalable and maintainable systems with focus on user experience and delivery quality. Open to full-time roles and freelance projects.",
+        "Open to full-time roles and freelance projects, focused on scalable, maintainable products centered on user experience.",
     },
     education: [
-      {
-        program: "Information Systems Engineering",
-        institution: "UTN FRT – San Miguel de Tucumán",
-        status: "In progress",
-      },
       {
         program: "Technical Degree in Programming",
         institution: "UTN FRT – San Miguel de Tucumán",
         status: "Graduated",
+        period: "2023 – May 2025",
+      },
+      {
+        program: "Information Systems Engineering",
+        institution: "UTN FRT – San Miguel de Tucumán",
+        status: "Studies on hold since 2022",
+        period: "2020 – 2022",
       },
      
     ],
     trainings: [
+      {
+        ...aiDevelopmentTraining,
+        title: "Introduction to AI-Assisted Development – El Nuevo Programador",
+        details: "Certificate of attendance · 4 hours · October 5, 2026",
+      },
       { title: "Python Course – Scientific Computing", provider: "freeCodeCamp" },
       { title: "Building AI Agents for beginners", provider: "Microsoft Learn" },
       { title: "Introduction to Microsoft Power Platform", provider: "Microsoft Learn" },

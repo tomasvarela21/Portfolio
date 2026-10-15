@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Github, Linkedin, Mail, Download } from "lucide-react"
+import { Github, Linkedin, Mail, Download, FileText } from "lucide-react"
 import { person, translations } from "@/lib/data"
 import { useLanguage } from "@/contexts/language-context"
 import Image from "next/image"
@@ -12,6 +12,20 @@ export default function Hero() {
   const [pos, setPos] = useState({ x: 0, y: 0 })
   const [spotlightEnabled, setSpotlightEnabled] = useState(true)
   const { language, t } = useLanguage()
+  const cvDownloads = [
+    {
+      href: "/Tomas_Varela_CV_es.pdf",
+      label: language === "es" ? "CV Español" : "Spanish CV",
+      meta: language === "es" ? "PDF actualizado" : "Updated PDF",
+      aria: language === "es" ? "Descargar CV en Español" : "Download CV in Spanish",
+    },
+    {
+      href: "/Tomas_Varela_CV_En.pdf",
+      label: language === "es" ? "CV Inglés" : "English CV",
+      meta: language === "es" ? "PDF actualizado" : "Updated PDF",
+      aria: language === "es" ? "Descargar CV en Inglés" : "Download CV in English",
+    },
+  ]
 
   useEffect(() => {
     const check = () => {
@@ -68,6 +82,9 @@ export default function Hero() {
           <Badge variant="outline" className="mb-4 border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300">
             {language === "es" ? "Disponible para oportunidades" : "Available for opportunities"}
           </Badge>
+          <Badge variant="outline" className="mb-4 ml-2 border-cyan-700/25 bg-cyan-700/10 text-cyan-800 dark:text-cyan-200">
+            {language === "es" ? "Freelance desde 2025" : "Freelancing since 2025"}
+          </Badge>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-foreground">
             {t("hero.greeting")}
             <span className="bg-gradient-to-r from-fuchsia-400 via-cyan-300 to-emerald-300 bg-clip-text text-transparent">
@@ -108,41 +125,32 @@ export default function Hero() {
             </Button>
           </div>
 
-          <div className="mt-3 flex flex-col sm:flex-row items-center justify-center md:justify-start gap-2">
-            <Button
-              asChild
-              variant="outline"
-              size="sm"
-              className="w-full sm:w-auto border-border bg-card text-muted-foreground hover:bg-accent hover:text-accent-foreground"
-            >
+          <div className="mt-4 grid w-full max-w-md grid-cols-1 gap-2 sm:grid-cols-2 md:max-w-lg">
+            {cvDownloads.map((cv) => (
               <a
-                href="/Tomas_Varela_CV_es.pdf"
+                key={cv.href}
+                href={cv.href}
                 download
-                aria-label={language === "es" ? "Descargar CV en Español" : "Download CV in Spanish"}
+                aria-label={cv.aria}
+                className="group relative flex min-h-16 items-center justify-between overflow-hidden rounded-md border border-[#17485a]/25 bg-white px-3.5 py-3 text-left text-[#102f3b] shadow-sm transition hover:-translate-y-0.5 hover:border-[#17485a]/50 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#17485a]/40 dark:border-cyan-200/20 dark:bg-neutral-950 dark:text-cyan-50 dark:hover:border-cyan-200/40"
               >
-                <Download className="mr-2 h-3 w-3" />
-                {language === "es" ? "CV Español" : "CV Spanish"}
+                <span className="absolute inset-x-3 top-2 h-px bg-[#17485a]/55 dark:bg-cyan-200/50" aria-hidden />
+                <span className="flex items-center gap-3 pt-1">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-sm border border-[#17485a]/20 bg-[#17485a]/5 dark:border-cyan-200/20 dark:bg-cyan-200/10">
+                    <FileText className="h-4 w-4" aria-hidden />
+                  </span>
+                  <span>
+                    <span className="block text-xs font-bold uppercase leading-none tracking-normal">{cv.label}</span>
+                    <span className="mt-1 block text-[11px] text-[#51656e] dark:text-cyan-100/70">{cv.meta}</span>
+                  </span>
+                </span>
+                <Download className="h-4 w-4 opacity-65 transition group-hover:translate-y-0.5 group-hover:opacity-100" aria-hidden />
               </a>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="sm"
-              className="w-full sm:w-auto border-border bg-card text-muted-foreground hover:bg-accent hover:text-accent-foreground"
-            >
-              <a
-                href="/Tomas_Varela_CV_En.pdf"
-                download
-                aria-label={language === "es" ? "Descargar CV en Inglés" : "Download CV in English"}
-              >
-                <Download className="mr-2 h-3 w-3" />
-                {language === "es" ? "CV Inglés" : "CV English"}
-              </a>
-            </Button>
+            ))}
           </div>
 
           <div className="mt-6 flex flex-wrap justify-center md:justify-start gap-2">
-            {["Next.js", "React", "Node.js", "TypeScript", "MySQL", "Firebase", "Tailwind CSS"].map((s) => (
+            {["React", "TypeScript", "Node.js", "PostgreSQL", "Python", "Next.js", "Tailwind CSS"].map((s) => (
               <span
                 key={s}
                 className="rounded-full border border-border bg-card/80 px-2.5 sm:px-3 py-1 text-xs sm:text-sm text-muted-foreground"

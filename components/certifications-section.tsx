@@ -43,7 +43,7 @@ export default function CertificationsSection() {
                 <div>
                   <p className="font-medium">{e.program}</p>
                   <p className="text-sm text-muted-foreground">
-                    {e.institution} • {e.status}
+                    {e.institution} • {e.status} • {e.period}
                   </p>
                 </div>
               </li>

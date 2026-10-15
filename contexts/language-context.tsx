@@ -24,9 +24,9 @@ const translations = {
 
     // Hero
     "hero.greeting": "Hola, soy",
-    "hero.role": "Desarrollador Fullstack",
+    "hero.role": "Desarrollador Full Stack",
     "hero.description":
-      "Desarrollador con experiencia en JavaScript, React, Node.js y bases de datos. Apasionado por crear soluciones digitales centradas en el usuario.",
+      "Desarrollador Full Stack freelance desde 2025. Construyo aplicaciones para clientes con React, TypeScript, Node.js y Python, desde el relevamiento hasta el despliegue.",
     "hero.location": "San Miguel de Tucumán, Argentina",
 
     // Technologies
@@ -54,7 +54,11 @@ const translations = {
     // Certifications
     "cert.title": "Certificados y aprendiendo...",
     "cert.subtitle": "Formación complementaria y tecnologías que estoy explorando.",
-    "cert.additional-training": "Formación Adicional",
+    "cert.additional-training": "Formación y Certificaciones",
+    "cert.view": "Ver certificado",
+    "cert.hide": "Ocultar certificado",
+    "cert.open": "Abrir PDF",
+    "cert.download": "Descargar certificado",
 
     // Contact
     "contact.title": "Contacto",
@@ -77,9 +81,9 @@ const translations = {
 
     // Hero
     "hero.greeting": "Hi, I'm",
-    "hero.role": "Fullstack Developer",
+    "hero.role": "Full-Stack Developer",
     "hero.description":
-      "Developer with experience in JavaScript, React, Node.js and databases. Passionate about creating user-centered digital solutions.",
+      "Freelance Full-Stack Developer since 2025. I build client applications with React, TypeScript, Node.js, and Python, from requirements discovery to deployment.",
     "hero.location": "San Miguel de Tucumán, Argentina",
 
     // Technologies
@@ -107,7 +111,11 @@ const translations = {
     // Certifications
     "cert.title": "Certifications and learning...",
     "cert.subtitle": "Complementary training and technologies I'm exploring.",
-    "cert.additional-training": "Additional Training",
+    "cert.additional-training": "Training & Certifications",
+    "cert.view": "View certificate",
+    "cert.hide": "Hide certificate",
+    "cert.open": "Open PDF",
+    "cert.download": "Download certificate",
 
     // Contact
     "contact.title": "Contact",

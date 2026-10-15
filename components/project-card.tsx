@@ -5,7 +5,7 @@ import { createPortal } from "react-dom"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Github, ExternalLink, ChevronLeft, ChevronRight, X } from "lucide-react"
+import { Github, ExternalLink, ChevronLeft, ChevronRight, X, CalendarDays } from "lucide-react"
 import Image from "next/image"
 import type { Project } from "@/lib/data"
 import { useLanguage } from "@/contexts/language-context"
@@ -48,6 +48,7 @@ export default function ProjectCard({ project = defaultProject }: ProjectCardPro
     description: project.description,
     impact: project.impact,
   }
+  const projectMeta = [project.role, project.orgTranslations?.[language] ?? project.org].filter(Boolean).join(" · ")
 
   useEffect(() => {
     setActiveImage(0)
@@ -108,7 +109,15 @@ export default function ProjectCard({ project = defaultProject }: ProjectCardPro
           <CardTitle className="flex items-start justify-between gap-3 text-foreground text-base sm:text-lg">
             <span className="leading-tight">{localizedCopy.title}</span>
           </CardTitle>
-          {project.role ? <p className="text-xs text-muted-foreground">{project.role}</p> : null}
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted-foreground">
+            {projectMeta ? <span>{projectMeta}</span> : null}
+            {project.period ? (
+              <span className="inline-flex items-center gap-1 font-medium text-foreground/80">
+                <CalendarDays className="h-3.5 w-3.5" aria-hidden />
+                {project.period[language]}
+              </span>
+            ) : null}
+          </div>
         </CardHeader>
         <CardContent className="space-y-4 p-4 sm:p-6 pt-0">
           <div className="relative aspect-[16/9] w-full overflow-hidden rounded-md ring-1 ring-border">

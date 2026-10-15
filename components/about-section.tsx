@@ -2,7 +2,7 @@
 
 import { Card, CardContent } from "@/components/ui/card"
 import { useLanguage } from "@/contexts/language-context"
-import { translations } from "@/lib/data"
+import { freelanceExperience, translations } from "@/lib/data"
 
 export default function AboutSection() {
   const { language, t } = useLanguage()
@@ -19,6 +19,16 @@ export default function AboutSection() {
               {translations[language].person.objectives}
             </p>
           </div>
+          <div className="mt-4 rounded-md border border-[#17485a]/25 bg-card p-4 shadow-sm dark:border-cyan-200/20">
+            <p className="text-xs font-bold uppercase text-[#17485a] dark:text-cyan-200">
+              {language === "es" ? "Trabajo actual" : "Current Work"}
+            </p>
+            <p className="mt-2 font-medium text-foreground">{freelanceExperience[language].title}</p>
+            <p className="text-sm text-muted-foreground">
+              {freelanceExperience[language].period} · {freelanceExperience[language].location}
+            </p>
+            <p className="mt-2 text-sm text-muted-foreground">{freelanceExperience[language].description}</p>
+          </div>
         </div>
         <div className="space-y-6">
           <div>
@@ -28,7 +38,7 @@ export default function AboutSection() {
                 <li key={index}>
                   <p className="font-medium text-foreground">{e.program}</p>
                   <p className="text-sm text-muted-foreground">
-                    {e.institution} • {e.status}
+                    {e.institution} • {e.status} • {e.period}
                   </p>
                 </li>
               ))}
