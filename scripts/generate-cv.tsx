@@ -21,7 +21,7 @@ const labels: Record<Lang, Record<string, string>> = {
   es: {
     profile: "Perfil Profesional",
     skills: "Habilidades Técnicas",
-    experience: "Experiencia y Proyectos",
+    experience: "Experiencia y proyectos seleccionados",
     education: "Educación",
     trainings: "Cursos y Certificaciones",
     languages: "Idiomas",
@@ -31,7 +31,7 @@ const labels: Record<Lang, Record<string, string>> = {
   en: {
     profile: "Professional Summary",
     skills: "Technical Skills",
-    experience: "Experience & Projects",
+    experience: "Experience & Selected Projects",
     education: "Education",
     trainings: "Courses & Certifications",
     languages: "Languages",
@@ -167,6 +167,7 @@ function CVDocument({ lang }: { lang: Lang }) {
   const l = labels[lang]
   const freelance = freelanceExperience[lang]
   const contactLinks = [
+    { href: `tel:${person.phone}`, text: person.phone },
     { href: `mailto:${person.email}`, text: person.email },
     { href: person.linkedin, text: stripProtocol(person.linkedin) },
     { href: person.github, text: stripProtocol(person.github) },
@@ -185,14 +186,16 @@ function CVDocument({ lang }: { lang: Lang }) {
         <Text style={styles.name}>{person.name}</Text>
         <Text style={styles.title}>{t.person.title}</Text>
         <Text style={styles.contactLine}>{person.location}</Text>
-        <Text style={styles.contactLine}>
-          {contactLinks.map((contact, index) => (
-            <React.Fragment key={contact.href}>
-              {index > 0 ? "  |  " : null}
-              <Link src={contact.href} style={styles.contactLink}>{contact.text}</Link>
-            </React.Fragment>
-          ))}
-        </Text>
+        {[contactLinks.slice(0, 2), contactLinks.slice(2)].map((group) => (
+          <Text key={group[0].href} style={styles.contactLine}>
+            {group.map((contact, index) => (
+              <React.Fragment key={contact.href}>
+                {index > 0 ? "  |  " : null}
+                <Link src={contact.href} style={styles.contactLink}>{contact.text}</Link>
+              </React.Fragment>
+            ))}
+          </Text>
+        ))}
 
         <View style={styles.section}>
           <Text style={styles.sectionTitle} minPresenceAhead={45}>{l.profile}</Text>
@@ -202,7 +205,7 @@ function CVDocument({ lang }: { lang: Lang }) {
         <View style={styles.section}>
           <Text style={styles.sectionTitle} minPresenceAhead={45}>{l.skills}</Text>
           {technicalSkillGroups.map((group) => (
-            <Text key={group.id} style={styles.listLine} wrap={false}>
+            <Text key={group.id} style={styles.listLine}>
               <Text style={styles.bold}>{group.label[lang]}: </Text>
               {group.items.map((item) => item === "REST APIs" && lang === "es" ? "APIs REST" : item).join(", ")}
             </Text>
@@ -218,6 +221,12 @@ function CVDocument({ lang }: { lang: Lang }) {
             </View>
             <Text style={styles.itemSubtitle}>{freelance.location}</Text>
             <Text style={styles.itemText}>{freelance.description}</Text>
+            {freelance.highlights.map((highlight) => (
+              <View key={highlight} style={styles.bullet}>
+                <Text style={styles.bulletMarker}>•</Text>
+                <Text style={styles.bulletText}>{highlight}</Text>
+              </View>
+            ))}
           </View>
           {cvExperience.map((experience) => {
             const project = getProject(experience.slug)
@@ -277,13 +286,18 @@ function CVDocument({ lang }: { lang: Lang }) {
 
         <View style={styles.section}>
           <Text style={styles.sectionTitle} minPresenceAhead={50}>{l.trainings}</Text>
-          {t.trainings.map((training: Training) => (
-            <View key={training.title} style={styles.eduBlock} wrap={false}>
-              <Text style={styles.listLine}>
-                {training.title} — {training.provider}
-              </Text>
-              {training.details ? <Text style={styles.itemMeta}>{training.details}</Text> : null}
-            </View>
+          {t.trainings.map((training: Training, index: number) => (
+            <React.Fragment key={training.title}>
+              {training.category && t.trainings[index - 1]?.category?.[lang] !== training.category[lang] ? (
+                <Text style={[styles.listLine, styles.bold]}>{training.category[lang]}</Text>
+              ) : null}
+              <View style={styles.eduBlock} wrap={false}>
+                <Text style={styles.listLine}>
+                  {training.title} — {training.provider}
+                </Text>
+                {training.details ? <Text style={styles.itemMeta}>{training.details}</Text> : null}
+              </View>
+            </React.Fragment>
           ))}
         </View>
 

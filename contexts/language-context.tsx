@@ -24,9 +24,9 @@ const translations = {
 
     // Hero
     "hero.greeting": "Hola, soy",
-    "hero.role": "Desarrollador Full Stack",
+    "hero.role": "Desarrollador Full-Stack Nativo en IA",
     "hero.description":
-      "Desarrollador Full Stack freelance desde 2025. Construyo aplicaciones para clientes con React, TypeScript, Node.js y Python, desde el relevamiento hasta el despliegue.",
+      "Soy desarrollador full-stack independiente, actualmente orientando mi carrera hacia la ingeniería en IA. Construyo plataformas SaaS y APIs, pero lo que realmente define mi día a día es el uso de agentes de IA (como Claude Code, Codex y OpenCode) para programar y lanzar proyectos mucho más rápido. Aprendo creando cosas nuevas, y ahora mismo estoy metido de lleno estudiando LLMs, RAG y flujos de trabajo con agentes por mi cuenta.",
     "hero.location": "San Miguel de Tucumán, Argentina",
 
     // Technologies
@@ -45,7 +45,7 @@ const translations = {
     // About
     "about.title": "Sobre mí",
     "about.subtitle": "Formación, enfoque y objetivos.",
-    "about.profile": "Perfil Profesional",
+    "about.profile": "Cómo trabajo",
     "about.objectives": "Objetivos",
     "about.education": "Educación",
     "about.skills": "Habilidades Blandas",
@@ -81,9 +81,9 @@ const translations = {
 
     // Hero
     "hero.greeting": "Hi, I'm",
-    "hero.role": "Full-Stack Developer",
+    "hero.role": "AI-Native Full-Stack Developer",
     "hero.description":
-      "Freelance Full-Stack Developer since 2025. I build client applications with React, TypeScript, Node.js, and Python, from requirements discovery to deployment.",
+      "I'm a freelance full-stack developer currently shifting my focus toward AI engineering. I build multi-tenant SaaS platforms and APIs, but what really drives my workflow right now is using AI agents (like Claude Code, Codex, and OpenCode) to ship code faster—from the first idea to deployment. I learn by building, and right now I'm deep diving into LLMs, RAG, and agentic workflows on my own.",
     "hero.location": "San Miguel de Tucumán, Argentina",
 
     // Technologies
@@ -102,7 +102,7 @@ const translations = {
     // About
     "about.title": "About Me",
     "about.subtitle": "Education, approach and goals.",
-    "about.profile": "Professional Profile",
+    "about.profile": "How I Work",
     "about.objectives": "Objectives",
     "about.education": "Education",
     "about.skills": "Soft Skills",

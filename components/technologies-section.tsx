@@ -1,9 +1,9 @@
 "use client"
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { BookOpen, Code2, Database, Layers, Rocket, Workflow, Wrench, Network, Shapes } from "lucide-react"
+import { BookOpen, Bot, Code2, Database, Layers, Workflow, Wrench, Network, Shapes } from "lucide-react"
 import Image from "next/image"
-import { stackIcons, technicalSkillGroups, technologyIcons } from "@/lib/data"
+import { technicalSkillGroups, technologyIcons } from "@/lib/data"
 import { useLanguage } from "@/contexts/language-context"
 
 const groupIcons = {
@@ -14,6 +14,7 @@ const groupIcons = {
   tools: Wrench,
   methods: Workflow,
   additional: BookOpen,
+  "ai-agentic": Bot,
 }
 
 const skillIcons: Record<string, typeof Code2> = {
@@ -66,7 +67,7 @@ function TechCard({ title, icon: Icon, items }: TechCardProps) {
 }
 
 export default function TechnologiesSection() {
-  const { language, t } = useLanguage()
+  const { language } = useLanguage()
 
   return (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6">
@@ -78,11 +79,6 @@ export default function TechnologiesSection() {
           items={group.items.map((item) => item === "REST APIs" && language === "es" ? "APIs REST" : item)}
         />
       ))}
-      <TechCard
-        title={t("tech.learning")}
-        icon={Rocket}
-        items={stackIcons.learning.map((tech) => tech.label)}
-      />
     </div>
   )
 }

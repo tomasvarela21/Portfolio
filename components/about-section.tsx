@@ -12,7 +12,7 @@ export default function AboutSection() {
       <CardContent className="grid gap-6 p-6 md:grid-cols-2">
         <div>
           <h3 className="text-xl font-semibold text-foreground">{t("about.profile")}</h3>
-          <p className="mt-2 text-muted-foreground">{translations[language].person.profile}</p>
+          <p className="mt-2 text-muted-foreground">{translations[language].person.about}</p>
           <div className="mt-4 rounded-md border border-border bg-muted/40 p-4">
             <p className="text-sm text-muted-foreground">
               <span className="font-medium text-foreground">{t("about.objectives")}: </span>
@@ -28,6 +28,11 @@ export default function AboutSection() {
               {freelanceExperience[language].period} · {freelanceExperience[language].location}
             </p>
             <p className="mt-2 text-sm text-muted-foreground">{freelanceExperience[language].description}</p>
+            <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-muted-foreground">
+              {freelanceExperience[language].highlights.map((highlight) => (
+                <li key={highlight}>{highlight}</li>
+              ))}
+            </ul>
           </div>
         </div>
         <div className="space-y-6">

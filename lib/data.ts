@@ -1,13 +1,14 @@
 export const person = {
   name: "Tomás Varela",
-  title: "Desarrollador Full Stack",
+  title: "Desarrollador Full-Stack | Ingeniería en IA",
   location: "San Miguel de Tucumán, Argentina",
+  phone: "+543816832948",
   email: "tomas.varelaa19@gmail.com",
   linkedin: "https://www.linkedin.com/in/tomasvarela7/",
   github: "https://github.com/tomasvarela21",
   portfolio: "https://portfolio-hc4q-tau.vercel.app/",
   profile:
-    "Desarrollador Full Stack freelance desde 2025, con experiencia construyendo aplicaciones para clientes con React, TypeScript, Node.js y Python. Desarrollo plataformas SaaS multiempresa, APIs REST e integraciones sobre PostgreSQL, desde el relevamiento hasta el despliegue.",
+    "Soy desarrollador full-stack independiente, actualmente orientando mi carrera hacia la ingeniería en IA. Construyo plataformas SaaS y APIs, pero lo que realmente define mi día a día es el uso de agentes de IA (como Claude Code, Codex y OpenCode) para programar y lanzar proyectos mucho más rápido. Aprendo creando cosas nuevas, y ahora mismo estoy metido de lleno estudiando LLMs, RAG y flujos de trabajo con agentes por mi cuenta.",
   objectives:
     "Abierto a roles full-time y proyectos freelance, con foco en productos escalables, mantenibles y centrados en la experiencia de usuario.",
 } as const
@@ -43,11 +44,14 @@ export type Project = {
 
 export const freelanceExperience = {
   es: {
-    title: "Desarrollador Full Stack Freelance",
+    title: "Desarrollador Full-Stack Freelance",
     location: "San Miguel de Tucumán, Argentina (remoto)",
     period: "Feb. 2025 – actualidad",
     description:
       "Desarrollo de aplicaciones web a medida para distintos clientes, cubriendo todo el ciclo: relevamiento de requerimientos, arquitectura, desarrollo full stack y despliegue.",
+    highlights: [
+      "Uso herramientas de IA como Claude Code y OpenCode todos los días para acelerar el desarrollo de nuevas funciones, testing y diseño de arquitectura.",
+    ],
   },
   en: {
     title: "Freelance Full-Stack Developer",
@@ -55,6 +59,9 @@ export const freelanceExperience = {
     period: "Feb. 2025 – present",
     description:
       "Develop custom web applications for clients, from requirements discovery and architecture to full-stack development and deployment.",
+    highlights: [
+      "I rely on AI coding tools like Claude Code and OpenCode daily to speed up how I write features, test them, and structure the architecture.",
+    ],
   },
 } as const
 
@@ -70,7 +77,7 @@ export const projects: Project[] = [
     description:
       "Korex es una plataforma SaaS multi-tenant para entrenadores personales y alumnos que centraliza la gestión operativa de un negocio fitness: alumnos, invitaciones, planes, suscripciones, cuotas y pagos, rutinas, ejercicios y seguimiento de entrenamientos, con vistas diferenciadas para trainer y estudiante en web y móvil. Backend modular en Express y TypeScript con Prisma sobre PostgreSQL, aislamiento de datos por trainer y frontend en React 19, Vite, Tailwind CSS y shadcn/ui.",
     impact:
-      "Digitaliza la operación completa del entrenador: dashboard con métricas y alertas de vencimiento, constructor de rutinas con series, RPE y peso sugerido, portal del alumno para registrar entrenamientos y ver su progreso, automatización de emails y notificaciones push, y asistente vía Telegram con function calling. En julio de 2026 completó un rebranding integral con nuevo nombre, logo e identidad de marca.",
+      "Creé un asistente de IA en Telegram usando 'function calling' y system prompts estrictos. Se conecta directo al backend para gestionar las interacciones entre entrenador y cliente, además de manejar emails y notificaciones automáticas.",
     stack: [
       "React",
       "TypeScript",
@@ -134,14 +141,40 @@ export const projects: Project[] = [
         description:
           "Korex es una plataforma SaaS multi-tenant para entrenadores personales y alumnos que centraliza la gestión operativa de un negocio fitness: alumnos, invitaciones, planes, suscripciones, cuotas y pagos, rutinas, ejercicios y seguimiento de entrenamientos, con vistas diferenciadas para trainer y estudiante en web y móvil. Backend modular en Express y TypeScript con Prisma sobre PostgreSQL, aislamiento de datos por trainer y frontend en React 19, Vite, Tailwind CSS y shadcn/ui.",
         impact:
-          "Digitaliza la operación completa del entrenador: dashboard con métricas y alertas de vencimiento, constructor de rutinas con series, RPE y peso sugerido, portal del alumno para registrar entrenamientos y ver su progreso, automatización de emails y notificaciones push, y asistente vía Telegram con function calling. En julio de 2026 completó un rebranding integral con nuevo nombre, logo e identidad de marca.",
+          "Creé un asistente de IA en Telegram usando 'function calling' y system prompts estrictos. Se conecta directo al backend para gestionar las interacciones entre entrenador y cliente, además de manejar emails y notificaciones automáticas.",
       },
       en: {
         title: "Korex – SaaS Platform for Personal Trainers",
         description:
           "Korex is a multi-tenant SaaS platform for personal trainers and their clients that centralizes the operations of a fitness business: students, invitations, plans, subscriptions, installments and payments, routines, exercises, and workout tracking, with dedicated trainer and student views across web and mobile. Modular backend built with Express and TypeScript on Prisma over PostgreSQL, trainer-level data isolation, and a React 19 frontend using Vite, Tailwind CSS, and shadcn/ui.",
         impact:
-          "Digitizes the trainer's entire operation: a dashboard with metrics and expiration alerts, a routine builder with sets, RPE, and suggested weight, a student portal to log workouts and track progress, automated emails and push notifications, and a Telegram assistant with function calling. In July 2026 it completed a full rebrand with a new name, logo, and visual identity.",
+          "Built a Telegram AI assistant for the platform using function calling and strict system prompts. It hooks directly into the backend to manage trainer-client interactions, alongside automated emails and push notifications.",
+      },
+    },
+  },
+  {
+    slug: "ai-web-demo-generator",
+    title: "Generador de Demos Web con IA",
+    description:
+      "Diseñé un flujo de trabajo comercial automatizado usando Codex y agentes de IA para generar autónomamente demos web funcionales para negocios locales sin presencia digital, extrayendo datos directamente de sus perfiles de Instagram y Google Business para ofrecer servicios de SEO y diseño web.",
+    impact:
+      "Diseñé un flujo de trabajo comercial automatizado usando Codex y agentes de IA para generar autónomamente demos web funcionales para negocios locales sin presencia digital, extrayendo datos directamente de sus perfiles de Instagram y Google Business para ofrecer servicios de SEO y diseño web.",
+    stack: ["Codex", "AI Agents", "Web Automation"],
+    images: [],
+    translations: {
+      es: {
+        title: "Generador de Demos Web con IA",
+        description:
+          "Diseñé un flujo de trabajo comercial automatizado usando Codex y agentes de IA para generar autónomamente demos web funcionales para negocios locales sin presencia digital, extrayendo datos directamente de sus perfiles de Instagram y Google Business para ofrecer servicios de SEO y diseño web.",
+        impact:
+          "Diseñé un flujo de trabajo comercial automatizado usando Codex y agentes de IA para generar autónomamente demos web funcionales para negocios locales sin presencia digital, extrayendo datos directamente de sus perfiles de Instagram y Google Business para ofrecer servicios de SEO y diseño web.",
+      },
+      en: {
+        title: "AI Web Demo Generator",
+        description:
+          "Engineered an automated business workflow using Codex and AI agents to autonomously generate functional website demos for local businesses without a web presence, extracting data directly from their Instagram profiles and Google Business listings to offer SEO and web design services.",
+        impact:
+          "Engineered an automated business workflow using Codex and AI agents to autonomously generate functional website demos for local businesses without a web presence, extracting data directly from their Instagram profiles and Google Business listings to offer SEO and web design services.",
       },
     },
   },
@@ -603,11 +636,6 @@ export const stackIcons = {
     { label: "MySQL", src: "/tech/mysql-uploaded.png" },
     { label: "MongoDB", src: "/tech/mongodb-uploaded.png" },
   ],
-  learning: [
-    { label: "Astro", src: "/tech/astro-uploaded.png" },
-    { label: "Docker", src: "/tech/docker-uploaded.png" },
-    // Removed TypeScript (moved to frontend) and Python (moved to backend)
-  ],
   tools: [
     { label: "Git", src: "/tech/git-new.png" },
     { label: "GitHub", src: "/tech/github-new.png" },
@@ -657,6 +685,7 @@ export type Training = {
   title: string
   provider: string
   details?: string
+  category?: { es: string; en: string }
   certificate?: {
     href: string
     preview: string
@@ -664,6 +693,40 @@ export type Training = {
     height: number
   }
 }
+
+const selfTaughtAiCategory = {
+  es: "Ingeniería en IA y Desarrollo con Agentes (Autodidacta)",
+  en: "AI Engineering & Agentic Development (Self-Taught)",
+} as const
+
+const selfTaughtAiTrainings: readonly Training[] = [
+  {
+    title: "AI Engineering for Programmers",
+    provider: "DataCamp",
+    details: "Cursando actualmente",
+    category: selfTaughtAiCategory,
+  },
+  {
+    title: "Agentic Workflows & OpenCode",
+    provider: "Midudev",
+    category: selfTaughtAiCategory,
+  },
+  {
+    title: "Web Development with AI (Streaming & Integrations)",
+    provider: "Midudev",
+    category: selfTaughtAiCategory,
+  },
+  {
+    title: "Introduction to AI for Developers (MCPs & LLM Fundamentals)",
+    provider: "Midudev",
+    category: selfTaughtAiCategory,
+  },
+  {
+    title: "Building AI Agents for Beginners",
+    provider: "Microsoft Learn",
+    category: selfTaughtAiCategory,
+  },
+] as const
 
 const aiDevelopmentTraining: Training = {
   title: "Iniciación al Desarrollo con IA – El Nuevo Programador",
@@ -679,10 +742,21 @@ const aiDevelopmentTraining: Training = {
 
 export const trainings: readonly Training[] = [
   aiDevelopmentTraining,
-  { title: "Python – Scientific Computing", provider: "freeCodeCamp" },
-  { title: "Building AI Agents for beginners", provider: "Microsoft Learn" },
-  { title: "Introducción a Microsoft Power Platform", provider: "Microsoft Learn" },
+  ...selfTaughtAiTrainings,
 ] as const
+
+const englishTrainings: readonly Training[] = [
+  {
+    ...aiDevelopmentTraining,
+    title: "Introduction to AI-Assisted Development – El Nuevo Programador",
+    details: "Certificate of attendance · 4 hours · October 5, 2026",
+  },
+  ...selfTaughtAiTrainings.map((training) =>
+    training.title === "AI Engineering for Programmers"
+      ? { ...training, details: "Currently enrolled" }
+      : training,
+  ),
+]
 
 export const technicalSkillGroups = [
   {
@@ -720,6 +794,20 @@ export const technicalSkillGroups = [
     label: { es: "Conocimientos adicionales", en: "Additional knowledge" },
     items: ["C#", ".NET", "SQL Server", "PHP", "WordPress"],
   },
+  {
+    id: "ai-agentic",
+    label: { es: "Herramientas de IA y Agentes", en: "AI & Agentic Tools" },
+    items: [
+      "OpenCode",
+      "Claude Code",
+      "Model Context Protocol (MCP)",
+      "RAG",
+      "Prompt Engineering",
+      "AI Agents",
+      "OpenAI API",
+      "LLMs",
+    ],
+  },
 ] as const
 
 export const technicalSkills = technicalSkillGroups.flatMap((group) => [...group.items])
@@ -732,7 +820,7 @@ export const cvExperience = [
       title: "Korex – Plataforma SaaS para entrenadores personales",
       highlights: [
         "Desarrollo de una plataforma multi-tenant con aislamiento de datos por entrenador, gestión de alumnos, rutinas, suscripciones y seguimiento de pagos.",
-        "Implementación de emails, notificaciones push y un asistente de Telegram con integración de IA y function calling.",
+        "Creé un asistente de IA en Telegram usando 'function calling' y system prompts estrictos. Se conecta directo al backend para gestionar las interacciones entre entrenador y cliente, además de manejar emails y notificaciones automáticas.",
         "Entrega de De la Rosa App al cliente Franco De la Rosa sobre la misma plataforma, con marca y onboarding personalizados, sin duplicar código ni infraestructura.",
       ],
     },
@@ -740,7 +828,7 @@ export const cvExperience = [
       title: "Korex – SaaS platform for personal trainers",
       highlights: [
         "Develop a multi-tenant platform with trainer-level data isolation, client management, workout plans, subscriptions, and payment tracking.",
-        "Implement email automation, push notifications, and a Telegram assistant with AI integration and function calling.",
+        "Built a Telegram AI assistant for the platform using function calling and strict system prompts. It hooks directly into the backend to manage trainer-client interactions, alongside automated emails and push notifications.",
         "Delivered De la Rosa App to client Franco De la Rosa on the shared platform, with custom branding and onboarding, without duplicating code or infrastructure.",
       ],
     },
@@ -822,6 +910,8 @@ export const translations = {
     person: {
       title: person.title,
       profile: person.profile,
+      about:
+        "En los proyectos procuro comprender primero cómo trabaja el negocio y traducir esas necesidades en herramientas claras y mantenibles. Esa forma de trabajo se refleja en productos como Korex, una plataforma SaaS multi-tenant para entrenadores, y ReporteApp, un sistema contable para varias empresas. Me involucro en las decisiones técnicas y en la implementación, cuidando que la solución sea útil además de funcionar.",
       objectives: person.objectives,
     },
     education,
@@ -841,9 +931,11 @@ export const translations = {
   },
   en: {
     person: {
-      title: "Full-Stack Developer",
+      title: "Full-Stack Developer | AI Engineering",
       profile:
-        "Freelance Full-Stack Developer since 2025, building client applications with React, TypeScript, Node.js, and Python. Develop multi-tenant SaaS platforms, REST APIs, and PostgreSQL integrations, from requirements discovery to deployment.",
+        "I'm a freelance full-stack developer currently shifting my focus toward AI engineering. I build multi-tenant SaaS platforms and APIs, but what really drives my workflow right now is using AI agents (like Claude Code, Codex, and OpenCode) to ship code faster—from the first idea to deployment. I learn by building, and right now I'm deep diving into LLMs, RAG, and agentic workflows on my own.",
+      about:
+        "I start by understanding how a business operates and translating its needs into clear, maintainable software. That approach is reflected in products such as Korex, a multi-tenant SaaS platform for personal trainers, and ReporteApp, an accounting system for a multi-company group. I stay involved in both technical decisions and implementation, with a focus on building solutions that are useful as well as functional.",
       objectives:
         "Open to full-time roles and freelance projects, focused on scalable, maintainable products centered on user experience.",
     },
@@ -862,16 +954,7 @@ export const translations = {
       },
      
     ],
-    trainings: [
-      {
-        ...aiDevelopmentTraining,
-        title: "Introduction to AI-Assisted Development – El Nuevo Programador",
-        details: "Certificate of attendance · 4 hours · October 5, 2026",
-      },
-      { title: "Python Course – Scientific Computing", provider: "freeCodeCamp" },
-      { title: "Building AI Agents for beginners", provider: "Microsoft Learn" },
-      { title: "Introduction to Microsoft Power Platform", provider: "Microsoft Learn" },
-    ],
+    trainings: englishTrainings,
     softSkills: [
       "Strong problem-solving skills",
       "Effective communication with both technical and non-technical stakeholders",
