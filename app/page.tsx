@@ -23,7 +23,6 @@ export default function Page() {
     "chapulina-inventory-suite",
     "olivetuc-web",
     "alenort-management-system",
-    "fitapp-virtual-fitness-assistant",
   ]
   const orderedProjects = projectOrder
     .map((slug) => projects.find((project) => project.slug === slug))

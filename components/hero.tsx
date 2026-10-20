@@ -80,7 +80,7 @@ export default function Hero() {
       <div className="mx-auto grid max-w-6xl items-center gap-6 sm:gap-8 px-4 py-12 sm:py-16 md:py-24 grid-cols-1 md:grid-cols-[1.25fr_0.75fr]">
         <div className="relative text-center md:text-left">
           <Badge variant="outline" className="mb-4 border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300">
-            {language === "es" ? "Disponible para oportunidades" : "Available for opportunities"}
+            {language === "es" ? "Disponible para oportunidades" : "Open to new opportunities"}
           </Badge>
           <Badge variant="outline" className="mb-4 ml-2 border-cyan-700/25 bg-cyan-700/10 text-cyan-800 dark:text-cyan-200">
             {language === "es" ? "Freelance desde 2025" : "Freelancing since 2025"}
@@ -93,7 +93,7 @@ export default function Hero() {
           </h1>
           <p className="mt-2 text-base sm:text-lg text-muted-foreground">{translations[language].person.title}</p>
           <p className="mt-4 max-w-2xl text-sm sm:text-base text-muted-foreground mx-auto md:mx-0">
-            {t("hero.description")}
+            {translations[language].person.profile}
           </p>
 
           <div className="mt-6 flex flex-col sm:flex-row items-center justify-center md:justify-start gap-3 sm:gap-2">
@@ -118,7 +118,7 @@ export default function Hero() {
               </a>
             </Button>
             <Button asChild className="w-full sm:w-auto">
-              <a href={`mailto:${person.email}`} aria-label="Enviar email">
+              <a href={`mailto:${person.email}`} aria-label={language === "es" ? "Enviar email" : "Send email"}>
                 <Mail className="mr-2 h-4 w-4" />
                 {"Email"}
               </a>
@@ -172,7 +172,7 @@ export default function Hero() {
           />
           <Image
             src="/images/yo2.jpg"
-            alt="Foto de Tomás Varela sonriendo sobre un puente"
+            alt={language === "es" ? "Foto de Tomás Varela sonriendo sobre un puente" : "Photo of Tomás Varela smiling on a bridge"}
             width={208}
             height={208}
             className="relative mx-auto aspect-square h-40 w-40 sm:h-52 sm:w-52 rounded-full border border-border object-cover object-center shadow-[0_10px_40px_-10px_rgba(0,0,0,0.35)]"

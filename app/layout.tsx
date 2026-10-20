@@ -4,6 +4,7 @@ import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { LanguageProvider } from "@/contexts/language-context"
 import { ThemeProvider } from "@/contexts/theme-context"
+import { siteMetadata } from "@/lib/data"
 import "./globals.css"
 
 const themeInitScript = `
@@ -23,9 +24,8 @@ const themeInitScript = `
 `
 
 export const metadata: Metadata = {
-  title: "Tomás Varela - Fullstack Developer",
-  description: "Portfolio de Tomás Varela - Desarrollador Fullstack especializado en JavaScript, React, Node.js",
-  generator: "v0.app",
+  title: siteMetadata.es.title,
+  description: siteMetadata.es.description,
   icons: {
     icon: "/favicon_code.ico",
   },

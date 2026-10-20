@@ -1,16 +1,29 @@
+export const siteMetadata = {
+  es: {
+    title: "Tomás Varela · Desarrollador Full-Stack · Integración de IA | TypeScript, React, Node.js, Python",
+    description:
+      "Portfolio de Tomás Varela, desarrollador full-stack en Tucumán. Sistemas a medida, plataformas SaaS e integración de LLMs.",
+  },
+  en: {
+    title: "Tomás Varela · Full-Stack Developer · AI Integration | TypeScript, React, Node.js, Python",
+    description:
+      "Portfolio of Tomás Varela, a full-stack developer based in Tucumán, Argentina. Custom business systems, SaaS platforms, and LLM integration.",
+  },
+} as const
+
 export const person = {
   name: "Tomás Varela",
-  title: "Desarrollador Full-Stack | Ingeniería en IA",
+  title: "Desarrollador Full-Stack · Integración de IA | TypeScript, React, Node.js, Python",
   location: "San Miguel de Tucumán, Argentina",
   phone: "+543816832948",
+  phoneDisplay: "+54 381 683-2948",
   email: "tomas.varelaa19@gmail.com",
   linkedin: "https://www.linkedin.com/in/tomasvarela7/",
   github: "https://github.com/tomasvarela21",
   portfolio: "https://portfolio-hc4q-tau.vercel.app/",
   profile:
-    "Soy desarrollador full-stack independiente, actualmente orientando mi carrera hacia la ingeniería en IA. Construyo plataformas SaaS y APIs, pero lo que realmente define mi día a día es el uso de agentes de IA (como Claude Code, Codex y OpenCode) para programar y lanzar proyectos mucho más rápido. Aprendo creando cosas nuevas, y ahora mismo estoy metido de lleno estudiando LLMs, RAG y flujos de trabajo con agentes por mi cuenta.",
-  objectives:
-    "Abierto a roles full-time y proyectos freelance, con foco en productos escalables, mantenibles y centrados en la experiencia de usuario.",
+    "Desarrollador full-stack freelance desde 2025. Construyo sistemas a medida para empresas: un sistema contable con unos 286 mil registros de cinco empresas, una plataforma SaaS multi-tenant para entrenadores personales y apps de gestión que reemplazan planillas. Mi fuerte son los sistemas con datos de negocio, y estoy sumando IA a mis productos: construí un primer asistente con function calling para Korex y hoy desarrollo un agente para el armado de rutinas.",
+  objectives: "Busco un rol full-time construyendo productos que integren LLMs, y sigo tomando proyectos freelance.",
 } as const
 
 export type ProjectImage = {
@@ -25,42 +38,40 @@ export type Project = {
   title: string
   org?: string
   orgTranslations?: { es: string; en: string }
-  role?: string
+  role?: { es: string; en: string }
   period?: {
     es: string
     en: string
   }
-  description: string
-  impact: string
   stack: string[]
   github?: string
   external?: string
   images: ProjectImage[]
   translations: {
-    es: { title: string; description: string; impact: string }
-    en: { title: string; description: string; impact: string }
+    es: { title: string; description: string; highlights: string[] }
+    en: { title: string; description: string; highlights: string[] }
   }
 }
+
+const fullstackRole = { es: "Fullstack", en: "Full-stack" }
 
 export const freelanceExperience = {
   es: {
     title: "Desarrollador Full-Stack Freelance",
-    location: "San Miguel de Tucumán, Argentina (remoto)",
+    location: "Remoto",
     period: "Feb. 2025 – actualidad",
-    description:
-      "Desarrollo de aplicaciones web a medida para distintos clientes, cubriendo todo el ciclo: relevamiento de requerimientos, arquitectura, desarrollo full stack y despliegue.",
+    description: "Desarrollo aplicaciones web a medida, desde el relevamiento con el cliente hasta el despliegue.",
     highlights: [
-      "Uso herramientas de IA como Claude Code y OpenCode todos los días para acelerar el desarrollo de nuevas funciones, testing y diseño de arquitectura.",
+      "Clientes: un grupo de construcción e inmobiliario, entrenadores personales, una administradora de consorcios y comercios de Tucumán.",
     ],
   },
   en: {
     title: "Freelance Full-Stack Developer",
-    location: "San Miguel de Tucumán, Argentina (remote)",
-    period: "Feb. 2025 – present",
-    description:
-      "Develop custom web applications for clients, from requirements discovery and architecture to full-stack development and deployment.",
+    location: "Remote",
+    period: "Feb. 2025 – Present",
+    description: "I build custom web applications end to end, from client discovery to deployment.",
     highlights: [
-      "I rely on AI coding tools like Claude Code and OpenCode daily to speed up how I write features, test them, and structure the architecture.",
+      "Clients include a construction and real estate group, personal trainers, a condominium management firm, and local businesses in Tucumán.",
     ],
   },
 } as const
@@ -69,21 +80,17 @@ export const projects: Project[] = [
   {
     slug: "korex-saas-training-platform",
     title: "Korex – Plataforma SaaS para Entrenadores Personales",
-    role: "Fullstack",
+    role: fullstackRole,
     period: {
       es: "Abr. 2026 – actualidad",
-      en: "Apr. 2026 – present",
+      en: "Apr. 2026 – Present",
     },
-    description:
-      "Korex es una plataforma SaaS multi-tenant para entrenadores personales y alumnos que centraliza la gestión operativa de un negocio fitness: alumnos, invitaciones, planes, suscripciones, cuotas y pagos, rutinas, ejercicios y seguimiento de entrenamientos, con vistas diferenciadas para trainer y estudiante en web y móvil. Backend modular en Express y TypeScript con Prisma sobre PostgreSQL, aislamiento de datos por trainer y frontend en React 19, Vite, Tailwind CSS y shadcn/ui.",
-    impact:
-      "Creé un asistente de IA en Telegram usando 'function calling' y system prompts estrictos. Se conecta directo al backend para gestionar las interacciones entre entrenador y cliente, además de manejar emails y notificaciones automáticas.",
     stack: [
       "React",
       "TypeScript",
       "Vite",
       "Tailwind CSS",
-      "Shadcn UI",
+      "shadcn/ui",
       "Zustand",
       "React Query",
       "Express.js",
@@ -93,8 +100,7 @@ export const projects: Project[] = [
       "Zod",
       "Expo",
       "React Native",
-      "Telegram Bot API",
-      "Google GenAI",
+      "Gemini API",
     ],
     external: "https://fit-pro-app-mu.vercel.app",
     images: [
@@ -139,42 +145,22 @@ export const projects: Project[] = [
       es: {
         title: "Korex – Plataforma SaaS para Entrenadores Personales",
         description:
-          "Korex es una plataforma SaaS multi-tenant para entrenadores personales y alumnos que centraliza la gestión operativa de un negocio fitness: alumnos, invitaciones, planes, suscripciones, cuotas y pagos, rutinas, ejercicios y seguimiento de entrenamientos, con vistas diferenciadas para trainer y estudiante en web y móvil. Backend modular en Express y TypeScript con Prisma sobre PostgreSQL, aislamiento de datos por trainer y frontend en React 19, Vite, Tailwind CSS y shadcn/ui.",
-        impact:
-          "Creé un asistente de IA en Telegram usando 'function calling' y system prompts estrictos. Se conecta directo al backend para gestionar las interacciones entre entrenador y cliente, además de manejar emails y notificaciones automáticas.",
+          "Plataforma SaaS multi-tenant para entrenadores personales: alumnos, invitaciones, planes, suscripciones, cuotas y pagos, rutinas y seguimiento de entrenamientos, con datos aislados por entrenador. La web está en producción; la app móvil para alumnos está en desarrollo.",
+        highlights: [
+          "Cuotas con estados (pendiente, pagada, vencida), para que cada entrenador vea de un vistazo quién está al día.",
+          "App móvil para alumnos (Expo Router): entrenamiento del día, registro de series con los pesos de la sesión anterior precargados, RPE, temporizador de descanso y racha. Todavía sin publicar.",
+          "Asistente de IA: construí una primera versión en Telegram (Gemini 2.5 Flash con function calling, bot en grammY). El entrenador vinculaba su cuenta con un código generado desde la web y operaba sobre el backend en lenguaje natural: las consultas se ejecutaban directo y las escrituras (registrar pagos, crear alumnos, asignar rutinas) pedían confirmación con un botón. La retiré para integrar el asistente dentro de la app. Hoy estoy desarrollando un agente para el armado de rutinas, y después vendrá uno de seguimiento por alumno.",
+        ],
       },
       en: {
         title: "Korex – SaaS Platform for Personal Trainers",
         description:
-          "Korex is a multi-tenant SaaS platform for personal trainers and their clients that centralizes the operations of a fitness business: students, invitations, plans, subscriptions, installments and payments, routines, exercises, and workout tracking, with dedicated trainer and student views across web and mobile. Modular backend built with Express and TypeScript on Prisma over PostgreSQL, trainer-level data isolation, and a React 19 frontend using Vite, Tailwind CSS, and shadcn/ui.",
-        impact:
-          "Built a Telegram AI assistant for the platform using function calling and strict system prompts. It hooks directly into the backend to manage trainer-client interactions, alongside automated emails and push notifications.",
-      },
-    },
-  },
-  {
-    slug: "ai-web-demo-generator",
-    title: "Generador de Demos Web con IA",
-    description:
-      "Diseñé un flujo de trabajo comercial automatizado usando Codex y agentes de IA para generar autónomamente demos web funcionales para negocios locales sin presencia digital, extrayendo datos directamente de sus perfiles de Instagram y Google Business para ofrecer servicios de SEO y diseño web.",
-    impact:
-      "Diseñé un flujo de trabajo comercial automatizado usando Codex y agentes de IA para generar autónomamente demos web funcionales para negocios locales sin presencia digital, extrayendo datos directamente de sus perfiles de Instagram y Google Business para ofrecer servicios de SEO y diseño web.",
-    stack: ["Codex", "AI Agents", "Web Automation"],
-    images: [],
-    translations: {
-      es: {
-        title: "Generador de Demos Web con IA",
-        description:
-          "Diseñé un flujo de trabajo comercial automatizado usando Codex y agentes de IA para generar autónomamente demos web funcionales para negocios locales sin presencia digital, extrayendo datos directamente de sus perfiles de Instagram y Google Business para ofrecer servicios de SEO y diseño web.",
-        impact:
-          "Diseñé un flujo de trabajo comercial automatizado usando Codex y agentes de IA para generar autónomamente demos web funcionales para negocios locales sin presencia digital, extrayendo datos directamente de sus perfiles de Instagram y Google Business para ofrecer servicios de SEO y diseño web.",
-      },
-      en: {
-        title: "AI Web Demo Generator",
-        description:
-          "Engineered an automated business workflow using Codex and AI agents to autonomously generate functional website demos for local businesses without a web presence, extracting data directly from their Instagram profiles and Google Business listings to offer SEO and web design services.",
-        impact:
-          "Engineered an automated business workflow using Codex and AI agents to autonomously generate functional website demos for local businesses without a web presence, extracting data directly from their Instagram profiles and Google Business listings to offer SEO and web design services.",
+          "A multi-tenant SaaS platform for personal trainers covering clients, invitations, plans, subscriptions, fees and payments, workout programs, and training logs, with data isolated per trainer. The web app is live; the client mobile app is in development.",
+        highlights: [
+          "Fee tracking with payment statuses (pending, paid, overdue), so each trainer can see at a glance who's up to date.",
+          "Client mobile app (Expo Router): today's workout, set logging with weights prefilled from the previous session, RPE, rest timer, and streaks. Not yet published.",
+          "AI assistant: I built a first version as a Telegram bot (Gemini 2.5 Flash with function calling, built on grammY). Trainers linked their account with a code generated in the web app and could query and act on the backend in plain language: read queries ran immediately, while write actions (logging payments, adding clients, assigning programs) required confirmation via a button. I retired it to move the assistant into the app itself. I'm now building an agent that helps trainers create workout programs, to be followed by one for per-client progress tracking.",
+        ],
       },
     },
   },
@@ -183,15 +169,11 @@ export const projects: Project[] = [
     title: "De la Rosa App – Versión White-Label de Korex",
     org: "Cliente: Franco De la Rosa",
     orgTranslations: { es: "Cliente: Franco De la Rosa", en: "Client: Franco De la Rosa" },
-    role: "Fullstack",
+    role: fullstackRole,
     period: {
       es: "Ago. 2026 – actualidad",
-      en: "Aug. 2026 – present",
+      en: "Aug. 2026 – Present",
     },
-    description:
-      "Instancia personalizada de Korex entregada al entrenador Franco De la Rosa, con identidad visual propia y un flujo de onboarding adaptado a su metodología, operando como un tenant más sobre la misma base de datos multi-tenant de Korex.",
-    impact:
-      "Validó en producción la capacidad de la arquitectura multi-tenant de Korex para escalar a nuevos clientes sin fork de código ni infraestructura separada.",
     stack: ["React", "TypeScript", "Vite", "Tailwind CSS", "shadcn/ui", "Express.js", "Prisma", "PostgreSQL"],
     images: [
       {
@@ -241,37 +223,35 @@ export const projects: Project[] = [
       es: {
         title: "De la Rosa App – Versión White-Label de Korex",
         description:
-          "Instancia personalizada de Korex entregada al entrenador Franco De la Rosa, con identidad visual propia y un flujo de onboarding adaptado a su metodología, operando como un tenant más sobre la misma base de datos multi-tenant de Korex.",
-        impact:
-          "Validó en producción la capacidad de la arquitectura multi-tenant de Korex para escalar a nuevos clientes sin fork de código ni infraestructura separada.",
+          "Versión de Korex con la marca del entrenador Franco De la Rosa y un onboarding adaptado a su metodología.",
+        highlights: [
+          "Primer cliente en producción sobre Korex: gestiona entre 40 y 60 alumnos con marca y onboarding propios, configurado como un tenant más, sin fork de código ni infraestructura aparte.",
+        ],
       },
       en: {
         title: "De la Rosa App – White-Label Version of Korex",
         description:
-          "A customized Korex instance delivered to personal trainer Franco De la Rosa, with its own visual identity and an onboarding flow adapted to his methodology, running as another tenant on Korex's shared multi-tenant database.",
-        impact:
-          "Validated in production that Korex's multi-tenant architecture can scale to new clients without forking the codebase or provisioning separate infrastructure.",
+          "A version of Korex branded for trainer Franco De la Rosa, with onboarding tailored to his coaching method.",
+        highlights: [
+          "Korex's first production client: manages 40–60 clients under his own brand and onboarding, set up as just another tenant with no code fork or separate infrastructure.",
+        ],
       },
     },
   },
   {
     slug: "reporteapp-multi-company-accounting",
     title: "ReporteApp – Sistema Contable Multi-Empresa",
-    org: "Grupo corporativo (construcción e inmobiliario)",
+    org: "Grupo de construcción e inmobiliario",
     orgTranslations: {
-      es: "Grupo corporativo (construcción e inmobiliario)",
-      en: "Corporate group (construction and real estate)",
+      es: "Grupo de construcción e inmobiliario",
+      en: "Construction and real estate group",
     },
-    role: "Fullstack",
+    role: fullstackRole,
     period: {
       es: "Mar. 2026 – actualidad",
-      en: "Mar. 2026 – present",
+      en: "Mar. 2026 – Present",
     },
-    description:
-      "ReporteApp es un sistema de gestión contable multiempresa para un grupo del sector construcción e inmobiliario que opera cinco empresas en simultáneo. Centraliza la carga, validación y conciliación de datos contables mediante una API REST en Python con arquitectura cliente-servidor desacoplada, cálculo incremental del Libro Mayor por empresa y período, y sincronización en tiempo real con bases de datos externas de proyectos y presupuestos.",
-    impact:
-      "Eliminó la conciliación manual entre sistemas: valida asientos y detecta descuadres, cuentas inválidas y centros de costo faltantes antes de cargar datos, y actualiza automáticamente dashboards ejecutivos en Power BI. La API expone 44 endpoints documentados en Swagger sobre PostgreSQL, con validador configurable y logging de cada sincronización.",
-    stack: ["Python", "FastAPI", "PostgreSQL (Neon)", "Streamlit", "Power BI API", "GitHub Actions", "Render"],
+    stack: ["Python", "FastAPI", "PostgreSQL (Neon)", "Streamlit", "Power BI", "GitHub Actions", "Render"],
     images: [
       {
         src: "/reporteapp-home.png",
@@ -308,32 +288,38 @@ export const projects: Project[] = [
       es: {
         title: "ReporteApp – Sistema Contable Multi-Empresa",
         description:
-          "ReporteApp es un sistema de gestión contable multiempresa para un grupo del sector construcción e inmobiliario que opera cinco empresas en simultáneo. Centraliza la carga, validación y conciliación de datos contables mediante una API REST en Python con arquitectura cliente-servidor desacoplada, cálculo incremental del Libro Mayor por empresa y período, y sincronización en tiempo real con bases de datos externas de proyectos y presupuestos.",
-        impact:
-          "Eliminó la conciliación manual entre sistemas: valida asientos y detecta descuadres, cuentas inválidas y centros de costo faltantes antes de cargar datos, y actualiza automáticamente dashboards ejecutivos en Power BI. La API expone 44 endpoints documentados en Swagger sobre PostgreSQL, con validador configurable y logging de cada sincronización.",
+          "Sistema contable multiempresa para un grupo de construcción e inmobiliario: centraliza la carga, validación y conciliación de unos 286 mil registros contables de cinco empresas, con cálculo incremental del Libro Mayor por empresa y período y sincronización bajo demanda con las bases externas de proyectos y presupuestos.",
+        highlights: [
+          "Sobre esta base se generan los reportes que el grupo usa para tomar decisiones: estado patrimonial, resultado económico, cashflow por proyecto y un dashboard general en Power BI.",
+          "Detecté cinco causas raíz de diferencias en los saldos de apertura entre dos versiones del Libro Mayor (filas duplicadas, detalle de subcuenta y centro de costo faltante, valores mal cargados) y reconstruí el mayor desde los datos corregidos.",
+          "Cada carga pasa por un validador que bloquea descuadres, cuentas inválidas y centros de costo faltantes.",
+        ],
       },
       en: {
         title: "ReporteApp – Multi-Company Accounting System",
         description:
-          "ReporteApp is a multi-company accounting management system for a construction and real estate corporate group operating five companies simultaneously. It centralizes accounting data ingestion, validation, and reconciliation through a decoupled client-server Python REST API, incremental General Ledger calculation per company and period, and real-time synchronization with external project and budget databases.",
-        impact:
-          "Eliminated manual reconciliation between systems: validates journal entries and flags unbalanced entries, invalid accounts, and missing cost centers before loading data, and automatically refreshes executive Power BI dashboards. The API exposes 44 endpoints documented in Swagger on top of PostgreSQL, with a configurable validator and per-sync logging.",
+          "A multi-company accounting system for a construction and real estate group. It centralizes the upload, validation, and reconciliation of roughly 286,000 accounting records across five companies, with incremental General Ledger calculations by company and period and on-demand sync with external project and budget databases.",
+        highlights: [
+          "This database feeds the reports the group relies on for decision-making: balance sheet, income statement, project-level cash flow, and an executive dashboard in Power BI.",
+          "Traced opening-balance discrepancies between two versions of the General Ledger to five root causes (duplicate rows, missing sub-account and cost center detail, incorrect values) and rebuilt the ledger from corrected source data.",
+          "Every upload goes through a validator that blocks unbalanced entries, invalid accounts, and missing cost centers.",
+        ],
       },
     },
   },
   {
     slug: "consorcioapp-multisite-console",
-    title: "ConsorcioApp – Gestión Multiedificio",
-    org: "ConsorcioApp",
-    role: "Fullstack",
+    title: "ConsorcioApp – Gestión de consorcios",
+    org: "Cliente: administradora de consorcios",
+    orgTranslations: {
+      es: "Cliente: administradora de consorcios",
+      en: "Client: condominium management firm",
+    },
+    role: fullstackRole,
     period: {
       es: "Oct. – Dic. 2025",
       en: "Oct. – Dec. 2025",
     },
-    description:
-      "ConsorcioApp es una app web para administradores de edificios que concentra todo en un único panel: registro de edificios, unidades y responsables, emisión de liquidaciones mensuales, seguimiento de pagos y reportes resumidos con deuda abierta, morosidad y últimos movimientos.",
-    impact:
-      "Automatiza el cálculo de expensas, recargos y descuentos, genera recibos PDF y mantiene un estado de cuenta claro, reduciendo tareas manuales y acelerando la respuesta ante unidades atrasadas.",
     stack: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS", "Prisma 5", "PDFKit", "react-hot-toast"],
     images: [
       {
@@ -347,7 +333,7 @@ export const projects: Project[] = [
         alt: "Workspace de edificio en ConsorcioApp con panel de morosos y liquidaciones",
         width: 1358,
         height: 629,
-      }, 
+      },
       {
         src: "/consorcio-residentes.png",
         alt: "Listado de residentes con porcentajes de cobertura en ConsorcioApp",
@@ -372,22 +358,23 @@ export const projects: Project[] = [
         width: 1352,
         height: 606,
       },
-      
     ],
     translations: {
       es: {
-        title: "ConsorcioApp – Gestión Multiedificio",
+        title: "ConsorcioApp – Gestión de consorcios",
         description:
-          "App web para administrar consorcios desde un solo dashboard: registro de edificios, altas de unidades con responsables, liquidaciones mensuales, seguimiento de pagos y reportes claros sobre deuda y morosidad.",
-        impact:
-          "Automatiza cálculos de expensas, recargos y descuentos, genera recibos PDF y mantiene visibilidad inmediata sobre qué unidades están al día o atrasadas.",
+          "App web para administrar consorcios desde un solo panel: edificios, unidades con sus responsables, liquidaciones mensuales, seguimiento de pagos y reportes de deuda y morosidad.",
+        highlights: [
+          "Automatiza el cálculo de expensas, recargos y descuentos, genera recibos en PDF y muestra de un vistazo qué unidades están al día y cuáles atrasadas.",
+        ],
       },
       en: {
-        title: "ConsorcioApp – Multi-building Operations Suite",
+        title: "ConsorcioApp – Condominium Management",
         description:
-          "Web platform for property managers that centralizes building onboarding, unit assignments, settlement generation, payment tracking, and concise reports showing open debt, delinquency, and recent activity.",
-        impact:
-          "Automates expense calculations, late fees, and early-payment discounts, produces PDF receipts, and keeps a clear statement of account so managers can act faster when units fall behind.",
+          "A web app for managing condominium buildings from a single dashboard: buildings, units and their assigned owners, monthly statements, payment tracking, and debt and delinquency reports.",
+        highlights: [
+          "Automates maintenance fee, late fee, and discount calculations, generates PDF receipts, and shows at a glance which units are paid up and which are behind.",
+        ],
       },
     },
   },
@@ -395,14 +382,11 @@ export const projects: Project[] = [
     slug: "alenort-management-system",
     title: "Sistema de Gestión – Alenort",
     org: "Alenort",
-    role: "Fullstack",
+    role: fullstackRole,
     period: {
       es: "Feb. – Abr. 2025",
       en: "Feb. – Apr. 2025",
     },
-    description:
-      "Plataforma web para automatizar ventas, inventario y procesos administrativos. Autenticación, control de roles, gestión de pedidos y trazabilidad.",
-    impact: "Redujo tiempos administrativos y mejoró la trazabilidad de pedidos entre áreas.",
     stack: ["Next.js", "Tailwind CSS", "Firebase Auth", "Firestore", "Cloud Functions", "Git"],
     github: "https://github.com/tomasvarela21/sistemaAlenort",
     external: "https://sistema-alenort.vercel.app",
@@ -442,14 +426,18 @@ export const projects: Project[] = [
       es: {
         title: "Sistema de Gestión – Alenort",
         description:
-          "Plataforma web para automatizar ventas, inventario y procesos administrativos. Autenticación, control de roles, gestión de pedidos y trazabilidad.",
-        impact: "Redujo tiempos administrativos y mejoró la trazabilidad de pedidos entre áreas.",
+          "Plataforma web para ventas, inventario y procesos administrativos, con autenticación, control por roles y gestión de pedidos.",
+        highlights: [
+          "Centraliza ventas, inventario y pedidos en un solo sistema, con permisos por rol y el historial de cada pedido.",
+        ],
       },
       en: {
         title: "Management System – Alenort",
         description:
-          "Web platform to automate sales, inventory, and administrative processes. Authentication, role control, order management and traceability.",
-        impact: "Reduced administrative time and improved order traceability between areas.",
+          "A web platform for sales, inventory, and back-office processes, with authentication, role-based access, and order management.",
+        highlights: [
+          "Brings sales, inventory, and orders into a single system, with role-based permissions and a full history for every order.",
+        ],
       },
     },
   },
@@ -457,15 +445,11 @@ export const projects: Project[] = [
     slug: "chapulina-inventory-suite",
     title: "ChapulinaApp – Gestión de Stock",
     org: "Chapulina",
-    role: "Fullstack",
+    role: fullstackRole,
     period: {
       es: "Oct. – Nov. 2025",
       en: "Oct. – Nov. 2025",
     },
-    description:
-      "Web app que centraliza el inventario de indumentaria por talle, ventas y catálogo público. Paneles con filtros, alertas de stock, gestión de vendedores y configuración de márgenes.",
-    impact:
-      "Digitalizó el seguimiento de stock, eliminó hojas de cálculo manuales y permitió actualizar precios minoristas en minutos según la política comercial.",
     stack: ["React", "Vite", "Tailwind CSS", "Node.js", "Express", "MongoDB", "JWT", "Axios"],
     github: "https://github.com/tomasvarela21/ChapulinaApp",
     external: "https://chapulinaapp.vercel.app/",
@@ -511,16 +495,18 @@ export const projects: Project[] = [
       es: {
         title: "ChapulinaApp – Gestión de Stock",
         description:
-          "Web app para una boutique que centraliza inventario por talles, ventas y catálogo digital. Incluye login con roles, panel de productos con filtros, alertas de bajo stock y control de precios con recargos configurables.",
-        impact:
-          "Digitalizó el seguimiento de stock y precios, eliminó hojas de cálculo manuales y habilitó actualizaciones en minutos según la política comercial.",
+          "Web app para una boutique que reúne inventario por talles, ventas y catálogo digital, con login por roles, panel de productos con filtros, alertas de stock bajo y control de precios con recargos configurables.",
+        highlights: [
+          "Reemplazó las planillas con las que la boutique controlaba stock y precios: los cambios de precio se aplican desde el panel con los recargos ya configurados.",
+        ],
       },
       en: {
         title: "ChapulinaApp – Stock Management Web App",
         description:
-          "Web app for a fashion boutique that centralizes inventory by size, sales tracking, and the digital catalog. Provides role-based login, product management with filters, low-stock alerts, and configurable price markups.",
-        impact:
-          "Digitized stock and pricing oversight, removing manual spreadsheets and enabling minute-level price updates aligned with business rules.",
+          "A web app for a clothing boutique that brings together size-based inventory, sales, and a digital catalog, with role-based login, a filterable product dashboard, low-stock alerts, and pricing controls with configurable surcharges.",
+        highlights: [
+          "Replaced the spreadsheets the boutique used to track stock and prices: price changes are applied from the dashboard with surcharges already configured.",
+        ],
       },
     },
   },
@@ -528,14 +514,11 @@ export const projects: Project[] = [
     slug: "olivetuc-web",
     title: "Landing Page – Oliva.Tuc",
     org: "Oliva.Tuc",
-    role: "Frontend",
+    role: { es: "Frontend", en: "Frontend" },
     period: {
       es: "Ago. 2025",
       en: "Aug. 2025",
     },
-    description:
-      "Landing page moderna y responsive para un emprendimiento de aceite de oliva. Incluye catálogo con carrito desplegable y editable, redirección a WhatsApp para finalizar compras, galería de imágenes y secciones informativas.",
-    impact: "Mejoró la presencia digital del emprendimiento, facilitando la interacción con clientes y la gestión de pedidos en línea.",
     stack: ["Next.js", "Tailwind CSS", "TypeScript", "Git"],
     github: "https://github.com/tomasvarela21/OliveTuc-web",
     external: "https://olive-tuc-web-x8ig.vercel.app/",
@@ -569,49 +552,14 @@ export const projects: Project[] = [
       es: {
         title: "Landing Page – Oliva.Tuc",
         description:
-          "Landing page moderna y responsive para un emprendimiento de aceite de oliva. Incluye catálogo con carrito desplegable y editable, redirección a WhatsApp para finalizar compras, galería de imágenes y secciones informativas.",
-        impact:
-          "Mejoró la presencia digital del emprendimiento, facilitando la interacción con clientes y la gestión de pedidos en línea.",
+          "Landing page responsive para una marca de aceite de oliva, con catálogo, carrito editable, galería de imágenes y cierre de compra por WhatsApp.",
+        highlights: ["Los pedidos llegan por WhatsApp con el carrito ya armado, sin necesidad de pasarela de pago."],
       },
       en: {
         title: "Landing Page – Oliva.Tuc",
         description:
-          "Modern and responsive landing page for an olive oil business. Includes catalog with expandable and editable cart, WhatsApp redirection for order completion, image gallery, and informational sections.",
-        impact:
-          "Boosted the business’s digital presence, streamlined customer interaction, and facilitated online order management.",
-      },
-    },
-  },
-  {
-    slug: "fitapp-virtual-fitness-assistant",
-    title: "FitApp – Asistente de Fitness y Nutrición",
-    role: "Fullstack",
-    description:
-      "App con chatbot para rutinas y planes de nutrición personalizados, tracking de progreso y autenticación con Google. Perfiles, generación de rutinas y analítica.",
-    impact: "Mejoró la personalización de rutinas y automatizó el registro de datos de usuarios.",
-    stack: ["React", "Node.js", "Express", "MySQL", "Sequelize", "OAuth"],
-    github: "https://github.com/tomasvarela21/fitApp",
-    external: "https://fitapp-demo.vercel.app",
-    images: [
-      {
-        src: "/fitapp.png",
-        alt: "Interfaz de una app de fitness con chatbot y seguimiento de progreso",
-        width: 1330,
-        height: 615,
-      },
-    ],
-    translations: {
-      es: {
-        title: "FitApp – Asistente de Fitness y Nutrición",
-        description:
-          "App con chatbot para rutinas y planes de nutrición personalizados, tracking de progreso y autenticación con Google. Perfiles, generación de rutinas y analítica.",
-        impact: "Mejoró la personalización de rutinas y automatizó el registro de datos de usuarios.",
-      },
-      en: {
-        title: "FitApp – Virtual Fitness and Nutrition Assistant",
-        description:
-          "App with chatbot for personalized workout and nutrition plans, progress tracking, and Google authentication. Profiles, routine generation and analytics.",
-        impact: "Enhanced personalization of fitness routines and automated user data tracking.",
+          "A responsive landing page for an olive oil brand, with a product catalog, an editable cart, an image gallery, and checkout via WhatsApp.",
+        highlights: ["Orders arrive on WhatsApp with the cart already filled in, with no payment gateway needed."],
       },
     },
   },
@@ -629,7 +577,6 @@ export const stackIcons = {
     { label: "Next.js", src: "/tech/nextjs-new.png" }, // Moved Next.js from backend to frontend section
   ],
   backend: [
-    { label: "PHP", src: "/tech/php-final.png" }, // Updated PHP icon to new uploaded version
     { label: "Python", src: "/tech/python-uploaded.png" }, // Moved Python from learning to backend section
     { label: "Node.js", src: "/tech/nodejs-new.png" },
     { label: "Express", src: "/tech/express-new.png" },
@@ -640,7 +587,6 @@ export const stackIcons = {
     { label: "Git", src: "/tech/git-new.png" },
     { label: "GitHub", src: "/tech/github-new.png" },
     { label: "VS Code", src: "/tech/vscode-final.png" }, // Updated VS Code icon to new uploaded version
-    { label: "WordPress", src: "/tech/wordpress-uploaded.png" },
     { label: "Terminal", src: "/tech/terminal-new.png" },
     { label: "npm", src: "/tech/npm-new.png" },
     { label: "Visual Studio", src: "/tech/visualstudio-new.png" },
@@ -651,6 +597,7 @@ export const technologyIcons: Record<string, string> = {
   ...Object.fromEntries(Object.values(stackIcons).flat().map((tech) => [tech.label, tech.src])),
   HTML: "/tech/html5-new.png",
   CSS: "/tech/css3-uploaded.png",
+  "React Native": "/tech/react.png",
   FastAPI: "/tech/fastapi.svg",
   PostgreSQL: "/tech/postgresql.svg",
   Prisma: "/tech/prisma.svg",
@@ -660,22 +607,18 @@ export const technologyIcons: Record<string, string> = {
   JWT: "/tech/jsonwebtokens.svg",
   "GitHub Actions": "/tech/githubactions.svg",
   Postman: "/tech/postman.svg",
-  "Thunder Client": "/tech/thunderclient.png",
-  "C#": "/tech/csharp.svg",
-  ".NET": "/tech/dotnetcore.svg",
-  "SQL Server": "/tech/microsoftsqlserver.svg",
 }
 
 export const education = [
   {
     program: "Tecnicatura en Programación",
-    institution: "UTN FRT – San Miguel de Tucumán",
+    institution: "UTN FRT, San Miguel de Tucumán",
     status: "Graduado",
-    period: "2023 – mayo de 2025",
+    period: "2023 – mayo 2025",
   },
   {
     program: "Ingeniería en Sistemas de Información",
-    institution: "UTN FRT – San Miguel de Tucumán",
+    institution: "UTN FRT, San Miguel de Tucumán",
     status: "Cursado pausado desde 2022",
     period: "2020 – 2022",
   },
@@ -683,173 +626,147 @@ export const education = [
 
 export type Training = {
   title: string
+  url?: string
+  titleNote?: string
   provider: string
   details?: string
-  category?: { es: string; en: string }
-  certificate?: {
-    href: string
-    preview: string
-    width: number
-    height: number
-  }
+  certificate?: string
 }
 
-const selfTaughtAiCategory = {
-  es: "Ingeniería en IA y Desarrollo con Agentes (Autodidacta)",
-  en: "AI Engineering & Agentic Development (Self-Taught)",
+const dataCampTrack = {
+  title: "Associate AI Engineer for Developers",
+  url: "https://www.datacamp.com/tracks/associate-ai-engineer-for-developers",
+  provider: "DataCamp",
 } as const
 
-const selfTaughtAiTrainings: readonly Training[] = [
-  {
-    title: "AI Engineering for Programmers",
-    provider: "DataCamp",
-    details: "Cursando actualmente",
-    category: selfTaughtAiCategory,
-  },
-  {
-    title: "Agentic Workflows & OpenCode",
-    provider: "Midudev",
-    category: selfTaughtAiCategory,
-  },
-  {
-    title: "Web Development with AI (Streaming & Integrations)",
-    provider: "Midudev",
-    category: selfTaughtAiCategory,
-  },
-  {
-    title: "Introduction to AI for Developers (MCPs & LLM Fundamentals)",
-    provider: "Midudev",
-    category: selfTaughtAiCategory,
-  },
-  {
-    title: "Building AI Agents for Beginners",
-    provider: "Microsoft Learn",
-    category: selfTaughtAiCategory,
-  },
-] as const
-
-const aiDevelopmentTraining: Training = {
-  title: "Iniciación al Desarrollo con IA – El Nuevo Programador",
-  provider: "BIG school · mouredev",
-  details: "Certificado de asistencia · 4 horas · 5 de octubre de 2026",
-  certificate: {
-    href: "/Certificado-Tomas-Varela-rsl3t6wy.pdf",
-    preview: "/certificado-desarrollo-ia.webp",
-    width: 2000,
-    height: 1545,
-  },
-}
+const aiDevelopmentCourse = {
+  title: "Curso de Desarrollo con IA: el Nuevo Programador",
+  provider: "MoureDev · BIG school",
+  certificate: "/Certificado-Tomas-Varela-rsl3t6wy.pdf",
+} as const
 
 export const trainings: readonly Training[] = [
-  aiDevelopmentTraining,
-  ...selfTaughtAiTrainings,
-] as const
-
-const englishTrainings: readonly Training[] = [
-  {
-    ...aiDevelopmentTraining,
-    title: "Introduction to AI-Assisted Development – El Nuevo Programador",
-    details: "Certificate of attendance · 4 hours · October 5, 2026",
-  },
-  ...selfTaughtAiTrainings.map((training) =>
-    training.title === "AI Engineering for Programmers"
-      ? { ...training, details: "Currently enrolled" }
-      : training,
-  ),
+  { ...dataCampTrack, details: "en curso" },
+  { ...aiDevelopmentCourse, details: "oct. 2026, con certificado" },
+  { title: "AI Agents for Beginners", provider: "Microsoft" },
 ]
 
-export const technicalSkillGroups = [
+const englishTrainings: readonly Training[] = [
+  { ...dataCampTrack, details: "in progress" },
+  { ...aiDevelopmentCourse, titleNote: "(AI-assisted development course, Oct. 2026, certificate)" },
+  { title: "AI Agents for Beginners", provider: "Microsoft" },
+]
+
+type Localized = { es: string; en: string }
+
+// A skill is either a plain name or a localized label; `cv` overrides the label in the PDF's inline list.
+export type SkillItem = string | (Localized & { cv?: Localized })
+
+export const skillLabel = (item: SkillItem, lang: "es" | "en", context: "web" | "cv" = "web") => {
+  if (typeof item === "string") return item
+  return context === "cv" && item.cv ? item.cv[lang] : item[lang]
+}
+
+export const technicalSkillGroups: readonly { id: string; label: Localized; items: readonly SkillItem[] }[] = [
   {
     id: "languages",
-    label: { es: "Lenguajes de programación", en: "Programming languages" },
+    label: { es: "Lenguajes", en: "Languages" },
     items: ["TypeScript", "JavaScript", "Python", "SQL"],
   },
   {
     id: "frontend",
     label: { es: "Frontend", en: "Frontend" },
-    items: ["React", "Next.js", "HTML", "CSS", "Tailwind CSS"],
+    items: ["React", "Next.js", "Tailwind CSS", "Zustand", "React Query", "HTML", "CSS"],
+  },
+  {
+    id: "mobile",
+    label: { es: "Mobile", en: "Mobile" },
+    items: ["React Native", "Expo"],
   },
   {
     id: "backend",
-    label: { es: "Backend e integraciones", en: "Backend & integrations" },
-    items: ["Node.js", "Express", "FastAPI", "REST APIs", "JWT", "Firebase Authentication", "Zod"],
+    label: { es: "Backend e integraciones", en: "Backend & Integrations" },
+    items: [
+      "Node.js",
+      "Express",
+      "FastAPI",
+      { es: "APIs REST", en: "REST APIs" },
+      "JWT",
+      "Zod",
+      "Firebase Authentication",
+    ],
   },
   {
     id: "data",
-    label: { es: "Bases de datos y ORM", en: "Databases & ORM" },
+    label: { es: "Bases de datos y ORM", en: "Databases & ORMs" },
     items: ["PostgreSQL", "MySQL", "MongoDB", "Firestore", "Prisma"],
   },
   {
     id: "tools",
     label: { es: "Herramientas", en: "Tools" },
-    items: ["Git", "GitHub", "GitHub Actions", "Postman", "Thunder Client"],
+    items: ["Git", "GitHub", "GitHub Actions", "Postman"],
   },
   {
     id: "methods",
-    label: { es: "Metodologías y modelado", en: "Methodologies & modeling" },
+    label: { es: "Metodologías", en: "Methodologies" },
     items: ["Scrum", "UML"],
   },
   {
-    id: "additional",
-    label: { es: "Conocimientos adicionales", en: "Additional knowledge" },
-    items: ["C#", ".NET", "SQL Server", "PHP", "WordPress"],
+    id: "ai-used",
+    label: { es: "IA usada en proyectos", en: "AI Used in Projects" },
+    items: ["Gemini API (function calling)", "Claude Code", "OpenCode"],
   },
   {
-    id: "ai-agentic",
-    label: { es: "Herramientas de IA y Agentes", en: "AI & Agentic Tools" },
+    id: "learning",
+    label: { es: "Aprendiendo", en: "Currently Learning" },
     items: [
-      "OpenCode",
-      "Claude Code",
-      "Model Context Protocol (MCP)",
       "RAG",
-      "Prompt Engineering",
-      "AI Agents",
-      "OpenAI API",
-      "LLMs",
+      "MCP",
+      { es: "Agentes de IA", en: "AI agents", cv: { es: "agentes de IA", en: "AI agents" } },
     ],
   },
-] as const
-
-export const technicalSkills = technicalSkillGroups.flatMap((group) => [...group.items])
+]
 
 export const cvExperience = [
   {
     slug: "korex-saas-training-platform",
-    stack: ["React", "TypeScript", "Node.js", "Express", "PostgreSQL", "Prisma", "JWT", "Google GenAI"],
+    stack: ["React", "TypeScript", "Node.js", "Express", "PostgreSQL", "Prisma", "Zod", "Expo", "Gemini API"],
     es: {
       title: "Korex – Plataforma SaaS para entrenadores personales",
       highlights: [
-        "Desarrollo de una plataforma multi-tenant con aislamiento de datos por entrenador, gestión de alumnos, rutinas, suscripciones y seguimiento de pagos.",
-        "Creé un asistente de IA en Telegram usando 'function calling' y system prompts estrictos. Se conecta directo al backend para gestionar las interacciones entre entrenador y cliente, además de manejar emails y notificaciones automáticas.",
-        "Entrega de De la Rosa App al cliente Franco De la Rosa sobre la misma plataforma, con marca y onboarding personalizados, sin duplicar código ni infraestructura.",
+        "Desarrollé una plataforma multi-tenant con datos aislados por entrenador: alumnos, planes, suscripciones, rutinas y cuotas con estados (pendiente, pagada, vencida).",
+        "Entregué De la Rosa App a un entrenador que gestiona entre 40 y 60 alumnos, con marca y onboarding propios, como un tenant más, sin fork de código ni infraestructura aparte.",
+        "Construí una primera versión del asistente de IA como bot de Telegram con Gemini 2.5 Flash y function calling: las consultas se ejecutaban directo y las escrituras pedían confirmación. Lo retiré para llevarlo a la app, donde hoy desarrollo un agente para el armado de rutinas.",
+        "Implementé la app móvil para alumnos en Expo (registro de series, RPE, temporizador de descanso), todavía sin publicar.",
       ],
     },
     en: {
-      title: "Korex – SaaS platform for personal trainers",
+      title: "Korex – SaaS Platform for Personal Trainers",
       highlights: [
-        "Develop a multi-tenant platform with trainer-level data isolation, client management, workout plans, subscriptions, and payment tracking.",
-        "Built a Telegram AI assistant for the platform using function calling and strict system prompts. It hooks directly into the backend to manage trainer-client interactions, alongside automated emails and push notifications.",
-        "Delivered De la Rosa App to client Franco De la Rosa on the shared platform, with custom branding and onboarding, without duplicating code or infrastructure.",
+        "Built a multi-tenant platform with per-trainer data isolation covering clients, plans, subscriptions, workout programs, and fee tracking with payment statuses (pending, paid, overdue).",
+        "Delivered De la Rosa App to a trainer who manages 40–60 clients, with his own branding and onboarding, running as just another tenant with no code fork or separate infrastructure.",
+        "Developed a first version of the AI assistant as a Telegram bot using Gemini 2.5 Flash with function calling: read queries ran immediately, while write actions required confirmation. I retired it to bring the assistant into the app, where I'm now building an agent that helps trainers create workout programs.",
+        "Implemented the client mobile app in Expo (set logging, RPE, rest timer); not yet published.",
       ],
     },
   },
   {
     slug: "reporteapp-multi-company-accounting",
-    stack: ["Python", "FastAPI", "PostgreSQL", "Streamlit", "Power BI API", "GitHub Actions", "Render"],
+    stack: ["Python", "FastAPI", "PostgreSQL", "Streamlit", "Power BI", "GitHub Actions", "Render"],
     es: {
       title: "ReporteApp – Sistema contable multiempresa",
       highlights: [
-        "Desarrollo de un sistema contable para un grupo de construcción e inmobiliario que opera cinco empresas, con API REST de 44 endpoints documentados en Swagger.",
-        "Automatización de la validación de asientos y conciliación entre sistemas, con detección de descuadres, cuentas inválidas y centros de costo faltantes.",
-        "Implementación del cálculo incremental del Libro Mayor, sincronización con bases externas y actualización automática de dashboards en Power BI.",
+        "Desarrollé un sistema que centraliza la carga, validación y conciliación de unos 286 mil registros contables de cinco empresas. De esa base salen los reportes que el grupo usa para decidir: estado patrimonial, resultado económico y cashflow por proyecto.",
+        "Detecté cinco causas raíz de diferencias en los saldos de apertura entre dos versiones del Libro Mayor y reconstruí el mayor desde los datos corregidos.",
+        "Implementé un validador que bloquea descuadres, cuentas inválidas y centros de costo faltantes, junto con el cálculo incremental del Libro Mayor y la sincronización bajo demanda con bases externas.",
       ],
     },
     en: {
-      title: "ReporteApp – Multi-company accounting system",
+      title: "ReporteApp – Multi-Company Accounting System",
       highlights: [
-        "Develop an accounting system for a construction and real estate group operating five companies, with a REST API exposing 44 Swagger-documented endpoints.",
-        "Automate journal-entry validation and reconciliation across systems, detecting unbalanced entries, invalid accounts, and missing cost centers.",
-        "Implement incremental General Ledger calculations, synchronization with external databases, and automatic Power BI dashboard updates.",
+        "Built a system that centralizes the upload, validation, and reconciliation of ~286,000 accounting records across five companies. It feeds the reports the group relies on for decision-making: balance sheet, income statement, and project-level cash flow.",
+        "Traced opening-balance discrepancies between two versions of the General Ledger to five root causes and rebuilt the ledger from corrected source data.",
+        "Implemented a validator that blocks unbalanced entries, invalid accounts, and missing cost centers, along with incremental General Ledger calculations and on-demand sync with external databases.",
       ],
     },
   },
@@ -857,17 +774,17 @@ export const cvExperience = [
     slug: "consorcioapp-multisite-console",
     stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Prisma", "PDFKit"],
     es: {
-      title: "ConsorcioApp – Gestión multiedificio",
+      title: "ConsorcioApp – Gestión de consorcios",
       highlights: [
-        "Desarrollo de una aplicación para administrar edificios, unidades, liquidaciones mensuales y seguimiento de pagos desde un único panel.",
-        "Automatización de expensas, recargos y descuentos, generación de recibos PDF y reportes de deuda y morosidad.",
+        "Desarrollé una app para administrar edificios, unidades, liquidaciones mensuales y pagos desde un solo panel.",
+        "Automaticé el cálculo de expensas, recargos y descuentos, con recibos en PDF y reportes de deuda y morosidad.",
       ],
     },
     en: {
-      title: "ConsorcioApp – Multi-building management",
+      title: "ConsorcioApp – Condominium Management",
       highlights: [
-        "Built an application to manage buildings, units, monthly settlements, and payment tracking from a single dashboard.",
-        "Automated expense calculations, late fees, and discounts, with PDF receipts and outstanding-debt reports.",
+        "Built an app to manage buildings, units, monthly statements, and payments from a single dashboard.",
+        "Automated maintenance fee calculations, late fees, and discounts, with PDF receipts and outstanding-balance reports.",
       ],
     },
   },
@@ -876,18 +793,21 @@ export const cvExperience = [
 export const additionalCvProjects = [
   {
     slug: "chapulina-inventory-suite",
-    es: "Inventario por talles, alertas de stock y control de precios para una boutique. React, Node.js, Express y MongoDB.",
-    en: "Size-based inventory, stock alerts, and pricing controls for a boutique. React, Node.js, Express, and MongoDB.",
+    title: { es: "ChapulinaApp – Gestión de stock", en: "ChapulinaApp – Inventory Management" },
+    es: "Inventario por talles, alertas de stock bajo y control de precios para una boutique. React, Node.js, Express y MongoDB.",
+    en: "Size-based inventory, low-stock alerts, and pricing controls for a clothing boutique. React, Node.js, Express, and MongoDB.",
   },
   {
     slug: "olivetuc-web",
+    title: { es: "Oliva.Tuc – Landing page", en: "Oliva.Tuc – Landing Page" },
     es: "Catálogo responsive con carrito y pedidos por WhatsApp. Next.js, TypeScript y Tailwind CSS.",
-    en: "Responsive catalog with a shopping cart and WhatsApp ordering. Next.js, TypeScript, and Tailwind CSS.",
+    en: "Responsive product catalog with a cart and WhatsApp ordering for an olive oil brand. Next.js, TypeScript, and Tailwind CSS.",
   },
   {
     slug: "alenort-management-system",
-    es: "Gestión de ventas, inventario y pedidos con autenticación y control de roles. Next.js y Firebase.",
-    en: "Sales, inventory, and order management with authentication and role-based access. Next.js and Firebase.",
+    title: { es: "Alenort – Sistema de gestión", en: "Alenort – Management System" },
+    es: "Ventas, inventario y pedidos con autenticación y permisos por rol. Next.js y Firebase.",
+    en: "Sales, inventory, and order management with authentication and role-based permissions. Next.js and Firebase.",
   },
 ] as const
 
@@ -900,10 +820,11 @@ export const softSkills = [
   "Gestión eficiente de tiempo y prioridades",
 ] as const
 
-export const languages =  [
-  { language: "Español", level: "Nativo" },
-  { language: "Inglés", level: "Intermedio Alto – B2" },
-] as const 
+// `cvLevel` keeps the lowercase wording used inline in the PDF.
+export const languages = [
+  { language: "Español", level: "Nativo", cvLevel: "nativo" },
+  { language: "Inglés", level: "Intermedio alto (B2)", cvLevel: "intermedio alto (B2)" },
+] as const
 
 export const translations = {
   es: {
@@ -911,7 +832,7 @@ export const translations = {
       title: person.title,
       profile: person.profile,
       about:
-        "En los proyectos procuro comprender primero cómo trabaja el negocio y traducir esas necesidades en herramientas claras y mantenibles. Esa forma de trabajo se refleja en productos como Korex, una plataforma SaaS multi-tenant para entrenadores, y ReporteApp, un sistema contable para varias empresas. Me involucro en las decisiones técnicas y en la implementación, cuidando que la solución sea útil además de funcionar.",
+        "Antes de escribir código, entiendo cómo trabaja el negocio: en ReporteApp eso significó aprender la lógica contable del grupo antes de diseñar la validación. En sistemas con datos financieros prefiero resolver las reglas críticas en la base de datos (SQL, restricciones, cálculos incrementales) y no en la aplicación, porque ahí es donde un error cuesta caro.",
       objectives: person.objectives,
     },
     education,
@@ -924,35 +845,31 @@ export const translations = {
       "Atención al detalle y enfoque en experiencia de usuario",
       "Gestión eficiente de tiempo y prioridades",
     ],
-    languages: [
-      { language: "Español", level: "Nativo" },
-      { language: "Inglés", level: "Intermedio Alto – B2" },
-    ],
+    languages,
   },
   en: {
     person: {
-      title: "Full-Stack Developer | AI Engineering",
+      title: "Full-Stack Developer · AI Integration | TypeScript, React, Node.js, Python",
       profile:
-        "I'm a freelance full-stack developer currently shifting my focus toward AI engineering. I build multi-tenant SaaS platforms and APIs, but what really drives my workflow right now is using AI agents (like Claude Code, Codex, and OpenCode) to ship code faster—from the first idea to deployment. I learn by building, and right now I'm deep diving into LLMs, RAG, and agentic workflows on my own.",
+        "Freelance full-stack developer since 2025. I build custom systems for businesses: an accounting system holding ~286,000 records across five companies, a multi-tenant SaaS platform for personal trainers, and management apps that replace spreadsheets. My strength is systems built around business data, and I'm now adding AI to my products: I built a first function-calling assistant for Korex and I'm currently developing an agent that helps trainers create workout programs.",
       about:
-        "I start by understanding how a business operates and translating its needs into clear, maintainable software. That approach is reflected in products such as Korex, a multi-tenant SaaS platform for personal trainers, and ReporteApp, an accounting system for a multi-company group. I stay involved in both technical decisions and implementation, with a focus on building solutions that are useful as well as functional.",
+        "Before writing any code, I make sure I understand how the business actually runs. On ReporteApp, that meant learning the group's accounting logic before designing the validation layer. In systems that handle financial data, I prefer to enforce critical rules in the database (SQL, constraints, incremental calculations) rather than in the application layer, because that's where mistakes get expensive.",
       objectives:
-        "Open to full-time roles and freelance projects, focused on scalable, maintainable products centered on user experience.",
+        "I'm looking for a full-time role building products that integrate LLMs, and I'm still taking on freelance projects.",
     },
     education: [
       {
-        program: "Technical Degree in Programming",
-        institution: "UTN FRT – San Miguel de Tucumán",
-        status: "Graduated",
+        program: "Associate Degree in Programming (Tecnicatura en Programación)",
+        institution: "National Technological University (UTN FRT), San Miguel de Tucumán",
+        status: "Completed",
         period: "2023 – May 2025",
       },
       {
         program: "Information Systems Engineering",
-        institution: "UTN FRT – San Miguel de Tucumán",
-        status: "Studies on hold since 2022",
+        institution: "National Technological University (UTN FRT)",
+        status: "On hold since 2022",
         period: "2020 – 2022",
       },
-     
     ],
     trainings: englishTrainings,
     softSkills: [
@@ -965,7 +882,7 @@ export const translations = {
     ],
     languages: [
       { language: "Spanish", level: "Native" },
-      { language: "English", level: "Upper Intermediate – B2" },
+      { language: "English", level: "Upper-intermediate (B2)" },
     ],
   },
 } as const

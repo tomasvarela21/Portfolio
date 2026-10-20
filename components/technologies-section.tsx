@@ -1,20 +1,22 @@
 "use client"
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { BookOpen, Bot, Code2, Database, Layers, Workflow, Wrench, Network, Shapes } from "lucide-react"
+import { BookOpen, Bot, Code2, Database, Layers, Workflow, Wrench, Network, Shapes, Smartphone } from "lucide-react"
 import Image from "next/image"
-import { technicalSkillGroups, technologyIcons } from "@/lib/data"
+import { skillLabel, technicalSkillGroups, technologyIcons } from "@/lib/data"
 import { useLanguage } from "@/contexts/language-context"
+import { cn } from "@/lib/utils"
 
-const groupIcons = {
+const groupIcons: Record<string, typeof Code2> = {
   languages: Code2,
   frontend: Layers,
+  mobile: Smartphone,
   backend: Code2,
   data: Database,
   tools: Wrench,
   methods: Workflow,
-  additional: BookOpen,
-  "ai-agentic": Bot,
+  "ai-used": Bot,
+  learning: BookOpen,
 }
 
 const skillIcons: Record<string, typeof Code2> = {
@@ -29,11 +31,17 @@ interface TechCardProps {
   title: string
   icon: typeof Code2
   items: readonly string[]
+  className?: string
 }
 
-function TechCard({ title, icon: Icon, items }: TechCardProps) {
+function TechCard({ title, icon: Icon, items, className }: TechCardProps) {
   return (
-    <Card className="border-border bg-card/80 text-card-foreground transition hover:shadow-lg hover:shadow-black/10 dark:hover:shadow-black/30">
+    <Card
+      className={cn(
+        "border-border bg-card/80 text-card-foreground transition hover:shadow-lg hover:shadow-black/10 dark:hover:shadow-black/30",
+        className,
+      )}
+    >
       <CardHeader className="pb-2 px-3 sm:px-6 pt-3 sm:pt-6">
         <CardTitle className="flex items-center gap-2 text-foreground text-xs sm:text-sm">
           <Icon className="h-4 w-4 text-muted-foreground" aria-hidden />
@@ -71,12 +79,18 @@ export default function TechnologiesSection() {
 
   return (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6">
-      {technicalSkillGroups.map((group) => (
+      {technicalSkillGroups.map((group, index) => (
         <TechCard
           key={group.id}
           title={group.label[language]}
-          icon={groupIcons[group.id]}
-          items={group.items.map((item) => item === "REST APIs" && language === "es" ? "APIs REST" : item)}
+          icon={groupIcons[group.id] ?? Code2}
+          items={group.items.map((item) => skillLabel(item, language))}
+          // With an odd number of groups, let the last card fill the row instead of leaving a gap.
+          className={
+            technicalSkillGroups.length % 2 === 1 && index === technicalSkillGroups.length - 1
+              ? "sm:col-span-2"
+              : undefined
+          }
         />
       ))}
     </div>

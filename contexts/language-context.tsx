@@ -1,6 +1,7 @@
 "use client"
 
-import { createContext, useContext, useState, type ReactNode } from "react"
+import { createContext, useContext, useEffect, useState, type ReactNode } from "react"
+import { siteMetadata } from "@/lib/data"
 
 type Language = "es" | "en"
 
@@ -19,28 +20,21 @@ const translations = {
     "nav.tecnologias": "Tecnologías",
     "nav.proyectos": "Proyectos",
     "nav.sobre-mi": "Sobre mí",
-    "nav.certificados": "Certificados",
+    "nav.certificados": "Formación",
     "nav.contacto": "Contacto",
 
     // Hero
     "hero.greeting": "Hola, soy",
-    "hero.role": "Desarrollador Full-Stack Nativo en IA",
-    "hero.description":
-      "Soy desarrollador full-stack independiente, actualmente orientando mi carrera hacia la ingeniería en IA. Construyo plataformas SaaS y APIs, pero lo que realmente define mi día a día es el uso de agentes de IA (como Claude Code, Codex y OpenCode) para programar y lanzar proyectos mucho más rápido. Aprendo creando cosas nuevas, y ahora mismo estoy metido de lleno estudiando LLMs, RAG y flujos de trabajo con agentes por mi cuenta.",
     "hero.location": "San Miguel de Tucumán, Argentina",
 
     // Technologies
     "tech.title": "Tecnologías",
     "tech.subtitle": "Mi stack y herramientas de trabajo.",
-    "tech.frontend": "Frontend",
-    "tech.backend": "Backend",
-    "tech.tools": "Herramientas",
-    "tech.learning": "Aprendiendo",
 
     // Projects
     "projects.title": "Proyectos",
     "projects.subtitle": "Una selección de proyectos recientes.",
-    "projects.view-code": "Ver código",
+    "projects.highlights": "Qué resolví",
 
     // About
     "about.title": "Sobre mí",
@@ -48,17 +42,12 @@ const translations = {
     "about.profile": "Cómo trabajo",
     "about.objectives": "Objetivos",
     "about.education": "Educación",
-    "about.skills": "Habilidades Blandas",
     "about.languages": "Idiomas",
 
     // Certifications
-    "cert.title": "Certificados y aprendiendo...",
-    "cert.subtitle": "Formación complementaria y tecnologías que estoy explorando.",
-    "cert.additional-training": "Formación y Certificaciones",
+    "cert.title": "Formación en IA",
+    "cert.subtitle": "Cursos y certificaciones.",
     "cert.view": "Ver certificado",
-    "cert.hide": "Ocultar certificado",
-    "cert.open": "Abrir PDF",
-    "cert.download": "Descargar certificado",
 
     // Contact
     "contact.title": "Contacto",
@@ -72,54 +61,42 @@ const translations = {
   },
   en: {
     // Navigation
-    "nav.presentacion": "About",
+    "nav.presentacion": "Home",
     "nav.tecnologias": "Technologies",
     "nav.proyectos": "Projects",
-    "nav.sobre-mi": "About Me",
-    "nav.certificados": "Certifications",
+    "nav.sobre-mi": "About",
+    "nav.certificados": "Training",
     "nav.contacto": "Contact",
 
     // Hero
     "hero.greeting": "Hi, I'm",
-    "hero.role": "AI-Native Full-Stack Developer",
-    "hero.description":
-      "I'm a freelance full-stack developer currently shifting my focus toward AI engineering. I build multi-tenant SaaS platforms and APIs, but what really drives my workflow right now is using AI agents (like Claude Code, Codex, and OpenCode) to ship code faster—from the first idea to deployment. I learn by building, and right now I'm deep diving into LLMs, RAG, and agentic workflows on my own.",
     "hero.location": "San Miguel de Tucumán, Argentina",
 
     // Technologies
     "tech.title": "Technologies",
-    "tech.subtitle": "My stack and work tools.",
-    "tech.frontend": "Frontend",
-    "tech.backend": "Backend",
-    "tech.tools": "Tools",
-    "tech.learning": "Learning",
+    "tech.subtitle": "The stack and tools I work with.",
 
     // Projects
     "projects.title": "Projects",
     "projects.subtitle": "A selection of recent projects.",
-    "projects.view-code": "View code",
+    "projects.highlights": "Highlights",
 
     // About
     "about.title": "About Me",
-    "about.subtitle": "Education, approach and goals.",
+    "about.subtitle": "Education, approach, and goals.",
     "about.profile": "How I Work",
-    "about.objectives": "Objectives",
+    "about.objectives": "Goals",
     "about.education": "Education",
-    "about.skills": "Soft Skills",
     "about.languages": "Languages",
 
     // Certifications
-    "cert.title": "Certifications and learning...",
-    "cert.subtitle": "Complementary training and technologies I'm exploring.",
-    "cert.additional-training": "Training & Certifications",
+    "cert.title": "AI Training",
+    "cert.subtitle": "Courses and certifications.",
     "cert.view": "View certificate",
-    "cert.hide": "Hide certificate",
-    "cert.open": "Open PDF",
-    "cert.download": "Download certificate",
 
     // Contact
     "contact.title": "Contact",
-    "contact.subtitle": "Interested in collaborating? Write to me!",
+    "contact.subtitle": "Interested in working together? Get in touch.",
     "contact.email": "Send email",
     "contact.linkedin": "View LinkedIn",
     "contact.github": "View GitHub",
@@ -135,6 +112,14 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const t = (key: string): string => {
     return translations[language][key as keyof (typeof translations)["es"]] || key
   }
+
+  // Metadata is rendered in Spanish on the server; keep it in sync when the visitor switches language.
+  useEffect(() => {
+    const meta = siteMetadata[language]
+    document.documentElement.lang = language
+    document.title = meta.title
+    document.querySelector('meta[name="description"]')?.setAttribute("content", meta.description)
+  }, [language])
 
   return <LanguageContext.Provider value={{ language, setLanguage, t }}>{children}</LanguageContext.Provider>
 }

@@ -18,8 +18,6 @@ interface ProjectCardProps {
 const defaultProject: Project = {
   slug: "example",
   title: "Proyecto",
-  description: "Descripción",
-  impact: "Impacto",
   stack: ["Next.js"],
   images: [
     {
@@ -30,25 +28,23 @@ const defaultProject: Project = {
     },
   ],
   translations: {
-    es: { title: "Proyecto", description: "Descripción", impact: "Impacto" },
-    en: { title: "Project", description: "Description", impact: "Impact" },
+    es: { title: "Proyecto", description: "Descripción", highlights: [] },
+    en: { title: "Project", description: "Description", highlights: [] },
   },
 }
 
 export default function ProjectCard({ project = defaultProject }: ProjectCardProps) {
-  const { language } = useLanguage()
+  const { language, t } = useLanguage()
   const galleryImages = useMemo(() => (project.images?.length ? project.images : defaultProject.images), [project.images])
   const [activeImage, setActiveImage] = useState(0)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isMounted, setIsMounted] = useState(false)
   const currentImage = galleryImages[activeImage] ?? defaultProject.images[0]
 
-  const localizedCopy = project.translations?.[language] ?? {
-    title: project.title,
-    description: project.description,
-    impact: project.impact,
-  }
-  const projectMeta = [project.role, project.orgTranslations?.[language] ?? project.org].filter(Boolean).join(" · ")
+  const localizedCopy = project.translations[language]
+  const projectMeta = [project.role?.[language], project.orgTranslations?.[language] ?? project.org]
+    .filter(Boolean)
+    .join(" · ")
 
   useEffect(() => {
     setActiveImage(0)
@@ -182,8 +178,16 @@ export default function ProjectCard({ project = defaultProject }: ProjectCardPro
           </div>
           <p className="text-sm text-muted-foreground">{localizedCopy.description}</p>
           <div>
-            <p className="text-sm font-medium text-foreground">{language === "es" ? "Impacto" : "Impact"}</p>
-            <p className="text-sm text-muted-foreground">{localizedCopy.impact}</p>
+            <p className="text-sm font-medium text-foreground">{t("projects.highlights")}</p>
+            {localizedCopy.highlights.length > 1 ? (
+              <ul className="mt-1 list-disc space-y-1 pl-5 text-sm text-muted-foreground">
+                {localizedCopy.highlights.map((highlight) => (
+                  <li key={highlight}>{highlight}</li>
+                ))}
+              </ul>
+            ) : (
+              <p className="text-sm text-muted-foreground">{localizedCopy.highlights[0]}</p>
+            )}
           </div>
           <div className="flex flex-wrap gap-1.5 sm:gap-2">
             {project.stack.map((s) => (

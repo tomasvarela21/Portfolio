@@ -14,12 +14,12 @@ export default function ContactSection({}: Record<string, never> = {}) {
       <CardContent className="grid gap-6 p-6 sm:grid-cols-2">
         <div>
           <h3 className="text-xl font-semibold tracking-tight text-foreground">
-            {language === "es" ? "¿Hablamos?" : "Let's talk?"}
+            {language === "es" ? "¿Hablamos?" : "Let's talk"}
           </h3>
           <p className="mt-2 text-muted-foreground">
             {language === "es"
               ? "Estoy abierto a roles full-time y proyectos freelance. Escríbeme y coordinamos una llamada."
-              : "I'm open to full-time roles and freelance projects. Write to me and let's schedule a call."}
+              : "I'm open to full-time roles and freelance work. Send me a message and we can set up a call."}
           </p>
           <div className="mt-4 flex flex-wrap gap-2">
             <Button asChild>

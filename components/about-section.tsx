@@ -50,7 +50,7 @@ export default function AboutSection() {
             </ul>
           </div>
           <div>
-            <h3 className="text-xl font-semibold text-foreground">{language === "es" ? "Idiomas" : "Languages"}</h3>
+            <h3 className="text-xl font-semibold text-foreground">{t("about.languages")}</h3>
             <ul className="mt-2 space-y-3">
               {translations[language].languages.map((l) => (
                 <li key={l.language}>
